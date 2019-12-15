@@ -135,6 +135,102 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-12-15T08:58:15.000Z">2019-12-15</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    8 分钟 读完 (大约 1178 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/12/15/Git-%E9%85%8D%E7%BD%AE-SSH-Key/">Git 配置 SSH Key</a>
+            
+        </h1>
+        <div class="content">
+            <p>  <em>Git是分布式版本控制系统的代表作，Linus的杰作，具体Git是如何进行版本控制的内容这里不作展开介绍，该文只谈如何配置SSH，将本地仓库和远程仓库关联，使得可以通过 <code>ssh</code> 协议进行传输，Git虽然也是支持 <code>https</code>协议的，但是传输速度较慢，所以还是推荐大家添加 <code>ssh Key</code></em>  </p>
+<h3 id="windows上的操作："><a href="#windows上的操作：" class="headerlink" title="windows上的操作："></a>windows上的操作：</h3><h6 id="1-首先在本地机创建SSH-Key："><a href="#1-首先在本地机创建SSH-Key：" class="headerlink" title="1. 首先在本地机创建SSH Key："></a>1. 首先在本地机创建SSH Key：</h6><ul>
+<li>首先你需要在自己电脑的用户主目录下查看是不是已经有<code>.ssh</code>文件，如果有的话则这一步直接可以跳过:所谓的用户主目录就是 <code>c:/用户</code>直接跳到第二步：2.在github上添加自己电脑上的 <code>SSH Key</code>    </li>
+</ul>
+<ul>
+<li>如果没有的话，打开Git bash (相信你已经安装过了Git)，输入以下命令:<figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C <span class="hljs-string">"==youremail@com=="</span></span><br></pre></td></tr></table></figure></li>
+<li><font color="#FFC0CB">注意：上面黄色部分（双引号里面）内容改成你自己注册github时候的邮箱号！</font>*</li>
+</ul>
+<p>输入上面命令会出现类似以下的提示：</p>
+<p><img src="https://img-blog.csdnimg.cn/20191109170808243.jpg" alt></p>
+<ul>
+<li>下面就一路回车就好，大概需要三次回车，因为都是一些选择项，默认就好； 三次回车之后，就会出现下面的提示：</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/2019110917335358.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjExOTA0MQ==,size_16,color_FFFFFF,t_70" alt></p>
+<p>如果顺利的话（应该是顺利的），会在生成的 <code>.ssh</code> 文件在里面有<code>id_rsa</code> 和 <code>id_rsa.pub</code> 两个文件，这两个就是 <code>SSH Key</code> 的秘钥对，<code>id_rsa</code> 是私钥，<code>id_rsa.pub</code> 是公钥。</p>
+<ul>
+<li>这时就可以在自己电脑上看到 <code>.ssh</code> 文件夹已经生成了：</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20191109172113518.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjExOTA0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>打开 <code>.ssh</code> 可以看到三个文件：</p>
+<p><img src="https://img-blog.csdnimg.cn/20191109172217738.jpg" alt="在这里插入图片描述"></p>
+<h6 id="2-在github上添加自己电脑上的-SSH-Key-，"><a href="#2-在github上添加自己电脑上的-SSH-Key-，" class="headerlink" title="2. 在github上添加自己电脑上的 SSH Key ，"></a>2. 在github上添加自己电脑上的 <code>SSH Key</code> ，</h6><ul>
+<li>找到 <code>github</code> 的 <code>Settings</code> 界面,然后点击 <code>SSH Keys and GPG Keys</code>, 会有如下界面：（因为我已经添加过了，所以这里不是空的）</li>
+</ul>
+<p><img src="/Git-%E9%85%8D%E7%BD%AE-SSH-Key/SSH&#32;Key.jpg" alt=" "></p>
+<ul>
+<li>然后点击右上角 <code>NEW SSH Key</code>， 新建一个 <code>Key</code>：</li>
+</ul>
+<p><img src="/Git-%E9%85%8D%E7%BD%AE-SSH-Key/Addnew.jpg" alt></p>
+<p>这里 <code>Title</code> 随便取就好，例如我的叫：<code>My SSH Key</code>；</p>
+<p><code>Key</code> 里面的内容，就是第一步生成的 <code>.ssh</code> 文件里面的 <code>id_rsa.pub</code> 里面的内容，将内容拷贝至此就可以了,然后就添加成功了。</p>
+<h6 id="3-上面的内容如果都做完了，就可以关联本地仓和远程仓了。"><a href="#3-上面的内容如果都做完了，就可以关联本地仓和远程仓了。" class="headerlink" title="3. 上面的内容如果都做完了，就可以关联本地仓和远程仓了。"></a>3. 上面的内容如果都做完了，就可以关联本地仓和远程仓了。</h6><ul>
+<li>首先在github上创建一个新空仓库：取名最好和本地仓库一致。</li>
+</ul>
+<p><img src="/Git-%E9%85%8D%E7%BD%AE-SSH-Key/tesRepository.jpg" alt></p>
+<p>这样就是一个空仓库了，仓库名叫 <code>test</code> 。然后我们在本地的同名仓库进行操作后就可以将本地仓库通过SSH上传至远程仓.</p>
+<h6 id="例如，我们添加一个新的文件-readme-txt-文件"><a href="#例如，我们添加一个新的文件-readme-txt-文件" class="headerlink" title="例如，我们添加一个新的文件 readme.txt 文件:"></a>例如，我们添加一个新的文件 <code>readme.txt</code> 文件:</h6><p><img src="https://img-blog.csdnimg.cn/20191109174519699.jpg" alt="在这里插入图片描述"></p>
+<ul>
+<li>然后提交至本地仓，常规操作如下：<figure class="highlight hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git add readme.txt</span><br><span class="line">$ git commit -m '第一次通过SSH提交至远程仓库'</span><br></pre></td></tr></table></figure></li>
+<li>然后是将本地仓和远程仓关联，输入命令：<figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote add origin git@gitub.com/xxxx/test.git</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">//上面的代码就是将本地仓和远程仓进行关,其中git@github.com:michaelliao/test.git</span></span><br><span class="line"><span class="hljs-comment">//是我们刚才创建的仓库名称,注意改成自己的仓库名称</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>现在就可以把本地库通过 <code>SSH</code> 协议推送到远程库上：</p>
+<figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git push -u origin master <span class="hljs-comment">//第一次提交至空仓库加上-u，</span></span><br><span class="line">                            <span class="hljs-comment">//不是空仓库就不用使用 -u 参数了</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>推送成功后，可以立刻在GitHub页面中看到远程库的内容已经和本地一模一样：（因为我提交了两次，可能有点不一样，但看到 <code>readme.txt</code> 这个而文件就说明成功了！）</p>
+</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20191109175820935.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjExOTA0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>*从现在起，只要本地作了提交，就可以通过命令：</p>
+<figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push origin master  <span class="hljs-comment">//此时就不用-u参数了</span></span><br></pre></td></tr></table></figure>
+<p>把本地master分支的修改推送至gitHub.至此整个配置就结束了。</p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2019-12-14T01:11:07.585Z">2019-12-14</time>
                 
                 
@@ -227,7 +323,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            1
+                            2
                         </p>
                     </a>
                 </div>
@@ -372,6 +468,25 @@
         
         <article class="media">
             
+            <a href="/2019/12/15/Git-%E9%85%8D%E7%BD%AE-SSH-Key/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Git 配置 SSH Key">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-15T08:58:15.000Z">2019-12-15</time></div>
+                    <a href="/2019/12/15/Git-%E9%85%8D%E7%BD%AE-SSH-Key/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Git 配置 SSH Key</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2019/12/14/hello-world/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="Hello World">
@@ -406,7 +521,7 @@
                     <span class="level-item">十二月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">1</span>
+                    <span class="level-item tag">2</span>
                 </span>
             </a>
         </li>
@@ -448,6 +563,25 @@
         
         <article class="media">
             
+            <a href="/2019/12/15/Git-%E9%85%8D%E7%BD%AE-SSH-Key/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Git 配置 SSH Key">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-15T08:58:15.000Z">2019-12-15</time></div>
+                    <a href="/2019/12/15/Git-%E9%85%8D%E7%BD%AE-SSH-Key/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Git 配置 SSH Key</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2019/12/14/hello-world/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="Hello World">
@@ -482,7 +616,7 @@
                     <span class="level-item">十二月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">1</span>
+                    <span class="level-item tag">2</span>
                 </span>
             </a>
         </li>
