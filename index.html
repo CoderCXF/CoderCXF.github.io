@@ -12,15 +12,15 @@
 
     <meta property="og:type" content="website">
 <meta property="og:title" content="dancingcode">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;index.html">
+<meta property="og:url" content="http:&#x2F;&#x2F;dancingcode.cn&#x2F;index.html">
 <meta property="og:site_name" content="dancingcode">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;og_image.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;dancingcode.cn&#x2F;images&#x2F;og_image.png">
 <meta property="article:author" content="CoderCXF">
 <meta property="article:tag" content="love life">
 <meta property="article:tag" content=" love myself">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;og_image.png">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;dancingcode.cn&#x2F;images&#x2F;og_image.png">
 
 
 
@@ -159,7 +159,7 @@
 <li>首先你需要在自己电脑的用户主目录下查看是不是已经有<code>.ssh</code>文件，如果有的话则这一步直接可以跳过:所谓的用户主目录就是 <code>c:/用户</code>直接跳到第二步：2.在github上添加自己电脑上的 <code>SSH Key</code>    </li>
 </ul>
 <ul>
-<li>如果没有的话，打开Git bash (相信你已经安装过了Git)，输入以下命令:<figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C <span class="hljs-string">"==youremail@com=="</span></span><br></pre></td></tr></table></figure></li>
+<li>如果没有的话，打开Git bash (相信你已经安装过了Git)，输入以下命令:<figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp">$ ssh-keygen -t rsa -C <span class="hljs-string">"==youremail@com=="</span><br></code></pre></td></tr></table></figure></li>
 <li><font color="#FFC0CB">注意：上面黄色部分（双引号里面）内容改成你自己注册github时候的邮箱号！</font>*</li>
 </ul>
 <p>输入上面命令会出现类似以下的提示：</p>
@@ -178,36 +178,36 @@
 <h6 id="2-在github上添加自己电脑上的-SSH-Key-，"><a href="#2-在github上添加自己电脑上的-SSH-Key-，" class="headerlink" title="2. 在github上添加自己电脑上的 SSH Key ，"></a>2. 在github上添加自己电脑上的 <code>SSH Key</code> ，</h6><ul>
 <li>找到 <code>github</code> 的 <code>Settings</code> 界面,然后点击 <code>SSH Keys and GPG Keys</code>, 会有如下界面：（因为我已经添加过了，所以这里不是空的）</li>
 </ul>
-<p><img src="/Git-%E9%85%8D%E7%BD%AE-SSH-Key/SSH&#32;Key.jpg" alt=" "></p>
+<p><img src="/2019/12/15/Git-%E9%85%8D%E7%BD%AE-SSH-Key/SSH&#32;Key.jpg" alt=" "></p>
 <ul>
 <li>然后点击右上角 <code>NEW SSH Key</code>， 新建一个 <code>Key</code>：</li>
 </ul>
-<p><img src="/Git-%E9%85%8D%E7%BD%AE-SSH-Key/Addnew.jpg" alt></p>
+<p><img src="/2019/12/15/Git-%E9%85%8D%E7%BD%AE-SSH-Key/Addnew.jpg" alt></p>
 <p>这里 <code>Title</code> 随便取就好，例如我的叫：<code>My SSH Key</code>；</p>
 <p><code>Key</code> 里面的内容，就是第一步生成的 <code>.ssh</code> 文件里面的 <code>id_rsa.pub</code> 里面的内容，将内容拷贝至此就可以了,然后就添加成功了。</p>
 <h6 id="3-上面的内容如果都做完了，就可以关联本地仓和远程仓了。"><a href="#3-上面的内容如果都做完了，就可以关联本地仓和远程仓了。" class="headerlink" title="3. 上面的内容如果都做完了，就可以关联本地仓和远程仓了。"></a>3. 上面的内容如果都做完了，就可以关联本地仓和远程仓了。</h6><ul>
 <li>首先在github上创建一个新空仓库：取名最好和本地仓库一致。</li>
 </ul>
-<p><img src="/Git-%E9%85%8D%E7%BD%AE-SSH-Key/tesRepository.jpg" alt></p>
+<p><img src="/2019/12/15/Git-%E9%85%8D%E7%BD%AE-SSH-Key/tesRepository.jpg" alt></p>
 <p>这样就是一个空仓库了，仓库名叫 <code>test</code> 。然后我们在本地的同名仓库进行操作后就可以将本地仓库通过SSH上传至远程仓.</p>
 <h6 id="例如，我们添加一个新的文件-readme-txt-文件"><a href="#例如，我们添加一个新的文件-readme-txt-文件" class="headerlink" title="例如，我们添加一个新的文件 readme.txt 文件:"></a>例如，我们添加一个新的文件 <code>readme.txt</code> 文件:</h6><p><img src="https://img-blog.csdnimg.cn/20191109174519699.jpg" alt="在这里插入图片描述"></p>
 <ul>
-<li>然后提交至本地仓，常规操作如下：<figure class="highlight hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git add readme.txt</span><br><span class="line">$ git commit -m '第一次通过SSH提交至远程仓库'</span><br></pre></td></tr></table></figure></li>
-<li>然后是将本地仓和远程仓关联，输入命令：<figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote add origin git@gitub.com/xxxx/test.git</span><br></pre></td></tr></table></figure>
+<li>然后提交至本地仓，常规操作如下：<figure class="highlight hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp">$ git add readme.txt<br>$ git commit -m '第一次通过SSH提交至远程仓库'<br></code></pre></td></tr></table></figure></li>
+<li>然后是将本地仓和远程仓关联，输入命令：<figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp">$ git remote add origin git@gitub.com/xxxx/test.git<br></code></pre></td></tr></table></figure>
 
 </li>
 </ul>
-<figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">//上面的代码就是将本地仓和远程仓进行关,其中git@github.com:michaelliao/test.git</span></span><br><span class="line"><span class="hljs-comment">//是我们刚才创建的仓库名称,注意改成自己的仓库名称</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">//上面的代码就是将本地仓和远程仓进行关,其中git@github.com:michaelliao/test.git</span><br><span class="hljs-comment">//是我们刚才创建的仓库名称,注意改成自己的仓库名称</span><br></code></pre></td></tr></table></figure>
 <ul>
 <li><p>现在就可以把本地库通过 <code>SSH</code> 协议推送到远程库上：</p>
-<figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git push -u origin master <span class="hljs-comment">//第一次提交至空仓库加上-u，</span></span><br><span class="line">                            <span class="hljs-comment">//不是空仓库就不用使用 -u 参数了</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp">$ git push -u origin master <span class="hljs-comment">//第一次提交至空仓库加上-u，</span><br>                            <span class="hljs-comment">//不是空仓库就不用使用 -u 参数了</span><br></code></pre></td></tr></table></figure>
 </li>
 <li><p>推送成功后，可以立刻在GitHub页面中看到远程库的内容已经和本地一模一样：（因为我提交了两次，可能有点不一样，但看到 <code>readme.txt</code> 这个而文件就说明成功了！）</p>
 </li>
 </ul>
 <p><img src="https://img-blog.csdnimg.cn/20191109175820935.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjExOTA0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
 <p>*从现在起，只要本地作了提交，就可以通过命令：</p>
-<figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push origin master  <span class="hljs-comment">//此时就不用-u参数了</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp">$ git push origin master  <span class="hljs-comment">//此时就不用-u参数了</span><br></code></pre></td></tr></table></figure>
 <p>把本地master分支的修改推送至gitHub.至此整个配置就结束了。</p>
 
         </div>
@@ -251,16 +251,16 @@
         </h1>
         <div class="content">
             <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="hljs-string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">"My New Post"</span><br></code></pre></td></tr></table></figure>
 
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure>
 
 <p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure>
 
 <p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure>
 
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 
