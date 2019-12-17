@@ -66,7 +66,7 @@
     <link rel="stylesheet" href="/css/progressbar.css">
 <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
     
-    
+    <script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     
 
 
@@ -164,14 +164,29 @@
             <p>  <em>Git是分布式版本控制系统的代表作，Linus的杰作，具体Git是如何进行版本控制的内容这里不作展开介绍，该文只谈如何配置SSH，将本地仓库和远程仓库关联，使得可以通过 <code>ssh</code> 协议进行传输，Git虽然也是支持 <code>https</code>协议的，但是传输速度较慢，所以还是推荐大家添加 <code>ssh Key</code></em>  </p>
         </div>
         
+                 
         
-        <div class="level is-mobile">
+        
+         <div class="level is-mobile"> 
+
+            <hr style="height:1px;margin:1rem 0"/>
+     <div class="level is-mobile is-flex">
+         <div class="level-start">
+             
+             <div class="level-item is-size-7 is-uppercase">
+                 <i class="fas fa-tags has-text-grey"></i>&nbsp;
+                 <a class="has-link-grey -link" href="/tags/Git/" rel="tag">Git</a>,&nbsp;<a class="has-link-grey -link" href="/tags/SSH/" rel="tag">SSH</a>,&nbsp;<a class="has-link-grey -link" href="/tags/SSH%E5%8D%8F%E8%AE%AE/" rel="tag">SSH协议</a>
+             </div>
+             
+         </div>
             <div class="level-start">
                 <div class="level-item">
                 <a class="button is-size-7 is-light" href="/2019/12/15/Git-%E9%85%8D%E7%BD%AE-SSH-Key/#more">阅读更多</a>
                 </div>
             </div>
-        </div>
+
+         </div> 
+
         
         
     </div>
@@ -190,7 +205,7 @@
 
 
 
-<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left is-sticky">
     
         
 <div class="card widget">
@@ -200,17 +215,13 @@
                 <div>
                     
                     <figure class="image is-128x128 has-mb-6">
-                        <img class="" src="/images/avatar.jpg" alt="CoderCXF">
+                        <img class="" src="/images/profile3.jpg" alt="CoderCXF">
                     </figure>
                     
                     <p class="is-size-4 is-block">
                         CoderCXF
                     </p>
                     
-                    
-                    <p class="is-size-6 is-block">
-                        Enjoy Life, Enjoy Code
-                    </p>
                     
                     
                     <p class="is-size-6 is-flex is-flex-center has-text-grey">
@@ -365,7 +376,7 @@
 </div>
     
     
-        <div class="column-right-shadow is-hidden-widescreen ">
+        <div class="column-right-shadow is-hidden-widescreen is-sticky">
         
             <div class="card widget">
     <div class="card-content">
@@ -438,7 +449,7 @@
     </div>
 </div>
         
-            <div class="card widget">
+            <div class="card widget is-hidden-mobile">
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
@@ -481,7 +492,7 @@
 
 
 
-<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right is-sticky">
     
         <div class="card widget">
     <div class="card-content">
@@ -554,7 +565,7 @@
     </div>
 </div>
     
-        <div class="card widget">
+        <div class="card widget is-hidden-mobile">
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
@@ -604,9 +615,16 @@
                 
                 </a>
                 <p class="is-size-7">
-                &copy; 2019 CoderCXF&nbsp;
+                <!-- &copy; 2019 CoderCXF&nbsp;
                 Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a
-                        href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                        href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a> -->
+                
+                <br>
+                <!-- <span id="busuanzi_container_site_uv">
+                共<span id="busuanzi_value_site_uv">0</span>个访客
+                </span> -->
+                <span id="busuanzi_container_site_pv" class="theme-info">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+                <span id="busuanzi_container_site_uv" class="theme-info">|  本站访客数<span id="busuanzi_value_site_uv"></span>人次</span>
                 
                 </p>
             </div>
@@ -616,6 +634,9 @@
         </div>
     </div>
 </footer>
+
+  
+  
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
 <script>moment.locale("zh-CN");</script>

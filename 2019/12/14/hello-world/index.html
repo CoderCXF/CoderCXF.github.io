@@ -70,7 +70,7 @@
     <link rel="stylesheet" href="/css/progressbar.css">
 <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
     
-    
+    <script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     
 
 
@@ -140,6 +140,11 @@
                 </span>
                 
                 
+                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
+                    <i class="far fa-eye"></i>
+                    <span id="busuanzi_value_page_pv">0</span>次访问
+                </span>
+                
             </div>
         </div>
         
@@ -165,6 +170,18 @@
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 
         </div>
+        
+
+                     <ul class="post-copyright">
+                     <li><strong>本文标题：</strong><a href="http://dancingcode.cn/2019/12/14/hello-world/">Hello World</a></li>
+                     <li><strong>本文作者：</strong><a href="http://dancingcode.cn">CoderCXF</a></li>
+                     <li><strong>本文链接：</strong><a href="http://dancingcode.cn/2019/12/14/hello-world/">http://dancingcode.cn/2019/12/14/hello-world/</a></li>
+                     <li><strong>发布时间：</strong>2019-12-14</li>
+                     <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
+                     </li>
+                     </ul>
+                 
+                 
         
         
         
@@ -225,7 +242,7 @@
 
 
 
-<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left is-sticky">
     
         
 <div class="card widget">
@@ -235,17 +252,13 @@
                 <div>
                     
                     <figure class="image is-128x128 has-mb-6">
-                        <img class="" src="/images/avatar.jpg" alt="CoderCXF">
+                        <img class="" src="/images/profile3.jpg" alt="CoderCXF">
                     </figure>
                     
                     <p class="is-size-4 is-block">
                         CoderCXF
                     </p>
                     
-                    
-                    <p class="is-size-6 is-block">
-                        Enjoy Life, Enjoy Code
-                    </p>
                     
                     
                     <p class="is-size-6 is-flex is-flex-center has-text-grey">
@@ -400,7 +413,7 @@
 </div>
     
     
-        <div class="column-right-shadow is-hidden-widescreen ">
+        <div class="column-right-shadow is-hidden-widescreen is-sticky">
         
             <div class="card widget">
     <div class="card-content">
@@ -473,7 +486,7 @@
     </div>
 </div>
         
-            <div class="card widget">
+            <div class="card widget is-hidden-mobile">
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
@@ -516,7 +529,7 @@
 
 
 
-<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right is-sticky">
     
         <div class="card widget">
     <div class="card-content">
@@ -589,7 +602,7 @@
     </div>
 </div>
     
-        <div class="card widget">
+        <div class="card widget is-hidden-mobile">
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
@@ -639,9 +652,16 @@
                 
                 </a>
                 <p class="is-size-7">
-                &copy; 2019 CoderCXF&nbsp;
+                <!-- &copy; 2019 CoderCXF&nbsp;
                 Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a
-                        href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                        href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a> -->
+                
+                <br>
+                <!-- <span id="busuanzi_container_site_uv">
+                共<span id="busuanzi_value_site_uv">0</span>个访客
+                </span> -->
+                <span id="busuanzi_container_site_pv" class="theme-info">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+                <span id="busuanzi_container_site_uv" class="theme-info">|  本站访客数<span id="busuanzi_value_site_uv"></span>人次</span>
                 
                 </p>
             </div>
@@ -651,6 +671,9 @@
         </div>
     </div>
 </footer>
+
+  
+  
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
 <script>moment.locale("zh-CN");</script>
