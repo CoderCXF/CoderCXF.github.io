@@ -40,8 +40,8 @@
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: '',
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
   };
 </script>
@@ -197,9 +197,34 @@
     <a href="/schedule/" rel="section"><i class="fa fa-fw fa-calendar"></i>日程表</a>
 
   </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
   </ul>
 
 </nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
 </div>
     </header>
 
@@ -309,13 +334,13 @@
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;针对上述问题，本教程从Git的历史入手介绍，逐层深入，图片和视频相结合，让你对学习过程一点也不枯燥，而且会让你记忆深刻。</p>
 <p>如果你想快速了解Git或者只是为了应付面试需要了解版本控制系统的知识，看完该系列的文章你肯定会受益无穷。</p>
 <hr>
-<p><img src="https://img-blog.csdnimg.cn/20191130191352765.png" alt></p>
+<p><img src="https://img-blog.csdnimg.cn/20191130191352765.png" alt=""></p>
 <h1 id="Git简介"><a href="#Git简介" class="headerlink" title="Git简介"></a>Git简介</h1><h2 id="Git是什么"><a href="#Git是什么" class="headerlink" title="Git是什么"></a>Git是什么</h2><ul>
 <li><p>Git是一个版本控制系统，是目前最先进的分布式版本控制系统，在企业中使用的很多。</p>
 </li>
 <li><p>那什么又是版本控制系统呢？</p>
 <p>  举个栗子：想必大家都完成过自己的毕业论文（那是一个痛苦的过程），我们需要对内容改之又改，每一次改动都很小心，总是不会删除之前的那一版（因为你还可能需要找回之前的版本），所以你总是会加一些修饰符：…修改版、…最终版、…最终版2、…最终最终版……乱七八糟。。。</p>
-<p>  <img src="https://img-blog.csdnimg.cn/20191130193701775.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjExOTA0MQ==,size_16,color_FFFFFF,t_70" alt></p>
+<p>  <img src="https://img-blog.csdnimg.cn/20191130193701775.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjExOTA0MQ==,size_16,color_FFFFFF,t_70" alt=""></p>
 <p>  这就是大家熟悉的版本概念，我们在开发软件的时候其实也是这样，比如软件有v1.0 、v1.0.1、v1.0.2、v2.0版本等等，在一个最终的版本发布之前，可能需要漫长的时间来修改前一版本，还需要团队合作开发，所以如果采用手工管理版本的方式，恐怕就有点鞭长莫及了。</p>
 </li>
 </ul>
@@ -361,24 +386,24 @@
 <hr>
 <h1 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h1><p>Git只是一款软件，目前可以在windows、linux、以及macOS这些操作系统上安装使用。</p>
 <hr>
-<h2 id="在linux上安装"><a href="#在linux上安装" class="headerlink" title="在linux上安装"></a>在linux上安装</h2><p>首先你可以看自己的电脑上有没有安装Git, 输入命令：<font color="#FFD700"> <code>git</code> </font>:</p>
+<h2 id="在linux上安装"><a href="#在linux上安装" class="headerlink" title="在linux上安装"></a>在linux上安装</h2><p>首先你可以看自己的电脑上有没有安装Git, 输入命令：<font color = #FFD700> <code>git</code> </font>:</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cpp">$ git <br>Commond 'git' not found , but can be installed with:<br>sudo apt install git<br></code></pre></td></tr></table></figure>
 <p>提示我们没有安装Git，但是可以使用命令 <code>sudo apt install git</code> 进行安装  </p>
-<p>（<font color="#A52A2A">注意：我使用的是Ubuntu，其他的linux发行版的提示可能不一样，但只是命令稍微有点区别，如果系统没有给出提示，百度一下就可以）</font> </p>
+<p>（<font color = #A52A2A>注意：我使用的是Ubuntu，其他的linux发行版的提示可能不一样，但只是命令稍微有点区别，如果系统没有给出提示，百度一下就可以）</font> </p>
 <p>所以我们在我的Ubuntu下输入上述命令安装:</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp">$ sudo apt install git<br></code></pre></td></tr></table></figure>
 <p>安装成功后查看版本:(版本是2.17.1)</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp">$ git --version<br>git version <span class="hljs-number">2.17</span><span class="hljs-number">.1</span><br></code></pre></td></tr></table></figure>
-<p> <font color="#FF000">很简单的在linux下就安装完成了！</font></p>
-<p><img src="https://img-blog.csdnimg.cn/20191130214309761.gif" alt></p>
+<p> <font color = #FF000>很简单的在linux下就安装完成了！</font></p>
+<p><img src="https://img-blog.csdnimg.cn/20191130214309761.gif" alt=""></p>
 <hr>
-<h2 id="windows下安装"><a href="#windows下安装" class="headerlink" title="windows下安装"></a>windows下安装</h2><p><font color="rgb()">window的安装可以直接在官网上下载安装包：Git官网：<a href="https://git-scm.com/" target="_blank" rel="noopener">https://git-scm.com/</a></font></p>
-<p>直接点击箭头指向的地方就可下载适合你电脑的最新版本Git，如下所示：<br><img src="https://img-blog.csdnimg.cn/20191130204748487.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjExOTA0MQ==,size_16,color_FFFFFF,t_70" alt><br>    然后在电脑上看到下面的Git组件就说明安装成功了，包括<code>Git bash</code> 和 <code>Git GUI</code>等：</p>
-<p><img src="https://img-blog.csdnimg.cn/20191130204953512.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjExOTA0MQ==,size_16,color_FFFFFF,t_70" alt></p>
-<p><font color="rgb()">然后打开Git bash，输入 <code>git --version</code> (类似于linux下的bash)查看 Git 版本号：</font></p>
+<h2 id="windows下安装"><a href="#windows下安装" class="headerlink" title="windows下安装"></a>windows下安装</h2><p><font color = rgb()>window的安装可以直接在官网上下载安装包：Git官网：<a href="https://git-scm.com/" target="_blank" rel="noopener">https://git-scm.com/</a></font></p>
+<p>直接点击箭头指向的地方就可下载适合你电脑的最新版本Git，如下所示：<br><img src="https://img-blog.csdnimg.cn/20191130204748487.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjExOTA0MQ==,size_16,color_FFFFFF,t_70" alt=""><br>    然后在电脑上看到下面的Git组件就说明安装成功了，包括<code>Git bash</code> 和 <code>Git GUI</code>等：</p>
+<p><img src="https://img-blog.csdnimg.cn/20191130204953512.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjExOTA0MQ==,size_16,color_FFFFFF,t_70" alt=""></p>
+<p><font color = rgb()>然后打开Git bash，输入 <code>git --version</code> (类似于linux下的bash)查看 Git 版本号：</font></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp">$ git --version!<br>git version <span class="hljs-number">2.30</span><span class="hljs-number">.0</span> windows<span class="hljs-number">.1</span><br></code></pre></td></tr></table></figure>
 <p>可以看到你下载的版本是适合windows下的 <code>2.30.0</code>。</p>
-<p> <font color="#FF000">至此windows下安装结束！</font></p>
+<p> <font color = #FF000>至此windows下安装结束！</font></p>
 <hr>
 <h2 id="全局配置（必须项）"><a href="#全局配置（必须项）" class="headerlink" title="全局配置（必须项）"></a>全局配置（必须项）</h2><p>安装完成后还需要进行全局配置（相当于注册QQ号、微信号的操作）：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp">$ git config --global user.name <span class="hljs-string">"name"</span><br>$ git config --global user.email <span class="hljs-string">"email@example.com"</span><br></code></pre></td></tr></table></figure>
@@ -388,7 +413,7 @@
 <h1 id="创建版本库"><a href="#创建版本库" class="headerlink" title="创建版本库"></a>创建版本库</h1><p>首先，什么是版本库？</p>
 <p>版本库就是仓库（Repository），说白了就是存储你的各个版本文件的地方，是可以使用Git进行管理的文件目录。目录下的任何文件都可以使用Git追踪到，包括文件的修改，删除等等操作可以使用Git。</p>
 <p>创建仓库很简单:</p>
-<p><font color="#A52A2A">（首先需要说明的一点是，以后我们的操作都是在linux上进行，但是你在windows下的Git bash是完全一样，命令也是一模一样）。</font> </p>
+<p><font color = #A52A2A>（首先需要说明的一点是，以后我们的操作都是在linux上进行，但是你在windows下的Git bash是完全一样，命令也是一模一样）。</font> </p>
 <p>首先创建一个目录（仓库），在windows下就是一个文件夹：</p>
 <p>（选择自己认为合适地方创建即可）</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp">$ mkdir firstRep<br>$ cd firstRep<br></code></pre></td></tr></table></figure>
@@ -407,13 +432,13 @@
 <p>没有任何提示，说明添加成功；</p>
 <p>然后将readme提交至仓库, 命令: <code>git commit</code> :</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs cpp">$ git commit -m <span class="hljs-string">"first commit"</span><br>[master (root-commit) <span class="hljs-number">9</span>c93bb2] first commi<br> <span class="hljs-number">1</span> file changed, <span class="hljs-number">2</span> insertions(+)<br> create mode <span class="hljs-number">100644</span> readme.txt<br></code></pre></td></tr></table></figure>
-<p><font color="#A52A2A">注意：先跟着操作即可，后面就知道 <code>git add</code> 和 <code>git commit</code> 的内部原理。</font></p>
+<p><font color = #A52A2A>注意：先跟着操作即可，后面就知道 <code>git add</code> 和 <code>git commit</code> 的内部原理。</font></p>
 <p>说明：</p>
 <pre><code>git commit 是提交的命令，-m是参数， 
 后面跟着是本次的提交说明&quot;first commit&quot;，方便别人查看。
 
 git commit 成功后会提示你：1 file changed（1个文件改动，readme.txt），
-                          2 insertions(+) （readme.txt有2行内容）。</code></pre><p><img src="https://img-blog.csdnimg.cn/20191201143354911.gif" alt></p>
+                          2 insertions(+) （readme.txt有2行内容）。</code></pre><p><img src="https://img-blog.csdnimg.cn/20191201143354911.gif" alt=""></p>
 <p>总结：今天一共学习了以下几个内容：</p>
 <p>1、初始化一个仓库：<code>git init</code></p>
 <p>2、向仓库中添加文件：<code>git add &lt;fiile name&gt;</code></p>
@@ -432,23 +457,23 @@ git commit 成功后会提示你：1 file changed（1个文件改动，readme.tx
 <p>然后我们再创建一个文件叫 <code>study.txt</code> 然后随便添加一行文字：比如：<code>I Love You</code>:</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp">$ cat study.txt<br>I Love You<br></code></pre></td></tr></table></figure>
 
-<p>现在在工作区（也就是我们的目录下有两个文件 ：一个修改过的 <code>readme.txt</code>，还有一个是新文件 <code>study.txt</code>）：<br><img src="https://img-blog.csdnimg.cn/20191201194756885.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjExOTA0MQ==,size_16,color_FFFFFF,t_70" alt></p>
+<p>现在在工作区（也就是我们的目录下有两个文件 ：一个修改过的 <code>readme.txt</code>，还有一个是新文件 <code>study.txt</code>）：<br><img src="https://img-blog.csdnimg.cn/20191201194756885.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjExOTA0MQ==,size_16,color_FFFFFF,t_70" alt=""></p>
 <p>然后将修改过的readme.txt 和新文件study.txt 都添加至暂存区，<br>使用命令：<code>git add</code> :</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp">$ git add readme.txt<br>$ git add study.txt<br></code></pre></td></tr></table></figure>
 <p>我们使用命令：<code>git status</code> 查看仓库当前的状态：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs cpp">$ git status <br>On branch master<br>Changes to be committed:<br>  (use <span class="hljs-string">"git reset HEAD &lt;file&gt;..."</span> to unstage)<br><br>	modified:   readme.txt<br>	<span class="hljs-keyword">new</span> file:   study.txt<br></code></pre></td></tr></table></figure>
 <p>提示我们已经将两个文件添加至暂存区，等待着 <code>commit</code> （提交）。</p>
-<p>现在两个文件的状态应该是这样：<br><img src="https://img-blog.csdnimg.cn/20191201194602292.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjExOTA0MQ==,size_16,color_FFFFFF,t_70" alt></p>
+<p>现在两个文件的状态应该是这样：<br><img src="https://img-blog.csdnimg.cn/20191201194602292.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjExOTA0MQ==,size_16,color_FFFFFF,t_70" alt=""></p>
 <p>我们使用 <code>git commit</code> 一次性将两个文件提交至当前分支:</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs cpp">$ git commit -m <span class="hljs-string">"commit two files one time"</span><br>[master <span class="hljs-number">16e071</span>a] commit two files one time<br> <span class="hljs-number">2</span> files changed, <span class="hljs-number">2</span> insertions(+)<br> create mode <span class="hljs-number">100644</span> study.txt<br></code></pre></td></tr></table></figure>
 <p>然后我们再来看仓库当前状态：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cpp">$ git status<br>On branch master<br>nothing to commit, working tree clean<br></code></pre></td></tr></table></figure>
 <p>告诉我们现在是 <code>master</code> 分支，没有东西等待提交（也就是暂存区没有文件了）。</p>
-<p><img src="https://img-blog.csdnimg.cn/2019120120003075.gif" alt></p>
+<p><img src="https://img-blog.csdnimg.cn/2019120120003075.gif" alt=""></p>
 <p>小结：<br>今天学习了两个概念：工作区和暂存区</p>
-<p><font color="#FFD700">git add</font>   ：其实是将文件添加到暂存区；</p>
-<p><font color="#FFD700">git commit</font> ： 就是将暂存区的文件提交至当前分支（这里是master分支）。</p>
-<p><font color="#FFD700">git status</font> ：查看当前的状态</p>
+<p><font color = #FFD700>git add</font>   ：其实是将文件添加到暂存区；</p>
+<p><font color = #FFD700>git commit</font> ： 就是将暂存区的文件提交至当前分支（这里是master分支）。</p>
+<p><font color = #FFD700>git status</font> ：查看当前的状态</p>
 <hr>
 <hr>
 <hr>
@@ -463,19 +488,19 @@ git commit 成功后会提示你：1 file changed（1个文件改动，readme.tx
 <p>你可能会记得，总共三次是吧。但是如果一个文件我们需要修改几十次，上百次你还会记得吗？更别说记得每次具体修改哪里了。所以这就是Git发挥威力的时刻了，一个命令就告诉你readme 提交记录，以及每次的变化，命令：<code>git log</code>:</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs cpp">$ git log<br>codercxf@codercxf-virtual-machine:~/Desktop/firstRep$ git log<br>commit a7616face803479e0573ff35bc18d00439cf28ff (HEAD -&gt; master)<br>Author: CoderCXF &lt;18251716983@163.com&gt;<br>Date:   Sun Dec 1 20:24:50 2019 +0800<br><br>    git better than SVN<br><br>commit 1ffeaf83cef2f3976dc3bb6fd1f17e2af2a4a94c<br>Author: CoderCXF &lt;xxxxxxxxxxx@xxx.com&gt;<br>Date:   Sun Dec 1 20:16:55 2019 +0800<br><br>    commit rwo files one time<br><br>commit 61de2ca94483b341f308338bf27f6628dc8d5757<br>Author: CoderCXF &lt;18251716983@163.com&gt;<br>Date:   Sun Dec 1 20:15:11 2019 +0800<br><br>    first commit<br></code></pre></td></tr></table></figure>
 <p>所以，同志们，看到什么奇迹发生了没！！！</p>
-<p>可以看到总共有三次提交 ：最近的一次是<font color="#A52A2A">“git better than SVN” </font>,还有之前的两次<font color="#A52A2A">“commit two files one time”</font>以及<font color="#A52A2A">“first commit”</font></p>
+<p>可以看到总共有三次提交 ：最近的一次是<font color = #A52A2A>“git better than SVN” </font>,还有之前的两次<font color = #A52A2A>“commit two files one time”</font >以及<font color = #A52A2A>“first commit”</font ></p>
 <p>git 已经详细的记录每次历史提交，包括<code>commit号</code>、<code>Author</code>、<code>Date</code>等等信息。</p>
 <hr>
-<p><font color="rgb()"><strong>git log 只是一个花絮，别忘了主题：如何回退到之前的版</strong></font></p>
-<p>看到上面git log 命令返回的嘛，其中以一个是commit 号（版本号），就是  <code>a7616face..</code> 很长的一点数字，每一次提交的commit号都不一样，很容易理解，就是为了区分每一次提交，数字很长才不会造成重复。</p>
+<p><font color = rgb()><strong>git log 只是一个花絮，别忘了主题：如何回退到之前的版</strong></font></p>
+<p>看到上面git log 命令返回的嘛，其中以一个是commit 号（版本号），就是  <code>a7616face..</code> </font>很长的一点数字，每一次提交的commit号都不一样，很容易理解，就是为了区分每一次提交，数字很长才不会造成重复。</p>
 <p>可以这样说，只要知道了版本号就很容易回退到之前的任何一个版本，问题解决，所以到底该怎样做呢？</p>
-<p>假如我们现在并不认为Git要比SVN好（虽然是事实^ ^）,也就是要回退到没有 <font color="#A52A2A"> “git is better than SVN”</font>的版本，即 <font color="#A52A2A"> “commit two files one time “</font>的版本</p>
+<p>假如我们现在并不认为Git要比SVN好（虽然是事实^ ^）,也就是要回退到没有 <font color = #A52A2A> “git is better than SVN”</font>的版本，即 <font color = #A52A2A> “commit two files one time “</font>的版本</p>
 <p>我们可以使用 <code>git reset</code>回退，前一个版本是 <code>HEAD^</code> ,前前一个版本是  <code>HEAD^^</code>, 以此类推，但是要是前10个版本，难道要写10个上标？当然不会那么愚蠢，例如回退10个就可以使用 <code>HEAD~10</code> 。</p>
 <p>现在回退到前一个版本:</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp">$ git reset --hard HEAD^<br></code></pre></td></tr></table></figure>
 <p>此时来查看 <code>readme.txt</code> 文件内容是不是已经回退成功:</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs cpp">$ cat readme.txt  <br>git is a version control tool<br>git is the most advaced version control system<br>i learn git now<br></code></pre></td></tr></table></figure>
-<p>可以看到，果然 <font color="#A52A2A"> “git is better than SVN”</font> 没有了，回退成功。我们也可以继续回退到前前一个版本，直接继续 <code>git reset</code> 即可。</p>
+<p>可以看到，果然 <font color = #A52A2A> “git is better than SVN”</font> 没有了，回退成功。我们也可以继续回退到前前一个版本，直接继续 <code>git reset</code> 即可。</p>
 <p>但如果这时候，你还是觉得Git 比 SVN 好用，后悔之前的删除操作，还想要恢复到之前的版本，该怎么办？说分手了还能再说我爱你？是的，在Git的世界里是可以的：</p>
 <p>可是我们使用 <code>git log</code> 查看的时候,已经没有了刚才删除的版本记录，该怎么办？</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash">commit 1ffeaf83cef2f3976dc3bb6fd1f17e2af2a4a94c<br>Author: CoderCXF &lt;xxxxxxxxxxxx@xxx.com&gt;<br>Date:   Sun Dec 1 20:16:55 2019 +0800<br><br>    commit rwo files one time<br>commit 61de2ca94483b341f308338bf27f6628dc8d5757<br>Author: CoderCXF &lt;xxxxxxxxxxx@163.com&gt;<br>Date:   Sun Dec 1 20:15:11 2019 +0800<br><br>    first commit<br></code></pre></td></tr></table></figure>
@@ -485,11 +510,11 @@ git commit 成功后会提示你：1 file changed（1个文件改动，readme.tx
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">cat readme.txt<br>git is a version control tool<br>git is the most advaced version control system<br>i learn git now<br>i think git is better than SVN<br></code></pre></td></tr></table></figure>
 <p>看到已经恢复了上一版本。</p>
 <hr>
-<p><img src="https://img-blog.csdnimg.cn/20191202211727434.gif" alt></p>
+<p><img src="https://img-blog.csdnimg.cn/20191202211727434.gif" alt=""></p>
 <p>小结：</p>
 <p>记住：HEAD指向的是当前的版本</p>
 <p>1）如果要回退到前一个版本使用 : <code>git reset --hard HEAD^</code>，返回前前一个版本使用的是：<code>git reset --hard HEAD^^</code>；                   </p>
-<p> <font color="#A52A2A">(tips:之前的版本并未被删除!只是HEAD指针的指向变化)</font></p>
+<p> <font color = #A52A2A>(tips:之前的版本并未被删除!只是HEAD指针的指向变化)</font></p>
 <p>2）使用<code>git log</code> 查看提交记录（包括版本号等信息）；</p>
 <p>3）总之使用 <code>git reset --hard &lt;commmit id&gt;</code> 就能回退到指定的版本。</p>
 <hr>
@@ -521,24 +546,24 @@ git commit 成功后会提示你：1 file changed（1个文件改动，readme.tx
 手动恢复呢？而且你手动删除之后还必须要 add 以及 commit 之后版本库中的版本才是
 最新版本。
 
-所以使用 git checkout 就解决了你很大的问题</code></pre><p><img src="https://img-blog.csdnimg.cn/20191203150426611.gif" alt></p>
+所以使用 git checkout 就解决了你很大的问题</code></pre><p><img src="https://img-blog.csdnimg.cn/20191203150426611.gif" alt=""></p>
 <hr>
 <h3 id="针对第二种情况"><a href="#针对第二种情况" class="headerlink" title="针对第二种情况"></a>针对第二种情况</h3><p>Please 记住：Git总是有办法的 !</p>
 <p>假如现在已经是晚上九点了，而你还在公司摸鱼，996也该下班了不是，此时心里极其不爽，于是你在<code>readme.txt</code> 文档下写下：<code>cccccccccccccc</code>：还不小心添加到了暂存区：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs cpp">$ cat readme.txt<br>gait is a version control tool<br>git is the most advaced version control system<br>i learn git now<br>i think git is better than SVN<br>cccccccccc<br><br>$ git add readme.txt<br></code></pre></td></tr></table></figure>
 <p>突然灵光乍现，你意识到这个问题，顿时心里一万个草泥马飘过，但是你应该庆幸的是还没有<code>commit</code> ，于是你使用<code>git status</code> 查看一下当前的状态：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs cpp">$ git status<br>On branch master<br>Changes to be committed:<br>  (use <span class="hljs-string">"git reset HEAD &lt;file&gt;..."</span> to unstage)<br></code></pre></td></tr></table></figure>
-<p>Git 告诉我们等待着提交（<font color="#A52A2A">changed to be committed</font>）,但是也同时提示你使用命令 <code>git reset HEAD &lt;file&gt;...</code> 可以撤销掉缓存区的修改。于是乎，又是一顿操作：</p>
+<p>Git 告诉我们等待着提交（<font color = #A52A2A>changed to be committed</font>）,但是也同时提示你使用命令 <code>git reset HEAD &lt;file&gt;...</code> 可以撤销掉缓存区的修改。于是乎，又是一顿操作：</font></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cpp">$ git reset HEAD readme.txt	<br>Unstaged changes after reset:<br>M	readme.txt<br></code></pre></td></tr></table></figure>
 <p>这时候再来查看一下状态：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs cpp">$ git status<br>On branch master<br>Changes <span class="hljs-keyword">not</span> staged <span class="hljs-keyword">for</span> commit:<br>  (use <span class="hljs-string">"git add &lt;file&gt;..."</span> to update what will be committed)<br>  (use <span class="hljs-string">"git checkout -- &lt;file&gt;..."</span> to discard changes in working directory)<br><br>	modified:   readme.<span class="hljs-function">txt<br><br>no changes added to <span class="hljs-title">commit</span> <span class="hljs-params">(use <span class="hljs-string">"git add"</span> <span class="hljs-keyword">and</span>/<span class="hljs-keyword">or</span> <span class="hljs-string">"git commit -a"</span>)</span></span><br></code></pre></td></tr></table></figure>
-<p>这个时候提示我们没有文件等待着提交（ <font color="#A52A2A">Changes not staged for commit:) </font>,  只是在工作区进行了修改，于是这就回到了第一种情况，还记得上面是什么命令吗？对，<code>git checkout -- &lt;file&gt;</code>(丢弃工作区的修改)</p>
+<p>这个时候提示我们没有文件等待着提交（ <font color = #A52A2A>Changes not staged for commit:) </font>,  只是在工作区进行了修改，于是这就回到了第一种情况，还记得上面是什么命令吗？对，<code>git checkout -- &lt;file&gt;</code>(丢弃工作区的修改)</p>
 <p>于是赶紧操作起来：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp">$ git checkout -- readme.txt<br></code></pre></td></tr></table></figure>
 <p>然后查看当前的状态：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cpp">$ git status<br>On branch master<br>nothing to commit, working tree clean<br></code></pre></td></tr></table></figure>
 <p>现在，终于结束了！这就是为自己的行为付出的代价，所以工作和生活上还是要谨言慎行！</p>
-<p><img src="https://img-blog.csdnimg.cn/20191203150942886.gif" alt><br>小结：</p>
+<p><img src="https://img-blog.csdnimg.cn/20191203150942886.gif" alt=""><br>小结：</p>
 <p>本节课主要讲解了如何撤销修改的操作，分为两种情况：</p>
 <p>1、只是在工作区（目录）进行了修改，还没有提交至暂存区（丢弃工作区的修改）<code>git checkout -- &lt;file&gt;</code></p>
 <p>2、在工作进行了修改，并且已经提交至暂存区,分为两步撤销：1）把在暂存区的内容回退到工作区<code>git reset HEAD &lt;file &gt;</code>；2）丢弃工作区的修改：<code>git checkout -- &lt;file&gt;</code></p>
@@ -557,31 +582,31 @@ git commit 成功后会提示你：1 file changed（1个文件改动，readme.tx
 <p>因为你只是删除了工作区的文件，版本库中还依然存在，所以不用害怕。使用命令<code>git checkout -- &lt;file&gt;</code>即可：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs cpp">$ git checkout -- testRemove.txt <span class="hljs-comment">//注意：--与文件名之间的空格</span><br><br>$ ll             <br>total <span class="hljs-number">20</span><br>drwxr-xr-x <span class="hljs-number">3</span> codercxf codercxf <span class="hljs-number">4096</span> <span class="hljs-number">12</span>月  <span class="hljs-number">3</span> <span class="hljs-number">15</span>:<span class="hljs-number">59</span> ./<br>drwxr-xr-x <span class="hljs-number">3</span> codercxf codercxf <span class="hljs-number">4096</span> <span class="hljs-number">12</span>月  <span class="hljs-number">1</span> <span class="hljs-number">20</span>:<span class="hljs-number">13</span> ../<br>drwxr-xr-x <span class="hljs-number">8</span> codercxf codercxf <span class="hljs-number">4096</span> <span class="hljs-number">12</span>月  <span class="hljs-number">3</span> <span class="hljs-number">15</span>:<span class="hljs-number">59</span> .git/<br>-rw-r--r-- <span class="hljs-number">1</span> codercxf codercxf  <span class="hljs-number">124</span> <span class="hljs-number">12</span>月  <span class="hljs-number">3</span> <span class="hljs-number">15</span>:<span class="hljs-number">06</span> readme.txt<br>-rw-r--r-- <span class="hljs-number">1</span> codercxf codercxf   <span class="hljs-number">44</span> <span class="hljs-number">12</span>月  <span class="hljs-number">3</span> <span class="hljs-number">15</span>:<span class="hljs-number">59</span> testRemove.txt<br></code></pre></td></tr></table></figure>
 <p>看到<code>testRemove.txt</code>又回来了。</p>
-<p><font color="#A52A2A">注意：这里的删除文件指的是删除版本库中的某一文件，在工作区（文件夹下的）直接删除即可（是无法恢复的）。</font></p>
+<p><font color = #A52A2A>注意：这里的删除文件指的是删除版本库中的某一文件，在工作区（文件夹下的）直接删除即可（是无法恢复的）。</font></p>
 <p>总结：<br>1、从版本库中删除文件：</p>
 <p>第一步：在工作区删除文件 <code>rm &lt;file&gt;</code>；</p>
 <p>第二步：确定删除版本库中的文件： <code>git rm &lt;file&gt;</code> ,然后重新提交：<code>git commit -m &quot;确认删除文件描述&quot;</code>。</p>
 <p>2、如果已经在工作区删除，但是想恢复，此时版本库中该文件存在的，使用命令 <code>git checkout -- &lt;file&gt;</code> 即可以恢复原文件。</p>
 <hr>
-<p><img src="https://img-blog.csdnimg.cn/20191203190653898.gif" alt></p>
+<p><img src="https://img-blog.csdnimg.cn/20191203190653898.gif" alt=""></p>
 <hr>
 <hr>
 <hr>
 <h1 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h1><p>到现在为止，我们已经完全懂得Git仓库的概念（本地计算机上的一个文件夹）以及如何对仓库进行添加、提交、修改、撤销修改等等操作，可以很好的实现版本控制。</p>
-<p>但是，我们之前操作的仓库都是在本地机进行操作，我们通常叫这种仓库叫：<font color="#FFD700"> 本地仓库 </font>,但是Git是分布式的版本控制系统，不只是你自己进行操作，整个软件项目的运行肯定是团队成员共同完成。所以团队中的每一个人的各自的计算机上都会有该项目的一个拷贝，这也就是分布式的概念。</p>
+<p>但是，我们之前操作的仓库都是在本地机进行操作，我们通常叫这种仓库叫：<font color = #FFD700> 本地仓库 </font>,但是Git是分布式的版本控制系统，不只是你自己进行操作，整个软件项目的运行肯定是团队成员共同完成。所以团队中的每一个人的各自的计算机上都会有该项目的一个拷贝，这也就是分布式的概念。</p>
 <p>其实，情况是这样的，找一台电脑当做你公司的Git服务器，24小时开机，然后上班的时候大家都从这台服务器上克隆一份项目仓库到自己的电脑上，然后干完活之后大家再把自己的工作成果推送到（push）这台服务器上，也可以拉取其他人的提交。</p>
-<p>好了，远程仓库的概念就由此产生了，我们把服务器上的这个仓库就叫做：<font color="#FFD700"> 远程仓库 </font>。所以知道想要大家一起工作，并且能合并大家的项目就需要一台计Git服务器。现在我们是学习阶段，搭建一个服务器未免有点“杀鸡蔫用牛刀”的感觉，但是记得 <font color="#A52A2A">github </font>这个神奇的网站存在,我们完全可以把它当做自己的Git服务器。</p>
+<p>好了，远程仓库的概念就由此产生了，我们把服务器上的这个仓库就叫做：<font color = #FFD700> 远程仓库 </font>。所以知道想要大家一起工作，并且能合并大家的项目就需要一台计Git服务器。现在我们是学习阶段，搭建一个服务器未免有点“杀鸡蔫用牛刀”的感觉，但是记得 <font color = #A52A2A>github </font>这个神奇的网站存在,我们完全可以把它当做自己的Git服务器。</p>
 <p>所以下面就需要学习如何使用github这个网站，并且把这个网站当做自己的Git服务器。请移步至下一篇！</p>
-<p> <img src="https://img-blog.csdnimg.cn/20191204100619684.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjExOTA0MQ==,size_16,color_FFFFFF,t_70" alt></p>
+<p> <img src="https://img-blog.csdnimg.cn/20191204100619684.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjExOTA0MQ==,size_16,color_FFFFFF,t_70" alt=""></p>
 <h2 id="github"><a href="#github" class="headerlink" title="github"></a>github</h2><pre><code>百度释义：gitHub是一个面向开源及私有软件项目的托管平台，因为只支持git 作为
      唯一的版本库格式进行托管，故名gitHub。</code></pre><p>我们一直用gitHub作为免费的远程仓库，如果是个人的开源项目，放到gitHub上是完全没有问题的。其实gitHub还是一个开源协作社区，通过gitHub，既可以让别人参与你的开源项目，你也可以参与别人的开源项目。</p>
-<p><font color="rgb()">github具体的使用方法不再详细叙述，看两篇文章就能熟练的使用github。这里我们只要学习设置SSH。</font></p>
+<p><font color = rgb()>github具体的使用方法不再详细叙述，看两篇文章就能熟练的使用github。这里我们只要学习设置SSH。</font></p>
 <hr>
 <p>首先，设置SSH的原因：</p>
 <p>SSH是传输协议（类似于FTP协议，但是SSH是加密传输）由于Git是支持SSH协议的，所以你往远程仓库提交或者从远程仓库下载就是通过该协议，所以，需要进行设置：</p>
-<p><font color="#A52A2A">注意：Git也支持 <code>https</code> 协议,但是下载上传速度慢，所以还是建议大家设置SSH。以后就用SSH传输。</font></p>
+<p><font color = #A52A2A>注意：Git也支持 <code>https</code> 协议,但是下载上传速度慢，所以还是建议大家设置SSH。以后就用SSH传输。</font></p>
 <p>第一步，创建SSH。</p>
-<p>在用户主目录下查看是否已经有.ssh目录，如果有，再查看是否有<code>id_rsa</code> 和 <code>id_rsa.public</code>,例如在windos 下就是如下两个文件：<br><img src="https://img-blog.csdnimg.cn/20191204091128240.jpg" alt><br>windows下的设置请看我的另一篇专门介绍如何设置的文章：</p>
+<p>在用户主目录下查看是否已经有.ssh目录，如果有，再查看是否有<code>id_rsa</code> 和 <code>id_rsa.public</code>,例如在windos 下就是如下两个文件：<br><img src="https://img-blog.csdnimg.cn/20191204091128240.jpg" alt=""><br>windows下的设置请看我的另一篇专门介绍如何设置的文章：</p>
 <p><a href="https://blog.csdn.net/weixin_42119041/article/details/102988955" target="_blank" rel="noopener">https://blog.csdn.net/weixin_42119041/article/details/102988955</a></p>
 <p>下面详细介绍在了Linux下的如何操作：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cpp">$ sudo ps -e|grep ssh<br>[sudo] password <span class="hljs-keyword">for</span> codercxf: <br>  <span class="hljs-number">1884</span> ?        <span class="hljs-number">00</span>:<span class="hljs-number">00</span>:<span class="hljs-number">00</span> ssh-agent<br></code></pre></td></tr></table></figure>
@@ -589,25 +614,25 @@ git commit 成功后会提示你：1 file changed（1个文件改动，readme.tx
 <p>于是我们跳到下一步。</p>
 <p>如果没有这个创建SSH  key，则创建：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp">$ ssh-keygen -t rsa -C <span class="hljs-string">"youremail@example.com"</span><br></code></pre></td></tr></table></figure>
-<p><font color="#A52A2A">注意：上面括号“<a href="mailto:youremail@example.com">youremail@example.com</a>”应该填写你自己注册github使用的邮箱。</font></p>
-<p>第二步，登录github，进入到<code>Settings</code>界面,点击<code>SSH and GPG keys</code>：<br><img src="https://img-blog.csdnimg.cn/20191204093830501.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjExOTA0MQ==,size_16,color_FFFFFF,t_70" alt><br>点击 <code>New SSH key</code> ,新建一个 <code>SSH key</code> , 这里 <code>title</code> 任意填写，在Key文本框里粘贴<code>id_rsa.pub</code>文件的内容，点击<code>Add key</code> 完成配置。</p>
+<p><font color = #A52A2A>注意：上面括号“<a href="mailto:youremail@example.com">youremail@example.com</a>”应该填写你自己注册github使用的邮箱。</font></p>
+<p>第二步，登录github，进入到<code>Settings</code>界面,点击<code>SSH and GPG keys</code>：<br><img src="https://img-blog.csdnimg.cn/20191204093830501.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjExOTA0MQ==,size_16,color_FFFFFF,t_70" alt=""><br>点击 <code>New SSH key</code> ,新建一个 <code>SSH key</code> , 这里 <code>title</code> 任意填写，在Key文本框里粘贴<code>id_rsa.pub</code>文件的内容，点击<code>Add key</code> 完成配置。</p>
 <p>至此整个SSH的设置就完成了，很简单有没有！</p>
 <p>有了github后我们就可以进行远程仓库的部分了。</p>
 <hr>
 <p>附上github的标识符和吉祥物：</p>
 <p> <code>标识符：</code></p>
-<p><img src="https://img-blog.csdnimg.cn/20191204100831827.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjExOTA0MQ==,size_16,color_FFFFFF,t_70" alt><br> <code>吉祥物：</code><br><img src="https://img-blog.csdnimg.cn/20191204100857982.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjExOTA0MQ==,size_16,color_FFFFFF,t_70" alt></p>
+<p><img src="https://img-blog.csdnimg.cn/20191204100831827.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjExOTA0MQ==,size_16,color_FFFFFF,t_70" alt=""><br> <code>吉祥物：</code><br><img src="https://img-blog.csdnimg.cn/20191204100857982.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjExOTA0MQ==,size_16,color_FFFFFF,t_70" alt=""></p>
 <hr>
 <hr>
 <hr>
-<h2 id="在github上创建远程仓库"><a href="#在github上创建远程仓库" class="headerlink" title="在github上创建远程仓库"></a>在github上创建远程仓库</h2><p><font color="#FFA500">设置好github的SSH key ，我们就可以在github上创建一个远程仓库，并且可以让这两个仓库同步（能从远程仓下载到本地仓以及将本地仓库推送至远程仓库）。</font></p>
+<h2 id="在github上创建远程仓库"><a href="#在github上创建远程仓库" class="headerlink" title="在github上创建远程仓库"></a>在github上创建远程仓库</h2><p><font color = #FFA500>设置好github的SSH key ，我们就可以在github上创建一个远程仓库，并且可以让这两个仓库同步（能从远程仓下载到本地仓以及将本地仓库推送至远程仓库）。</font></p>
 <p>首先，创建一个远程仓库，远程仓库的名字最好与本地仓库一致，所以这里远程仓库的名字叫 <code>firstRep</code>，点击 <code>New</code> 创建：如下图所示：</p>
-<p><img src="https://img-blog.csdnimg.cn/20191204102248560.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjExOTA0MQ==,size_16,color_FFFFFF,t_70" alt></p>
-<p>我们填写仓库名，对仓库的描述即可，其他默认，点击 <code>Creat repository</code>，就创建成功了。如下所示：<br><img src="https://img-blog.csdnimg.cn/20191204103757478.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjExOTA0MQ==,size_16,color_FFFFFF,t_70" alt><br>现在这个仓库是空仓库，因为我们还没添加任何的文件。</p>
-<p> <font color="rgb()">现在我们要做的就是把这个远程仓库和我们的本地仓关联起来：</font></p>
+<p><img src="https://img-blog.csdnimg.cn/20191204102248560.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjExOTA0MQ==,size_16,color_FFFFFF,t_70" alt=""></p>
+<p>我们填写仓库名，对仓库的描述即可，其他默认，点击 <code>Creat repository</code>，就创建成功了。如下所示：<br><img src="https://img-blog.csdnimg.cn/20191204103757478.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjExOTA0MQ==,size_16,color_FFFFFF,t_70" alt=""><br>现在这个仓库是空仓库，因为我们还没添加任何的文件。</p>
+<p> <font color = rgb()>现在我们要做的就是把这个远程仓库和我们的本地仓关联起来：</font></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp">$ git remote add origin git@github.com:xxxxxxx/firstRep.git<br></code></pre></td></tr></table></figure>
-<p><font color="#A52A2A">注意：上面“<a href="mailto:git@gitgun.com">git@gitgun.com</a>: <strong>***</strong>/****”填写你自己的仓库地址。</font></p>
-<p>是下面这个地址：<br><img src="https://img-blog.csdnimg.cn/20191204104226334.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjExOTA0MQ==,size_16,color_FFFFFF,t_70" alt></p>
+<p><font color = #A52A2A>注意：上面“<a href="mailto:git@gitgun.com">git@gitgun.com</a>: <strong>***</strong>/****”填写你自己的仓库地址。</font></p>
+<p>是下面这个地址：<br><img src="https://img-blog.csdnimg.cn/20191204104226334.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjExOTA0MQ==,size_16,color_FFFFFF,t_70" alt=""></p>
 <p>下面我们就可以把本地库的内容推送到远程库了，使用命令 <code>git push</code> :</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs cpp">$ git push -u origin master<br>Counting objects: 13, done.<br>Compressing objects: 100% (9/9), doneGit<br>Writing objects: 100% (13/13), 1.17 KiB | 299.00 KiB/s, done.<br>Total 13 (delta 2), reused 0 (delta 0)<br>remote: Resolving deltas: 100% (2/2), done.<br>To github.com:xxxxxx/firstRep.git<br> * [new branch]      master -&gt; master<br>Branch 'master' set up to track remote branch 'master' from 'origin'.<br></code></pre></td></tr></table></figure>
 <p>这说明已经推送成功。此时再来查看（记得刷新一下页面）<code>firstRep</code>这个远程仓库：<br><img src="https://img-blog.csdnimg.cn/20191204104825124.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjExOTA0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>就会有我们之前在本地仓库的 <code>readme.txt</code> 文件了。</p>
@@ -629,7 +654,7 @@ git commit 成功后会提示你：1 file changed（1个文件改动，readme.tx
 master分支（我们一般将其称为主分支）。
 
 下面我们将讲解如何创建分支以及如何删除修改分支等等操作，那么现在我们要先对分支
-有个概念。</code></pre><p>我们在本地仓中有 <code>master</code> 分支，所以通过命令 <code>git push origin master</code>推送到远程仓时候，即推送到远程仓中的 <code>master</code> 分支，可以在 <code>github</code> 上看到远程仓中只有 <code>master</code> 这一个分支。<br><img src="https://img-blog.csdnimg.cn/20191207125007116.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjExOTA0MQ==,size_16,color_FFFFFF,t_70" alt><br>这就是分支的概念。</p>
+有个概念。</code></pre><p>我们在本地仓中有 <code>master</code> 分支，所以通过命令 <code>git push origin master</code>推送到远程仓时候，即推送到远程仓中的 <code>master</code> 分支，可以在 <code>github</code> 上看到远程仓中只有 <code>master</code> 这一个分支。<br><img src="https://img-blog.csdnimg.cn/20191207125007116.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjExOTA0MQ==,size_16,color_FFFFFF,t_70" alt=""><br>这就是分支的概念。</p>
 <p>但是在实际的开发中，通常是不会在 <code>master</code> 分支上进行工作的。</p>
 <p>比如你将要开发一个新的功能，需要对项目文件进行修改，如果你在主分支上修改，为了自己代码的安全考虑，把自己还没有写完的代码推送到远程 <code>master</code> 分支上，但是代码还没有全部完成，不完整的代码导致别人没办法工作。</p>
 <p>所以一般的情况是你在自己新创建的分支上进行修改，等到代码全部完成之后，再将自己分支上的代码合并到主分支上，然后推送，这样，既能保证自己的代码安全，又不耽误别人工作。</p>
@@ -655,7 +680,7 @@ master分支（我们一般将其称为主分支）。
 <p>如果这个时候你已经不需要除了主分支之外的其他分支，即需要删除分支，使用命令：<code>git branch  -d &lt;name&gt;</code>即可, 比如我们要删除 <code>dev</code> 分支, 然后再查看删除后仓库的分支：</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs cpp">$ git branch -d dev<br>Deleted branch dev (was d6932d6).<br><br>$ git branch<br>* master<br></code></pre></td></tr></table></figure>
 <p>由上面的几行英文就可以知道 <code>dev</code>分支被删除，现在仓库只剩下了 <code>master</code> 分支。</p>
-<p><img src="https://img-blog.csdnimg.cn/20191210121304574.gif" alt><br>现在假如你开始在新的分支上工作，正如我们之前所说，工作完成后怎样合并到主分支上呢？ 现在给出解答：</p>
+<p><img src="https://img-blog.csdnimg.cn/20191210121304574.gif" alt=""><br>现在假如你开始在新的分支上工作，正如我们之前所说，工作完成后怎样合并到主分支上呢？ 现在给出解答：</p>
 <p>比如现在在 <code>dev</code> 分支上修改了<code>readme.txt</code>文件，在末尾加上一句话：<code>creat new branch and merge to master</code>:</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs cpp">$ git checkout dev<br>Switched to branch 'dev'<br>...//为readme.txt添加一行<br><br>$ cat readme.txt<br>git is a version control tool<br>git is the most advaced version control system<br>i learn git now<br>i think git is better than SVN<br>creat new branch and merge to master<br></code></pre></td></tr></table></figure>
 <p>然后提交：</p>
@@ -670,7 +695,7 @@ master分支（我们一般将其称为主分支）。
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs cpp">$ cat readme.txt<br>git is a version control tool<br>git is the most advaced version control system<br>i learn git now<br>i think git is better than SVN<br>creat <span class="hljs-keyword">new</span> branch <span class="hljs-keyword">and</span> merge to master<br></code></pre></td></tr></table></figure>
 <p>合并后，再查看readme.txt的内容，就可以看到，和 <code>dev</code> 分支的最新提交是完全一样的。</p>
 <hr>
-<p><img src="https://img-blog.csdnimg.cn/20191210121042947.gif" alt></p>
+<p><img src="https://img-blog.csdnimg.cn/20191210121042947.gif" alt=""></p>
 <p><code>git switch</code>:</p>
 <p>注意到：我们切换分支的时候是使用 : <code>git checkout</code> 命令，但是我们在撤销修改的时候也是用的这个命令，所以Git为了区分，新引出了一个 <code>git switch</code> 命令英语切换分支，效果和 <code>git checkout</code>是一样的：</p>
 <p>切换分支：</p>
@@ -695,7 +720,7 @@ master分支（我们一般将其称为主分支）。
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp">$ git push origin master<br>$ git push origin dev<br></code></pre></td></tr></table></figure>
 <pre><code>注意：`origin` 是默认的远程仓库名字，后面的分支名字是本地仓库中分支的名字，
        这样，Git就会把本地分支推送到远程仓库对应的分支上（远程仓库没有，则
-       Git会默认创建一个）</code></pre><p><img src="https://img-blog.csdnimg.cn/20191210122905877.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjExOTA0MQ==,size_16,color_FFFFFF,t_70" alt><br>此外，并不是所有的分支都需要推送到远程仓，分支是否需要推送到远程仓，视自己的情况需要而定。</p>
+       Git会默认创建一个）</code></pre><p><img src="https://img-blog.csdnimg.cn/20191210122905877.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjExOTA0MQ==,size_16,color_FFFFFF,t_70" alt=""><br>此外，并不是所有的分支都需要推送到远程仓，分支是否需要推送到远程仓，视自己的情况需要而定。</p>
 <hr>
 <h3 id="抓取分支："><a href="#抓取分支：" class="headerlink" title="抓取分支："></a>抓取分支：</h3><p> 你可以往远程仓推送自己的分支，同时也可以从克隆远程仓到本地（相当于下载），现在，我们在另外一台电脑上克隆仓库 <code>firstRep</code> ，使用命令<code>git clone &lt;repository name&gt;</code>:,现在我在windows上使用<code>Git bash</code>模仿你的一位同事：</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs cpp">$ git clone git@github.com:xxxxx/firstRep.git<br>Cloning into 'firstRep'...<br>remote: Enumerating objects: 16, done.<br>remote: Counting objects: 100% (16/16), done.<br>remote: Compressing objects: 100% (8/8), done.<br>remote: Total 16 (delta 3), reused 16 (delta 3), pack-reused 0<br>Receiving objects: 100% (16/16), done.<br>Resolving deltas: 100% (3/3), done.<br></code></pre></td></tr></table></figure>
@@ -771,7 +796,7 @@ master分支（我们一般将其称为主分支）。
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp">$ git tag -a v0<span class="hljs-number">.0</span><span class="hljs-number">.1</span> -m <span class="hljs-string">"0.0.1 version"</span> f67aa<br></code></pre></td></tr></table></figure>
 <p>这样就为 <code>git is better than SVN</code> 打上了标签，不信可以查看一下：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs cpp">$ git show v0<span class="hljs-number">.01</span><br>Author: CoderCXF &lt;<span class="hljs-number">18251716983</span>@<span class="hljs-number">163.</span>com&gt;<br>Date:   Mon Dec <span class="hljs-number">2</span> <span class="hljs-number">21</span>:<span class="hljs-number">09</span>:<span class="hljs-number">54</span> <span class="hljs-number">2019</span> +<span class="hljs-number">0800</span><br><br>    git is better than SVN<br></code></pre></td></tr></table></figure>
-<p>看到果真如此。以上就是创建一个标签的过程。<br><img src="https://img-blog.csdnimg.cn/20191206111052418.gif" alt></p>
+<p>看到果真如此。以上就是创建一个标签的过程。<br><img src="https://img-blog.csdnimg.cn/20191206111052418.gif" alt=""></p>
 <hr>
 <p>小结：</p>
 <p>1）创建标签：<code>git tag &lt;tagname&gt;</code>；</p>
@@ -795,13 +820,13 @@ master分支（我们一般将其称为主分支）。
 <p>这个时候你登录github就可以看到 <code>1 release</code> :</p>
 <p>如果你再推送一个标签至远程仓，就会看到 <code>2 releases</code>:</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs cpp">$ git push origin v0.0<br>Warning: Permanently added the RSA host key for IP address 'xxxx.xxxx.xxxx.xxxx' to the list of known hosts.<br>Total 0 (delta 0), reused 0 (delta 0)<br>To github.com:CoderCXF/firstRep.git<br> * [new tag]         v0.0 -&gt; v0.0<br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/2019120611292737.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjExOTA0MQ==,size_16,color_FFFFFF,t_70" alt><br><img src="https://img-blog.csdnimg.cn/2019120611293550.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjExOTA0MQ==,size_16,color_FFFFFF,t_70" alt></p>
+<p><img src="https://img-blog.csdnimg.cn/2019120611292737.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjExOTA0MQ==,size_16,color_FFFFFF,t_70" alt=""><br><img src="https://img-blog.csdnimg.cn/2019120611293550.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjExOTA0MQ==,size_16,color_FFFFFF,t_70" alt=""></p>
 <p>如果你已经把标签推送到远程仓库，还想删除，就得分两步进行了：</p>
 <p>第一步：先从本地删除：<code>git tag -d &lt;tagname&gt;</code>:</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp">$ git tag -d v0.0<br>Deleted tag 'v0.0' (was 1d79486)<br></code></pre></td></tr></table></figure>
 <p>然后从远程删除：<code>git push origin :refs/tags/&lt;tagname&gt;</code>:</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cpp">$ git push origin :refs/tags/v0<span class="hljs-number">.0</span><br>To github.com:xxxxxx/firstRep.git<br> - [deleted]         v0<span class="hljs-number">.0</span><br></code></pre></td></tr></table></figure>
-<p>这个时候完全删除干净了，登录github查看是否只剩下了 <code>v1.0</code> 这个标签：<br><img src="https://img-blog.csdnimg.cn/20191206113626297.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjExOTA0MQ==,size_16,color_FFFFFF,t_70" alt><br>看到确实<code>v0.0</code>标签被删除了。删除完成。<br><img src="https://img-blog.csdnimg.cn/20191206120237403.gif" alt></p>
+<p>这个时候完全删除干净了，登录github查看是否只剩下了 <code>v1.0</code> 这个标签：<br><img src="https://img-blog.csdnimg.cn/20191206113626297.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjExOTA0MQ==,size_16,color_FFFFFF,t_70" alt=""><br>看到确实<code>v0.0</code>标签被删除了。删除完成。<br><img src="https://img-blog.csdnimg.cn/20191206120237403.gif" alt=""></p>
 <hr>
 <hr>
 <hr>
@@ -939,12 +964,16 @@ master分支（我们一般将其称为主分支）。
         </a>
       </div>
       <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
         <span class="site-state-item-count">1</span>
-        <span class="site-state-item-name">分类</span>
+        <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
         <span class="site-state-item-count">1</span>
-        <span class="site-state-item-name">标签</span>
+        <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
@@ -1041,6 +1070,10 @@ master分支（我们一般将其称为主分支）。
 
 
 
+  
+<script src="/js/local-search.js"></script>
+
+
 
 
 
@@ -1062,7 +1095,7 @@ master分支（我们一般将其称为主分支）。
 NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
   NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
     var GUEST = ['nick', 'mail', 'link'];
-    var guest = 'nick,mail,link';
+    var guest = '';
     guest = guest.split(',').filter(item => {
       return GUEST.includes(item);
     });
