@@ -9,10 +9,8 @@
 <p>如果没有的话，打开Git bash (相信你已经安装过了Git)，输入以下命令:</p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><code class="hljs cpp">$ ssh-keygen -t rsa -C <span class="hljs-string">"==youremail@com=="</span><br></code></pre></td></tr></table></figure>
 <p>注意：上面双引号部分内容改成你自己注册github时候的邮箱号！</p>
-<p>输入上面命令会出现类似以下的提示：</p>
-<p><img src="https://img-blog.csdnimg.cn/20191109170808243.jpg" alt=""></p>
-<p>下面就一路回车就好，大概需要三次回车，因为都是一些选择项，默认就好； 三次回车之后，就会出现下面的提示：</p>
-<p><img src="https://img-blog.csdnimg.cn/2019110917335358.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjExOTA0MQ==,size_16,color_FFFFFF,t_70" alt=""></p>
+<p>输入上面命令会出现类似以下的提示：<br><img src="https://img-blog.csdnimg.cn/20191109170808243.jpg" alt=""></p>
+<p>下面就一路回车就好，大概需要三次回车，因为都是一些选择项，默认就好； 三次回车之后，就会出现下面的提示：<br><img src="https://img-blog.csdnimg.cn/2019110917335358.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjExOTA0MQ==,size_16,color_FFFFFF,t_70" alt=""></p>
 <p>如果顺利的话（应该是顺利的），会在生成的 <code>.ssh</code> 文件在里面有<code>id_rsa</code> 和 <code>id_rsa.pub</code> 两个文件，这两个就是 <code>SSH Key</code> 的秘钥对，<code>id_rsa</code> 是私钥，<code>id_rsa.pub</code> 是公钥。</p>
 <p>这时就可以在自己电脑上看到 <code>.ssh</code> 文件夹已经生成了：</p>
 <p><img src="https://img-blog.csdnimg.cn/20191109172113518.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjExOTA0MQ==,size_16,color_FFFFFF,t_70" alt=""></p>
