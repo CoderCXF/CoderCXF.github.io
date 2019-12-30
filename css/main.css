@@ -179,22 +179,22 @@ h6 {
   margin: 20px 0 15px;
 }
 h1 {
-  font-size: 1.875em;
-}
-h2 {
-  font-size: 1.75em;
-}
-h3 {
-  font-size: 1.625em;
-}
-h4 {
   font-size: 1.5em;
 }
-h5 {
+h2 {
   font-size: 1.375em;
 }
-h6 {
+h3 {
   font-size: 1.25em;
+}
+h4 {
+  font-size: 1.125em;
+}
+h5 {
+  font-size: 1em;
+}
+h6 {
+  font-size: 0.875em;
 }
 p {
   margin: 0 0 20px 0;
@@ -414,7 +414,7 @@ td {
 pre {
   background: #002451;
   color: #fff;
-  line-height: 1.6;
+  line-height: 2 /*1.6*/;
   margin: 0 auto 20px;
 }
 pre,
@@ -422,7 +422,7 @@ code {
   font-family: consolas, Menlo, monospace, "PingFang SC", "Microsoft YaHei";
 }
 code {
-  background: #eee;
+  background: #ffc0cb;
   border-radius: 3px;
   color: #555;
   padding: 2px 4px;
@@ -447,7 +447,7 @@ code {
   padding: 0;
 }
 .highlight figcaption {
-  background: #eee;
+  background: #ffc0cb;
   color: #fff;
   font-size: 0.875em;
   line-height: 1.2;
@@ -974,6 +974,9 @@ pre .javascript .function {
     width: 900px;
   }
 }
+.header {
+  background: transparent;
+}
 .header-inner {
   margin: 0 auto;
   position: relative;
@@ -990,6 +993,7 @@ pre .javascript .function {
   }
 }
 .headband {
+  background: #222;
   height: 3px;
 }
 .site-meta {
@@ -1006,7 +1010,7 @@ pre .javascript .function {
   border-bottom: none;
   color: #fff;
   display: inline-block;
-  line-height: 2em;
+  line-height: 1.375em;
   padding: 0 40px;
   position: relative;
 }
@@ -1016,7 +1020,7 @@ pre .javascript .function {
 .site-title {
   display: inline-block;
   font-family: 'Monda', "PingFang SC", "Microsoft YaHei", sans-serif;
-  font-size: 2em;
+  font-size: 1.375em;
   font-weight: normal;
   line-height: 1.5;
   vertical-align: top;
@@ -1289,7 +1293,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ff602a;
+  background: #ff95ff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
