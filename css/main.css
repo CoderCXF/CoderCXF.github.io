@@ -422,9 +422,9 @@ code {
   font-family: consolas, Menlo, monospace, "PingFang SC", "Microsoft YaHei";
 }
 code {
-  background: #ffc0cb;
+  background: #ddd;
   border-radius: 3px;
-  color: #555;
+  color: #fc6423 /*$black-light*/;
   padding: 2px 4px;
   overflow-wrap: break-word;
   word-wrap: break-word;
@@ -447,7 +447,7 @@ code {
   padding: 0;
 }
 .highlight figcaption {
-  background: #ffc0cb;
+  background: #ddd;
   color: #fff;
   font-size: 0.875em;
   line-height: 1.2;
@@ -1293,7 +1293,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ff95ff;
+  background: #7dffb3;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2423,7 +2423,7 @@ ul.breadcrumb li + li:last-child {
   }
 }
 .header-inner {
-  padding-top: 100px;
+  padding-top: 20px /*100px*/;
 }
 @media (max-width: 767px) {
   .header-inner {
