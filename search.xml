@@ -1,6 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>hexo之主题美化篇2</title>
+    <url>/2020/01/28/hexo%E4%B9%8B%E4%B8%BB%E9%A2%98%E7%BE%8E%E5%8C%96%E7%AF%87/</url>
+    <content><![CDATA[<p>上一篇博客介绍 <code>next</code> 主题配置文件 <code>_config.yml</code>的各部分的大致内容，现在我们来对每一部分的详细配置做出说明，完成这些配置你的博客基本上就像样了。</p>
+<a id="more"></a>
+<h1 id="侧边栏部分"><a href="#侧边栏部分" class="headerlink" title="侧边栏部分"></a>侧边栏部分</h1><p><img src="https://gitee.com/codercxf/Blog_image_hexo/raw/master/sidebar.jpg" alt=""></p>
+<h2 id="更换个人头像"><a href="#更换个人头像" class="headerlink" title="更换个人头像"></a>更换个人头像</h2><p>在主题篇配置文件 <code>_config.yml</code> 中找到侧边栏设置部分 <code>Sidebar Settings</code>部分，可以看到如下所示设置头像部分内容( <code>avatar</code> )：</p>
+<p><img src="https://gitee.com/codercxf/Blog_image_hexo/raw/master/profile.jpg" alt=""><br><code>url</code> : 就是你自己的头像链接，将图片放置在 <code>source</code> –&gt; <code>images</code> 目录下;<br><code>rounded</code> : 头像是否设置为圆形；<br><code>rotated</code> : 当鼠标放置头像上时，头像是否旋转；</p>
+<h2 id="设置昵称"><a href="#设置昵称" class="headerlink" title="设置昵称"></a>设置昵称</h2><p>昵称的设置是在站点配置文件中的 <code>Site</code> 部分，在这一部分不仅可以设置昵称(作者名) ,还可以设置站点标题，副标题，自己的关键词以及站点语言等等，虽然 <code>next</code> 主题不支持副标题，对自己的描述等个性化设置，但写上也没有关系，我的设置部分如下所示：</p>
+<p><img src="https://gitee.com/codercxf/Blog_image_hexo/raw/master/site.jpg" alt=""></p>
+<p><code>title</code> : 网站的标题；<br><code>subtitle</code> : 网站的副标题，<code>next</code> 不支持；<br><code>description</code> : 自己描述，相当于座右铭之类的，<code>next</code> 不支持；<br><code>keywords</code> : 自己的关键词，<code>next</code> 不支持；<br><code>author</code> : 作者名，也就是昵称；<br><code>language</code> : 语言设置，设置为中文 <code>zh-CN</code>；<br><code>timezone</code> : 时区设置，不用填写。</p>
+<h2 id="social-link"><a href="#social-link" class="headerlink" title="social link"></a><code>social link</code></h2><p>社会链接支持添加自己的 <code>github</code>、<code>E-Mail</code> <code>weibo</code> 等等，同样也是在侧边栏设置部分 <code>Sidebar Settings</code>部分：需要添加哪一个直接加上自己的账号即可：</p>
+<p><img src="https://gitee.com/codercxf/Blog_image_hexo/raw/master/sociallink.jpg" alt=""></p>
+<h2 id="友情链接"><a href="#友情链接" class="headerlink" title="友情链接"></a>友情链接</h2><p>如图所示为我自己设置部分，由于本站刚刚开始，还没有添加添加朋友的链接，所以我就把自己的掘金还有CSDN账户挂上去了：<br><img src="https://gitee.com/codercxf/Blog_image_hexo/raw/master/Blog%20rolls.jpg" alt=""><br>到此整个侧边栏的部分就完成了，应该可以得到不错的效果。</p>
+<h1 id="菜单栏部分"><a href="#菜单栏部分" class="headerlink" title="菜单栏部分"></a>菜单栏部分</h1><p><code>next</code> 初始默认菜单很少，为了丰富内容，提升更好的读者效果，我们还需要自己增加一些界面，从而丰富我们的博客,比如添加分类、标签、<code>about</code>、站内搜索等等功能：<br><img src="https://gitee.com/codercxf/Blog_image_hexo/raw/master/menu.jpg" alt=""></p>
+<h2 id="分类、标签、日程界面"><a href="#分类、标签、日程界面" class="headerlink" title="分类、标签、日程界面"></a>分类、标签、日程界面</h2><p>在主题配置文件中找到 <code>Menu Settings</code> 部分，然后将 <code>categories</code>, <code>tags</code>、<code>schedule</code> 前面的注释去掉，如下所示：</p>
+<p><img src="https://gitee.com/codercxf/Blog_image_hexo/raw/master/categories.jpg" alt=""></p>
+<p>只去掉注释还不行，因为在 <code>next</code> 主题中并没有为我们默认生成的这三个界面(<code>pages</code>)，需要我们手动生成：</p>
+<p>在 <code>Git bash</code> 或者是 <code>Mac</code> 终端中进行操作:</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> hexo new page categories tags schedule</span><br></code></pre></td></tr></table></figure>
+<p>这个时候查看 <code>source</code> 文件夹就可以看到生成这几个页面，其他的就不用设置，在我们使用命令 <code>hexo generate</code> 生成的时候 <code>hexo</code> 会自动的为我们生成这些界面的东西。</p>
+<h2 id="about-页面"><a href="#about-页面" class="headerlink" title="about 页面"></a><code>about</code> 页面</h2><p><code>about</code> 页面就是 <code>关于我</code> 的意思，是对自己情况的介绍等等内容，除了要生成 <code>about</code> 界面外，自己还要编辑，创建自己的简介；</p>
+<p>首先要生成 <code>about</code> 页面，页面的生成方法和上面的一样：</p>
+<ul>
+<li>取消 <code>about</code> 的注释；<br><img src="https://gitee.com/codercxf/Blog_image_hexo/raw/master/about.jpg" alt=""></li>
+<li>使用命令 <code>hexo new page about</code> 生成 <code>about</code> 界面；</li>
+</ul>
+<p>这个时候就已经生成了 <code>about</code> 界面，在 <code>source</code> 文件夹下可以看到一个 <code>about</code> 文件夹，打开文件夹我们编辑 <code>index.md</code>这个文件，支持<code>markdown</code> 格式，编辑自己信息即可，如图所示为我自己的内容：</p>
+<p><img src="https://gitee.com/codercxf/Blog_image_hexo/raw/master/introduction.jpg" alt=""><br>最终的效果如下：</p>
+<p><img src="https://gitee.com/codercxf/Blog_image_hexo/raw/master/introduction2.jpg" alt=""></p>
+<h2 id="爬取豆瓣账号数据"><a href="#爬取豆瓣账号数据" class="headerlink" title="爬取豆瓣账号数据"></a>爬取豆瓣账号数据</h2><p>我们可以爬取自己的豆瓣账号数据从而可以分享你的书籍和电影<br>具体的使用方法如下：</p>
+<ol>
+<li><p>由于 <code>hexo</code> 没有集成豆瓣功能，所以需要我们下载第三方插件：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> cnpm install hexo-douban --save //我们之前在环境搭建的过程中介绍过cnpm镜像源，没有安装的使用npm(速度可能比较慢)</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>配置，在站点配置文件(注：不是主题配置文件)最后，加入以下代码：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><code class="hljs shell">douban: <br>user: 204836163<br>builtin: false<br>book:<br>  title: '读书'<br>  quote: ''<br>movie:<br>  title: '我的电影'<br>  quote: ''<br><span class="hljs-meta">#</span><span class="bash"> game:</span><br><span class="hljs-meta"> #</span><span class="bash"> title: <span class="hljs-string">'游戏'</span></span><br><span class="hljs-meta"> #</span><span class="bash"> quote: <span class="hljs-string">''</span></span><br>timeout: 10000<br></code></pre></td></tr></table></figure></li>
+</ol>
+<ul>
+<li><code>user</code> : 你的豆瓣ID.打开豆瓣，登入账户，然后在右上角点击 “个人主页” ，这时候地址栏的URL大概是这样：”” ，其中的”xxxxxx”就是你的个人ID了;</li>
+<li><code>builtin</code> : 是否将生成页面的功能嵌入 <code>hexo s</code> 和 <code>hexo g</code> 中，默认是 <code>false</code>;</li>
+<li><code>title</code> : 该页面的标题;</li>
+<li><code>quote</code> : 写在页面开头的一段话,支持 <code>html</code> 语法;</li>
+<li><code>timeout</code> : 爬取数据的超时时间，默认是 <code>10000ms</code> 。</li>
+</ul>
+<ol start="3">
+<li>主题配置文件进行添加菜单栏：<br>找到菜单栏选项，然后添加以下两行配置：</li>
+</ol>
+<p><img src="https://gitee.com/codercxf/Blog_image_hexo/raw/master/book.jpg" alt=""></p>
+<ol start="4">
+<li>使用：<br>我们在上述完成之后，需要执行命令 <code>hexo douban</code> 来爬取自己的豆瓣账号数据 (前提是自己在第二步关联了自己的账户)，然后再使用命令 <code>hexo g -d</code> 生成部署博客，然后就可以在自己的博客看到如下界面：</li>
+</ol>
+<p><img src="https://gitee.com/codercxf/Blog_image_hexo/raw/master/books.jpg" alt=""></p>
+<p><img src="https://gitee.com/codercxf/Blog_image_hexo/raw/master/movies.jpg" alt=""></p>
+<h2 id="添加站内搜索功能"><a href="#添加站内搜索功能" class="headerlink" title="添加站内搜索功能"></a>添加站内搜索功能</h2><p>在前面的一篇博客简要介绍了在 <code>next</code> 主题配置文件中 <code>_config.yml</code> 中支持站内搜索服务:<br>设置的方法如下：</p>
+<ul>
+<li><p>首先安装依赖：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> cnpm install hexo-generator-searchdb</span><br></code></pre></td></tr></table></figure></li>
+<li><p>站点配置文件的配置 (在该文件的末尾加上以下代码)：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><code class="hljs shell">search:<br>  path: search.xml<br>  field: post<br>  format: html<br>  limit: 10000<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>主题配置文件的配置 (按照如图所示配置即可)：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> Local Search</span><br><span class="hljs-meta">#</span><span class="bash"> Dependencies: https://github.com/theme-next/hexo-generator-searchdb</span><br>local_search:<br>  enable: true<br><span class="hljs-meta">  #</span><span class="bash"> If auto, trigger search by changing input.</span><br><span class="hljs-meta">  #</span><span class="bash"> If manual, trigger search by pressing enter key or search button.</span><br>  trigger: auto<br><span class="hljs-meta">  #</span><span class="bash"> Show top n results per article, show all results by setting to -1</span><br>  top_n_per_article: 1<br><span class="hljs-meta">  #</span><span class="bash"> Unescape html strings to the readable one.</span><br>  unescape: false<br><span class="hljs-meta">  #</span><span class="bash"> Preload the search data when the page loads.</span><br>  preload: true<br><span class="hljs-meta"><br>#</span><span class="bash"> Swiftype Search API Key</span><br>swiftype_key:<br></code></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/codercxf/Blog_image_hexo/raw/master/local_search.jpg" alt=""></p>
+<p>然后我们就可以在菜单栏看到一个搜索按钮，点击就额可以进行对你的博客内容进行搜索：</p>
+<p><img src="https://gitee.com/codercxf/Blog_image_hexo/raw/master/search.jpg" alt=""></p>
+<p>至此，整个菜单栏就部署完毕！</p>
+</li>
+</ul>
+<h1 id="文章部分设置"><a href="#文章部分设置" class="headerlink" title="文章部分设置"></a>文章部分设置</h1><p>除了 <code>next</code> 主题一些默认的功能外，我们可能会添加一些功能来丰富和扩展我们的博客，包括：修改标签样式、文章打赏、文章版权、文章评论、统计功能等。</p>
+<h2 id="修改标签样式："><a href="#修改标签样式：" class="headerlink" title="修改标签样式："></a>修改标签样式：</h2><p>在主题配置文件 <code>_config.yml</code> 文件下找到 <code>tag_icon</code>,修改为 <code>true</code>，即可以修改文章底部默认的 <code>#</code> 标签字符：</p>
+<p><img src="https://gitee.com/codercxf/Blog_image_hexo/raw/master/tag_icon.jpg" alt=""></p>
+<h2 id="文章打赏"><a href="#文章打赏" class="headerlink" title="文章打赏"></a>文章打赏</h2><p>最后的效果如下所示：<br><img src="https://gitee.com/codercxf/Blog_image_hexo/raw/master/reward2.jpg" alt=""></p>
+<p>找到主题配置文件 <code>_config.yml</code> 中的 <code>Reward(donate)</code> 部分，将其设置为如下所示：</p>
+<p><img src="https://gitee.com/codercxf/Blog_image_hexo/raw/master/reward.jpg" alt=""></p>
+<ul>
+<li><code>enable</code> : 使能文章打赏功能；</li>
+<li><code>animation</code> : 是否为动画，<code>false</code> 即可；</li>
+<li><code>comment</code> : 在打赏按钮之上的评论,随便写，但是为了好看，一至两句话即可；</li>
+<li><code>reward</code> 部分：</li>
+</ul>
+<p>此处是添加自己的收款码，对于我们一般只要微信 和 支付宝就可以了，所以我们首先要把自己的收款码放在 <code>D:\Blog\themes\next\source\images</code>目录下，然后添加上链接即可：</p>
+<ul>
+<li><code>wechatpay</code> : 微信支付；</li>
+<li><code>alipay</code> : 支付宝支付；</li>
+</ul>
+<h2 id="文章评论"><a href="#文章评论" class="headerlink" title="文章评论"></a>文章评论</h2><p> <code>next</code> 主题提供了很多的评论插件的接口，所以我们只需要下载本地依赖既可以使用，但是有一个需要注意的是，很多的插件都是国外的，在国内无法获取服务，所以建议大家使用国内的插件，比如有 <code>Valine</code> 和 <code>Changyan</code>,这里我使用的是 <code>Valine</code>，简单容易上手，最终的效果就是如下所示：<br> <img src="https://gitee.com/codercxf/Blog_image_hexo/raw/master/valine2.jpg" alt=""></p>
+<p> 配置过程如下：</p>
+<ol>
+<li>首先在 <code>valine</code> 上注册一个帐户或登录到LeanCloud，然后单击左下角在仪表板中创建应用程序：<br><img src="https://gitee.com/codercxf/Blog_image_hexo/raw/master/valine-1.png" alt=""></li>
+</ol>
+<ol start="2">
+<li><p>进入你刚刚创建的应用程序，选择设置-&gt;应用键在左下角，你会看到你的应用ID和应用键:<br><img src="https://gitee.com/codercxf/Blog_image_hexo/raw/master/valine-2.png" alt=""></p>
+</li>
+<li><p>将值 <code>enable</code> 设置为 <code>true</code>，添加获得的 <code>APP ID（appid）</code>和<code>APP Key（appkey）</code>，然后在主题配置文件的<code>valine</code>部分中编辑其他配置，如下所示：</p>
+<p><img src="https://gitee.com/codercxf/Blog_image_hexo/raw/master/valine.jpg" alt=""></p>
+</li>
+</ol>
+<h2 id="文章版权设置"><a href="#文章版权设置" class="headerlink" title="文章版权设置"></a>文章版权设置</h2><p><code>next</code> 主题内部集成了版权功能代码，只要设置版权部分为 <code>true</code> 即可，在主题配置文件 <code>_config.yml</code> 文件中找到如下部分：</p>
+<p><img src="https://gitee.com/codercxf/Blog_image_hexo/raw/master/post_copyright.jpg" alt=""></p>
+<p>建议在 <code>post</code> (文章内部)添加版权说明: 将 <code>post</code> 设置为 <code>true</code> 即可。</p>
+<h2 id="卜算子统计"><a href="#卜算子统计" class="headerlink" title="卜算子统计"></a>卜算子统计</h2><p><code>next</code> 主题新版本已经为我们提供了卜算子接口，用于统计站点的访问人数和总访问量，效果如下所示：</p>
+<p><img src="https://gitee.com/codercxf/Blog_image_hexo/raw/master/footer.jpg" alt=""></p>
+<p>由于已经提供了接口，所以配置就很方便，具体的配置就变得很简单，只需要修改 <code>busuanzi</code> 部分：</p>
+<p><img src="https://gitee.com/codercxf/Blog_image_hexo/raw/master/busuanzi.jpg" alt=""></p>
+<p><code>enable</code> : 是否启用卜算子；<br><code>total_visitors</code> : 是否显示总浏览人数；<br><code>total_visitors_icon</code> : 总浏览人数前的图标，默认是 <code>user</code>；<br><code>total_views</code> ： 是否显示网站总访问量；<br><code>total_views_icon</code> : 总访问量前的图标，默认是 <code>eye</code>;<br><code>post_views</code> : 是否显示某一篇文章的总浏览量；<br><code>post_views_icon</code> : 文章浏览量前的图标，默认也是 <code>eye</code>。</p>
+<h2 id="在线聊天功能"><a href="#在线聊天功能" class="headerlink" title="在线聊天功能"></a>在线聊天功能</h2><p>这个功能虽然没什么用，但是对于喜欢学习的小伙伴们也可以尝试一下(我并没有使用这一功能)。<br>首先要明确的是：新版 <code>next</code> 主题已经内部提供了对于 <code>Chatra</code> 和 <code>Tidio</code> 两个插件的接口，所以我们在使用的时候只要注册账号，然后使用功能即可，下面我们以 <code>Chatra</code> 为例：</p>
+<ul>
+<li><p>首先登陆 <a href="https://chatra.io/cn/" target="_blank" rel="noopener">https://chatra.io/cn/</a> 官网注册账号，获取自己的 <code>ID</code> (注册使用的邮箱号);</p>
+</li>
+<li><p>然后将 <code>chatra</code> 部分的 <code>enable</code> 设置为 <code>true</code>：<br><img src="https://gitee.com/codercxf/Blog_image_hexo/raw/master/chatra.jpg" alt=""></p>
+</li>
+<li><p>在侧边栏添加 <code>chat</code> 按钮：<br><img src="https://gitee.com/codercxf/Blog_image_hexo/raw/master/chatButton.jpg" alt=""></p>
+<ul>
+<li>最后的效果如下所示：<br><img src="https://gitee.com/codercxf/Blog_image_hexo/raw/master/chat.jpg" alt=""></li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>博客</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hexo之主题优化篇1</title>
     <url>/2020/01/27/hexo%E4%B9%8B%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96%E7%AF%87/</url>
     <content><![CDATA[<div class="note danger">
