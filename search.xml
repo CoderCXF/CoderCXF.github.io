@@ -1,6 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>没有Google写代码都不香了</title>
+    <url>/2020/02/05/Google/</url>
+    <content><![CDATA[<p>最近科学上网出了些问题，虽然自己有备用的工具，保命还能使用 <code>Google</code> 相关服务。确实自己在使用了 <code>Chrome</code> 搜索之后，其他的搜索好像怎么都不香了，但由于 <code>Google</code> 服务对大陆地区进行了封锁，想要使用相关的服务可能还要梯子。科学上网的方法我们不谈，这里推荐一些自己正在使用而且非常好用的谷歌插件，第一个插件在不翻墙的情况下也可以让你舒服的使用 <code>Google</code> 服务</p>
+<a id="more"></a>
+<h1 id="谷歌访问助手破解版-必备插件"><a href="#谷歌访问助手破解版-必备插件" class="headerlink" title="谷歌访问助手破解版 - 必备插件"></a>谷歌访问助手破解版 - 必备插件</h1><p>首先 <code>Chrome</code> 的下载安装就不多说了，下载完成之后一般是无法使用的，会跳出网络错误等等：</p>
+<p><img src="https://gitee.com/codercxf/Blog_image_hexo/raw/master/Google/noService.jpg" alt=""></p>
+<p>其实就是对大陆地区封锁了，这个时候就需要代理服务器。可以自己购买 <code>科学上网</code> 的工具，做到一劳永逸。如果你只是想使用 <code>Google</code> 周边服务的话，这里推荐 <code>谷歌访问助手</code> 插件，由于所有的插件都要到 <code>Google</code> 应用商店下载，但是现在你是无法进入到谷歌商店的，所以我们只有先百度下载了：</p>
+<p><img src="https://gitee.com/codercxf/Blog_image_hexo/raw/master/Google/google_helper_access.jpg" alt=""></p>
+<p>如上图所示，随便进入一个链接就可以但是小心一些流氓捆绑，为了不必要的麻烦，我通过百度网盘分享一下: <a href="https://pan.baidu.com/s/1igGIEZlAZWVtaWuG0XVXwQ" target="_blank" rel="noopener">谷歌访问助手2.3.0破解版</a>，大家可以放心下载，下载之后需要解压。</p>
+<p>然后我们打开 <code>Chrome</code> 浏览器，在搜索框中输入 <code>chrome://extensions/</code>, 就进入到了扩展页面，也可以通过点击右上角的 <code>自定义以及控制Google Chrome</code> - <code>更多工具</code> - <code>扩展程序</code>打开扩展页面：</p>
+<p><img src="https://gitee.com/codercxf/Blog_image_hexo/raw/master/Google/extensions.jpg" alt=""></p>
+<p>然后打开 <code>开发者模式</code>,点击 <code>加载已解压的扩展程序</code> :</p>
+<p><img src="https://gitee.com/codercxf/Blog_image_hexo/raw/master/Google/developerMode.jpg" alt=""><br>添加刚才已经解压过的下载文件： <code>google_access_helper</code> 文件夹，就添加成功了：</p>
+<p><img src="https://gitee.com/codercxf/Blog_image_hexo/raw/master/Google/installSuccess.jpg" alt=""></p>
+<p>然后在扩展程序以及右上角菜单中可看到已经安装成功并在启动中：</p>
+<p><img src="https://gitee.com/codercxf/Blog_image_hexo/raw/master/Google/success.jpg" alt=""></p>
+<p>现在我们就可以使用 <code>Chrome</code> 搜索了：</p>
+<p><img src="https://gitee.com/codercxf/Blog_image_hexo/raw/master/Google/newCancer.jpg" alt=""></p>
+<p>可以看到我们完全可以使用 <code>Google</code> 搜索</p>
+<div class="note danger">
+            <p>值得注意的是，这款插件只能用来访问谷歌搜索以及谷歌其他相关服务，比如有 <code>GMail</code>、<code>谷歌应用商店</code>等，但是还不能访问 <code>Youtobe</code> 等其他的国外服务，如需使用，需要自行进行科学上网( ‘番习习墙’ )</p>
+          </div>
+
+<h1 id="AdBlock-最好的广告拦截工具"><a href="#AdBlock-最好的广告拦截工具" class="headerlink" title="AdBlock -最好的广告拦截工具"></a>AdBlock -最好的广告拦截工具</h1><p>我们在使用浏览器的时候，总是不可避免的会有一些非常烦人的弹窗广告，这里我推荐一款效果极佳的广告拦截插件 ： <code>AdBlock</code>。</p>
+<p>在 <code>谷歌应用商店</code> 搜索 <code>AdBlock</code>,然后点击 <code>添加至Chrome</code> ,浏览器就会自动下载并安装该插件，如下所示：</p>
+<p><img src="https://gitee.com/codercxf/Blog_image_hexo/raw/master/Google/AdBlock.jpg" alt=""></p>
+<p>在菜单处就可以看到 <code>AdBlock</code> 的图标：</p>
+<p><img src="https://gitee.com/codercxf/Blog_image_hexo/raw/master/Google/adblockicon.jpg" alt=""></p>
+<div class="note info">
+            <p>注: 你可能在其他的地方看到别人推荐 <code>AdBlock Plus</code>,其实这两款插件基本上没有区别，安装一个就行。</p>
+          </div>
+
+<h1 id="沙拉查词-专业的划词翻译扩展"><a href="#沙拉查词-专业的划词翻译扩展" class="headerlink" title="沙拉查词 - 专业的划词翻译扩展"></a>沙拉查词 - 专业的划词翻译扩展</h1><p>沙拉查词是一款专业的划词翻译的插件，顾名思义，鼠标划词就可以对所划单词或者句子进行翻译；沙拉查词就是一款非常好用的划词翻译插件，它提供几种不同的翻译词典: <code>有道翻译</code> 、<code>有道词典</code> 以及 <code>谷歌翻译</code> 翻译结果，这对看文献等工作可谓是一个大的福利。<br>在 <code>谷歌应用商店</code> 中搜索 <code>沙拉查词</code>进行安装 :</p>
+<p><img src="https://gitee.com/codercxf/Blog_image_hexo/raw/master/Google/%E6%B2%99%E6%8B%89%E6%9F%A5%E8%AF%8D.jpg" alt=""></p>
+<p>安装完成后，用鼠标选中想要翻译的地方，点击旁边的草莓，就显示翻译结果：</p>
+<p><img src="https://gitee.com/codercxf/Blog_image_hexo/raw/master/Google/result.jpg" alt=""></p>
+<div class="note info">
+            <p>注: <code>Google翻译</code> 也是非常好的一款插件，其实功能都差不多，<code>Google</code> 翻译可以翻译整个网页，这可能是一个很大的优势吧，各位可以自己去尝试，大家量体裁衣即可。</p>
+          </div>
+
+<h1 id="OneTab-一键管理你打开的标签页"><a href="#OneTab-一键管理你打开的标签页" class="headerlink" title="OneTab - 一键管理你打开的标签页"></a>OneTab - 一键管理你打开的标签页</h1><p>我们在使用浏览器的时候可能不知不觉的就打开了很多的标签页，导致内存升高，而且来回切换页面不方便，这时 <code>OneTab</code> 就解决了这一困扰。</p>
+<p>首先安装 <code>OneTab</code> 扩展，安装的方法都是在 <code>Google应用商店</code>，这里就不赘述了，直接搜索 <code>OneTab</code> 安装就好。<br>安装完成后，比如现在我们打开很多的标签页：</p>
+<p><img src="https://gitee.com/codercxf/Blog_image_hexo/raw/master/Google/taobao.jpg" alt=""></p>
+<p>然后我们点击在菜单栏的 <code>onetab</code> 按钮，就可以把所有的标签合为一个标签页，从而大大的减少了内存：</p>
+<p><img src="https://gitee.com/codercxf/Blog_image_hexo/raw/master/Google/onetab.jpg" alt=""></p>
+<h1 id="谷歌学术搜索按钮-一键访问谷歌学术"><a href="#谷歌学术搜索按钮-一键访问谷歌学术" class="headerlink" title="谷歌学术搜索按钮 - 一键访问谷歌学术"></a>谷歌学术搜索按钮 - 一键访问谷歌学术</h1><p>谷歌学术搜索按钮就是一个快捷的谷歌学术搜索，点击就可以进入到搜索页面：</p>
+<p><img src="https://gitee.com/codercxf/Blog_image_hexo/raw/master/Google/google%20scholar.jpg" alt=""></p>
+<p>进入谷歌商店下载，搜索 <code>谷歌学术搜索按钮</code> 即可。</p>
+<p>在需要使用 <code>谷歌学术</code> 的时候点击此插件的图标就可以访问 <code>Google Scholar</code>:</p>
+<p><img src="https://gitee.com/codercxf/Blog_image_hexo/raw/master/Google/machine_learing.jpg" alt=""></p>
+<div class="note danger">
+            <p>注意：谷歌学术需要翻墙，所以在没有梯子的情况下该插件无法使用！</p>
+          </div>
+<h1 id="右键搜-扩展右键功能"><a href="#右键搜-扩展右键功能" class="headerlink" title="右键搜 - 扩展右键功能"></a>右键搜 - 扩展右键功能</h1><p>按照官方给出的功能说明：</p>
+<div class="note default">
+            <p>扩展右键菜单，超过300种功能，方便的选择、组合或自定义页面、划词、图片菜单，并有生成、解析二维码和短网址功能。设置可使用云存储。最新增加功能共享、资源下载、重命名等功能。右键搜伴侣增加超级拖拽。</p>
+          </div>
+<p>确实，这个 <code>右键搜</code> 的功能很强大，号称是集成了300多种功能，简直就是一个黑科技啊，但是吸引我的地方主要是以下几个功能：</p>
+<ul>
+<li><p>以图找图<br>有时候我们看到一张有内涵、有意思的图片想要找相似的图，这个时候就可以用到这个扩展，其实就是 <code>Google 图片</code>;</p>
+</li>
+<li><p>右键生成二维码<br>现在扫码似乎是一件很 <code>fashion</code> 的事情，而使用这个插件可以很方便的将任何图片和文字生成二维码;</p>
+</li>
+<li><p>图片生成端网址<br>将鼠标移动到图片上方并点击鼠标右键，<code>右键搜</code> - <code>创建图片短网址并复制</code>，这时我们就可以将连接分享给他人。  </p>
+<div class="note danger">
+            <p>注：你要保证要分享的小伙伴有权访问文件，比如你是分享 <code>Google Chrome</code> 上的一张图片,你要保证你的小伙伴可以访问谷歌服务。</p>
+          </div>
+
+</li>
+</ul>
+<h1 id="一键管理扩展-菜单不再繁"><a href="#一键管理扩展-菜单不再繁" class="headerlink" title="一键管理扩展 - 菜单不再繁"></a>一键管理扩展 - 菜单不再繁</h1><p>在上面我们安装了很多的插件，当然，除了以上这些，你可能还会安装一些更多的扩展，所以就显得很乱，而 <code>一键管理扩展</code> 就是一个很方便的插件，可以很方便的控制所有插件的 <code>开启</code>、<code>禁用</code>、<code>卸载</code>。</p>
+<p>同样是在谷歌应用商店中搜索 <code>一键管理扩展</code> 安装即可。<br>然后我们点击图标就可以对所有的扩展进行管理：鼠标左键控制 <code>启用</code> 或者<code>禁用</code>,右键 <code>卸载</code> :</p>
+<p><img src="https://gitee.com/codercxf/Blog_image_hexo/raw/master/Google/%E4%B8%80%E9%94%AE.jpg" alt=""></p>
+<p>目前，我自己觉得有必要，且可以提高生产效率的插件就是这么多，当然，也许你有更好的推荐，欢迎交流，共同进步！</p>
+]]></content>
+      <categories>
+        <category>工具</category>
+        <category>Google</category>
+      </categories>
+      <tags>
+        <tag>Google</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hexo之主题美化篇2</title>
     <url>/2020/01/28/hexo%E4%B9%8B%E4%B8%BB%E9%A2%98%E7%BE%8E%E5%8C%96%E7%AF%87/</url>
     <content><![CDATA[<p>上一篇博客介绍 <code>next</code> 主题配置文件 <code>_config.yml</code>的各部分的大致内容，现在我们来对每一部分的详细配置做出说明，完成这些配置你的博客基本上就像样了。</p>
