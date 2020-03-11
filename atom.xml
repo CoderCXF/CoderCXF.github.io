@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://codedancer.online/"/>
-  <updated>2020-03-07T11:41:26.285Z</updated>
+  <updated>2020-03-11T04:29:12.974Z</updated>
   <id>http://codedancer.online/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>将VSCode打造为专属IDE</title>
+    <link href="http://codedancer.online/2020/03/11/VSCode%E9%85%8D%E7%BD%AE/"/>
+    <id>http://codedancer.online/2020/03/11/VSCode%E9%85%8D%E7%BD%AE/</id>
+    <published>2020-03-11T04:29:12.000Z</published>
+    <updated>2020-03-11T04:29:12.974Z</updated>
+    
+    <content type="html"><![CDATA[<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;微软出品的 <code>VSCode</code> 对程序员来说可谓是一个“福音”，优美的界面，强大的插件功能，治愈很多的“强迫症患者”，但是要想使该编辑器媲美一些强大的IDE ( 比如 : <code>Visual Stdio</code>,<code>IDEA</code>,<code>PyCharm</code> )，当然需要一番的周折，下面这张图就介绍了任何一门语言想要通过 <code>VSCode</code> 进行编译和调试都要进行的5个配置步骤：</p><a id="more"></a><p><img src="https://gitee.com/codercxf/Blog_image_hexo/raw/master/VSCode-Xmind/VSCode%E7%8E%AF%E5%A2%83%E9%9C%80%E8%A6%81.png" alt=""></p><p>下面这张图是以 <code>C++</code> 配置为例：</p><p><img src="https://gitee.com/codercxf/Blog_image_hexo/raw/master/VSCode-Xmind/C++%E9%85%8D%E7%BD%AE.png" alt=""></p><ol><li>本地机运行环境:主要是指编译器和解释器；以 <code>C++</code> 为例，我们需要在 <code>Windows</code> 系统上安装编译器来编译 <code>C++</code> ，需要安装调试器来调试代码；<code>MinGw</code> 包含 <code>C/C++</code> 编译器 <code>gcc/g++</code>，同时包括调试器 <code>gdb</code>;有了这样的配置，然后再把这些工具配置在 <code>VSCode</code> 中，就可以实现基本的编译和调试，当然还不包括检错和代码格式化等其他IDE具有的功能；</li><li>调试： 在第一步中我们就已经安装好了调试器 <code>gdb</code> ，如果你不想使用 <code>MinGw</code> 包含的调试器，也可以网上去下载其他的调试器，只要在配置中配置相应的调试器位置即可；</li><li>格式化：要想使 <code>VSCode</code> 具有格式化的功能，需要安装插件，或者使用 <code>VSCode</code> 自带的格式化功能，这里推荐一款几乎支持所有主流语言的格式化插件 :<code>Prettier</code>;</li><li>检错功能，其实对于 <code>VSCode</code> 来说，基本的功能都具有，但是为了强化，比如还有 <code>代码颜色</code>，<code>自动补全</code> 等等，这里我们安装一款插件 :<code>C/C++</code>;</li><li>插件市场：如果你想体验 <code>VSCode</code> 更多的其他的功能的话，可以自己搜查一下好用的插件，但是对于 <code>C/C++</code> 的编译和调试来说，上面的几步已经足够。</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;微软出品的 &lt;code&gt;VSCode&lt;/code&gt; 对程序员来说可谓是一个“福音”，优美的界面，强大的插件功能，治愈很多的“强迫症患者”，但是要想使该编辑器媲美一些强大的IDE ( 比如 : &lt;code&gt;Visual Stdio&lt;/code&gt;,&lt;code&gt;IDEA&lt;/code&gt;,&lt;code&gt;PyCharm&lt;/code&gt; )，当然需要一番的周折，下面这张图就介绍了任何一门语言想要通过 &lt;code&gt;VSCode&lt;/code&gt; 进行编译和调试都要进行的5个配置步骤：&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="工具" scheme="http://codedancer.online/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="VSCode" scheme="http://codedancer.online/tags/VSCode/"/>
+    
+  </entry>
   
   <entry>
     <title>HTML</title>
