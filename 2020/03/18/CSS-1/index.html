@@ -46,12 +46,12 @@
   };
 </script>
 
-  <meta name="description" content="与HTML一样，CSS内容比较繁杂，需要自己消化实践总结才能用好，同时CSS也是前端开发者的基本功，该内容并没有包括CSS3新标准特性，其实有了CSS基础，学习CSS3也是非常轻松，文中难免有错误，所以本文持续更新中(添加、修改相关内容) 基本语法1.背景             CSS 允许应用纯色作为背景，也允许使用背景图像创建相当复杂的效果。CSS 在这方面的能力远远在 HTML 之上。主要">
+  <meta name="description" content="与HTML一样，CSS内容比较繁杂，需要自己消化实践总结才能用好，同时CSS也是前端开发者的基本功，该内容并没有包括CSS3新标准特性，其实有了CSS基础，学习CSS3也是非常轻松，文中难免有错误，所以本文持续更新中(添加、修改相关内容)主要有三个方面内容：  基础语法回顾； 选择器讲解； CSS 高级特性。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSS基础">
-<meta property="og:url" content="http:&#x2F;&#x2F;codedancer.online&#x2F;2020&#x2F;03&#x2F;18&#x2F;CSS&#x2F;index.html">
+<meta property="og:url" content="http:&#x2F;&#x2F;codedancer.online&#x2F;2020&#x2F;03&#x2F;18&#x2F;CSS-1&#x2F;index.html">
 <meta property="og:site_name" content="CXF&#39;s Blog">
-<meta property="og:description" content="与HTML一样，CSS内容比较繁杂，需要自己消化实践总结才能用好，同时CSS也是前端开发者的基本功，该内容并没有包括CSS3新标准特性，其实有了CSS基础，学习CSS3也是非常轻松，文中难免有错误，所以本文持续更新中(添加、修改相关内容) 基本语法1.背景             CSS 允许应用纯色作为背景，也允许使用背景图像创建相当复杂的效果。CSS 在这方面的能力远远在 HTML 之上。主要">
+<meta property="og:description" content="与HTML一样，CSS内容比较繁杂，需要自己消化实践总结才能用好，同时CSS也是前端开发者的基本功，该内容并没有包括CSS3新标准特性，其实有了CSS基础，学习CSS3也是非常轻松，文中难免有错误，所以本文持续更新中(添加、修改相关内容)主要有三个方面内容：  基础语法回顾； 选择器讲解； CSS 高级特性。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;gitee.com&#x2F;codercxf&#x2F;Blog_image_hexo&#x2F;raw&#x2F;master&#x2F;CSS&#x2F;table1.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;gitee.com&#x2F;codercxf&#x2F;Blog_image_hexo&#x2F;raw&#x2F;master&#x2F;CSS&#x2F;table2.png">
@@ -64,13 +64,13 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;gitee.com&#x2F;codercxf&#x2F;Blog_image_hexo&#x2F;raw&#x2F;master&#x2F;CSS&#x2F;%E4%BB%93.jpg">
 <meta property="og:image" content="https:&#x2F;&#x2F;gitee.com&#x2F;codercxf&#x2F;Blog_image_hexo&#x2F;raw&#x2F;master&#x2F;CSS&#x2F;nav-list.png">
 <meta property="article:published_time" content="2020-03-18T04:11:36.000Z">
-<meta property="article:modified_time" content="2020-03-18T04:15:10.880Z">
+<meta property="article:modified_time" content="2020-03-18T14:00:23.491Z">
 <meta property="article:author" content="CoderCXF">
 <meta property="article:tag" content="CSS基础">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;gitee.com&#x2F;codercxf&#x2F;Blog_image_hexo&#x2F;raw&#x2F;master&#x2F;CSS&#x2F;table1.png">
 
-<link rel="canonical" href="http://codedancer.online/2020/03/18/CSS/">
+<link rel="canonical" href="http://codedancer.online/2020/03/18/CSS-1/">
 
 
 <script id="page-configurations">
@@ -242,7 +242,7 @@
  
 
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://codedancer.online/2020/03/18/CSS/">
+    <link itemprop="mainEntityOfPage" href="http://codedancer.online/2020/03/18/CSS-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/profile.jpg">
@@ -301,8 +301,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/03/18/CSS/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/03/18/CSS/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/03/18/CSS-1/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/03/18/CSS-1/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -317,11 +317,18 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>与HTML一样，CSS内容比较繁杂，需要自己消化实践总结才能用好，同时CSS也是前端开发者的基本功，该内容并没有包括CSS3新标准特性，其实有了CSS基础，学习CSS3也是非常轻松，文中难免有错误，所以本文持续更新中(添加、修改相关内容)</p>
+        <p>与HTML一样，CSS内容比较繁杂，需要自己消化实践总结才能用好，同时CSS也是前端开发者的基本功，该内容并没有包括CSS3新标准特性，其实有了CSS基础，学习CSS3也是非常轻松，文中难免有错误，所以本文持续更新中(添加、修改相关内容)<br>主要有三个方面内容：</p>
+<ol>
+<li>基础语法回顾；</li>
+<li>选择器讲解；</li>
+<li><code>CSS</code> 高级特性。</li>
+</ol>
+<a id="more"></a>
+
 <h1 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h1><h2 id="1-背景"><a href="#1-背景" class="headerlink" title="1.背景"></a>1.背景</h2><div class="note success">
             <p>CSS 允许应用纯色作为背景，也允许使用背景图像创建相当复杂的效果。</p><p>CSS 在这方面的能力远远在 HTML 之上。</p><p>主要学习的属性：<br><code>background-color</code> ：设置背景色;<br><code>background-image</code> ：设置背景图片;<br><code>background-repeat</code> ： 背景是否重复;<br><code>background-position</code> ： 设置背景位置;<br><code>background-attachment</code> ： 设置背景是否滚动。</p>
           </div>
-<a id="more"></a>
+
 <h2 id="2-文本"><a href="#2-文本" class="headerlink" title="2.文本"></a>2.文本</h2><div class="note success">
             <p>CSS 文本属性可定义文本的外观。</p><p>通过文本属性，您可以改变文本的颜色、字符间距，对齐文本，装饰文本，对文本进行缩进，等等。</p><p>主要的属性有：<br><code>text-indent</code> : 缩进<br><code>text-align</code> : 水平对齐方式<br><code>text-decoration</code> : 文本修饰<br><code>text-transform</code> : 文本转换</p>
           </div>
@@ -334,6 +341,8 @@
 <p><strong>1. font-family</strong><br>显然，该属性就是用来定义使用的字体族的，有几个注意的点：</p>
 <p>   1) 定义的字体必须在用户的计算机上存在，否则会以默认字体显示；<br>   2) 可以定义多种字体，把自己觉得最靠谱的放在最后面<br>   3) 可以定义某个字体族中的具体某一个字体</p>
    <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">p</span> &#123;<br>   <span class="hljs-attribute">font-family</span>: Georgia serif;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
 <p>   其中<code>Georgia</code> 是一种具体的字体，该字体属于 <code>serif</code> 字体族；如果不指定某种具体的字体，则浏览器会自己在字体族中选择一种字体，结果当然是不确定的。</p>
 <p><strong>2. font-size</strong><br>   显然，<code>font-size</code> 就是来定义字体的大小的。<br>   单位可以是任意的单位： <code>px</code> 、<code>em</code> 、<code>百分比</code>。</p>
 <p><strong>3. font-weight</strong><br>   字体加粗，可选的值很多，但是真正使用的场景很少，因为不同的浏览器渲染效果不一样，但是最基本的加粗和不加粗还是可以使用的。<br>   原本可以使用的值有：<br>   <code>normal</code> : 文本正常显示，默认值<br>   <code>blod</code> : 粗体<br>   <code>bolder</code> : 更粗的字体<br>   还可以使用更加细致的数值作为属性值：<br>   数值为100~900，<code>400</code> 等同于 <code>normal</code>，而 <code>700</code> 等同于 <code>bold</code> 效果。</p>
@@ -345,32 +354,33 @@
 <blockquote>
 <p>斜体( <code>italic</code> )是一种简单的字体风格，对每个字母的结构有一些小改动，来反映变化的外观。与此不同，倾斜( <code>oblique</code> )文本则是正常竖直文本的一个倾斜版本。<br>通常情况下，<code>italic</code> 和 <code>oblique</code> 文本在 web 浏览器中看上去完全一样。</p>
 </blockquote>
-<h2 id="4-链接"><a href="#4-链接" class="headerlink" title="4.链接"></a>4.链接</h2>{% note success %}
-我们能够以不同的方法为链接设置样式。
-还可以将图像等设置为超链接。
-能够设置链接样式的 CSS 属性有很多种（例如: `color`, `font-family`, `background` 等等）。
+<h2 id="4-链接"><a href="#4-链接" class="headerlink" title="4.链接"></a>4.链接</h2><blockquote style="background-color: rgb(167, 201, 66);">
 
-链接的特殊性在于能够根据它们所处的状态来设置它们的样式。
-链接的四种状态：
+<p>我们能够以不同的方法为链接设置样式。</p>
+<p>还可以将图像等设置为超链接。</p>
+<p>能够设置链接样式的 CSS 属性有很多种（例如: <code>color</code>, <code>font-family</code>, <code>background</code> 等等）。</p>
+<p>链接的特殊性在于能够根据它们所处的状态来设置它们的样式。<br>链接的四种状态：</p>
+<ul>
+<li>a:link - 普通的、未被访问的链接</li>
+<li>a:visited - 用户已访问的链接</li>
+<li>a:hover - 鼠标指针位于链接的上方</li>
+<li>a:active - 链接被点击的时刻</blockquote>
 
-* a:link - 普通的、未被访问的链接
-* a:visited - 用户已访问的链接
-* a:hover - 鼠标指针位于链接的上方
-* a:active - 链接被点击的时刻
-  
-{% endnote %}
 
+</li>
+</ul>
 <p><strong>1. 为链接不同的状态设置不同的样式：</strong><br>   <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">a</span><span class="hljs-selector-pseudo">:link</span> &#123; <span class="hljs-attribute">color</span>: <span class="hljs-number">#ff0000</span>; &#125;<br><span class="hljs-selector-tag">a</span><span class="hljs-selector-pseudo">:hover</span> &#123; <span class="hljs-attribute">color</span>: <span class="hljs-number">#00ffff</span>; &#125;<br><span class="hljs-selector-tag">a</span><span class="hljs-selector-pseudo">:visited</span> &#123; <span class="hljs-attribute">color</span>: <span class="hljs-number">#000000</span>;&#125;<br><span class="hljs-selector-tag">a</span><span class="hljs-selector-pseudo">:active</span> &#123; <span class="hljs-attribute">color</span>: <span class="hljs-number">#000000</span>;&#125;<br></code></pre></td></tr></table></figure><br><strong>2. 将图片设置为超链接</strong><br>   <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css">&lt;a href="url"&gt;&lt;img src="URL" /&gt;&lt;/a&gt;<br></code></pre></td></tr></table></figure></p>
-<h2 id="5-列表"><a href="#5-列表" class="headerlink" title="5.列表"></a>5.列表</h2>{% note success %}
+<h2 id="5-列表"><a href="#5-列表" class="headerlink" title="5.列表"></a>5.列表</h2><blockquote style="background-color: rgb(167, 201, 66);">
 CSS 列表属性允许你放置、改变列表项标志，或者将图像作为列表项标志。
 
-属性名为：
-1. `list-style-type` -- 修改列表项的标志类型
-2. `list-style-image` --修改列表项标志为图片
-3. `list-style-position` --确定标志出现在列表项内容之外还是内容内部
+<p>属性名为：</p>
+<ol>
+<li><code>list-style-type</code> – 修改列表项的标志类型</li>
+<li><code>list-style-image</code> –修改列表项标志为图片</li>
+<li><code>list-style-position</code> –确定标志出现在列表项内容之外还是内容内部</blockquote>
 
-{% endnote %}
-
+</li>
+</ol>
 <p><strong>1. list-style-type</strong><br>属性可选值有：<br><code>none</code>    无标记。<br><code>disc</code>    默认。标记是实心圆。<br><code>circle</code>    标记是空心圆。<br><code>square</code>    标记是实心方块。<br><code>decimal</code>   标记是十进制数字(1、2、3…)<br>…<br>还有其他的可选值，具体的参考 : <a href="https://www.w3school.com.cn/cssref/pr_list-style-type.asp" target="_blank" rel="noopener">W3School官网</a><br><strong>2. list-style-image</strong></p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">ul</span> <span class="hljs-selector-tag">li</span> &#123; <span class="hljs-attribute">list-style-image</span>: <span class="hljs-built_in">url</span>(); &#125;<br></code></pre></td></tr></table></figure>
 <p><strong>3. list-style-position</strong><br>该属性的可选值有两个：<code>inside</code> 和 <code>outside</code> 。</p>
@@ -393,14 +403,12 @@ CSS 列表属性允许你放置、改变列表项标志，或者将图像作为�
 <p><strong>4. 简写属性</strong><br>将上面三个属性合在一起就能可以形成一个简写属性：<code>list-style</code>:</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">ul</span> &#123; <span class="hljs-attribute">list-style</span>: square <span class="hljs-built_in">url</span>() inside; &#125;<br></code></pre></td></tr></table></figure>
 
-<h2 id="6-表格"><a href="#6-表格" class="headerlink" title="6.表格"></a>6.表格</h2>{% note success %}
-CSS 表格属性可以帮助您极大地改善表格的外观。
+<h2 id="6-表格"><a href="#6-表格" class="headerlink" title="6.表格"></a>6.表格</h2><blockquote style="background-color: rgb(167, 201, 66);">
 
-可以分别为 `table`、`th`、`tr`、`td` 设置样式。
-
-其中最常见的一个属性，也是几乎每个表格必须要设置的属性是：
-`border-collapse` : 将表格边框折叠为单一的边框。
-{% endnote %}
+<p>CSS 表格属性可以帮助您极大地改善表格的外观。</p>
+<p>可以分别为 <code>table</code>、<code>th</code>、<code>tr</code>、<code>td</code> 设置样式。</p>
+<p>其中最常见的一个属性，也是几乎每个表格必须要设置的属性是：<br><code>border-collapse</code> : 将表格边框折叠为单一的边框。</p>
+</blockquote>
 
 <p><strong>例1.下面是一个折叠边框后的表格</strong></p>
 <table style="border-collapse: collapse;">
@@ -454,17 +462,12 @@ CSS 表格属性可以帮助您极大地改善表格的外观。
 结构样式如下：
 
 <p><img src="https://gitee.com/codercxf/Blog_image_hexo/raw/master/CSS/table2.png" alt=""></p>
-<h2 id="7-轮廓"><a href="#7-轮廓" class="headerlink" title="7. 轮廓"></a>7. 轮廓</h2>{% note success %}
-轮廓(`outlin`) 是绘制于元素周围的一条线，位于边框边缘的外围，可起到突出元素的作用。
+<h2 id="7-轮廓"><a href="#7-轮廓" class="headerlink" title="7. 轮廓"></a>7. 轮廓</h2><blockquote style="background-color: rgb(167, 201, 66);">
 
-`CSS outline` 属性规定元素轮廓的样式、颜色和宽度。和边框设置的属性一模一样，只不过是样式 (`outline-style`) 多一点：实线、虚线、点状线、双线等等。
-
-可以设置的属性和边框一样：
-`outline-width` : 轮廓的宽度
-`outline-style` : 轮廓的风格
-`outline-color` : 轮廓的颜色
-`outline`       : 简写属性
-{% endnote %}
+<p>轮廓 <code>outline</code>  是绘制于元素周围的一条线，位于边框边缘的外围，可起到突出元素的作用。</p>
+<p><code>CSS outline</code> 属性规定元素轮廓的样式、颜色和宽度。和边框设置的属性一模一样，只不过是样式 (<code>outline-style</code>) 多一点：实线、虚线、点状线、双线等等。</p>
+<p>可以设置的属性和边框一样：<br><code>outline-width</code> : 轮廓的宽度<br><code>outline-style</code> : 轮廓的风格<br><code>outline-color</code> : 轮廓的颜色<br><code>outline</code>       : 简写属性</p>
+</blockquote>
 
 <p><strong>下面演示轮廓的各种不同风格</strong></p>
 <p><img src="https://gitee.com/codercxf/Blog_image_hexo/raw/master/CSS/outline.png" alt=""></p>
@@ -476,9 +479,11 @@ CSS 表格属性可以帮助您极大地改善表格的外观。
 <blockquote>
 <p>注：只有IE8及其以上的版本才支持该属性！</p>
 </blockquote>
-<h1 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h1><h2 id="元素选择器"><a href="#元素选择器" class="headerlink" title="元素选择器"></a>元素选择器</h2>{% note success %}
-最常见的 CSS 选择器是元素选择器。换句话说，文档的元素标签名就是最基本的选择器。
-{% endnote %}
+<h1 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h1><h2 id="元素选择器"><a href="#元素选择器" class="headerlink" title="元素选择器"></a>元素选择器</h2><blockquote style="background-color: rgb(167, 201, 66);">
+
+<p>最常见的 CSS 选择器是元素选择器。换句话说，文档的元素标签名就是最基本的选择器。</p>
+</blockquote>
+
 <p>使用方法就是直接对某一个元素标签设置样式：比如 <code>&lt;html&gt;</code>、<code>body</code> 、<code>h1</code> 、<code>p</code>、<code>a</code>、<code>table</code> 等等，由于一旦设置某一个属性就是为整个文档设置，所以一般不使用。</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">body</span> &#123; <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#bfa</span>; &#125;<br><span class="hljs-selector-tag">h1</span> &#123; <span class="hljs-attribute">color</span>: <span class="hljs-number">#000</span>; &#125;<br><span class="hljs-selector-tag">p</span> &#123; <span class="hljs-attribute">font-size</span>: <span class="hljs-number">16px</span>;&#125;<br>...<br></code></pre></td></tr></table></figure>
 
@@ -520,11 +525,11 @@ CSS 表格属性可以帮助您极大地改善表格的外观。
 
 <p><strong>例2</strong>、对不同的列表设置样式</p>
 <p><img src="https://gitee.com/codercxf/Blog_image_hexo/raw/master/CSS/%E5%90%8E%E4%BB%A3%E9%80%89%E6%8B%A9%E5%99%A8.png" alt=""><br>在浏览器中显示如下：<br>        <ul class="eating" style="color: red; list-style: square outside;"><br>            <li>面包</li><br>            <li>牛奶</li><br>            <li>沙发</li><br>        </ul><br>        <ul class="fruit"><br>            <li>苹果</li><br>            <li>柿子</li><br>            <li>李子</li><br>            <li>梨</li><br>        </ul></p>
-<h2 id="子元素选择器"><a href="#子元素选择器" class="headerlink" title="子元素选择器"></a>子元素选择器</h2>{% note success %}
-与后代选择器相比，子元素选择器（ `Child selectors` )只能选择作为某元素子元素的元素。
+<h2 id="子元素选择器"><a href="#子元素选择器" class="headerlink" title="子元素选择器"></a>子元素选择器</h2><blockquote style="background-color: rgb(167, 201, 66);">
 
-作用就是只能选择子元素(儿子)，而不能选择孙子即其他的祖孙后代。
-{% endnote %}
+<p>与后代选择器相比，子元素选择器（ <code>Child selectors</code> )只能选择作为某元素子元素的元素。</p>
+<p>作用就是只能选择子元素(儿子)，而不能选择孙子即其他的祖孙后代。</p>
+</blockquote>
 
 <p>例如、你可以为元素 <code>p</code> 的子元素 <code>em</code> 元素设置样式，可以这样写：</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">p</span> &gt; <span class="hljs-selector-tag">em</span> &#123; <span class="hljs-attribute">color</span>: red; &#125;<br></code></pre></td></tr></table></figure>
@@ -785,7 +790,7 @@ background-color:#cc0000;
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://codedancer.online/2020/03/18/CSS/" title="CSS基础">http://codedancer.online/2020/03/18/CSS/</a>
+    <a href="http://codedancer.online/2020/03/18/CSS-1/" title="CSS基础">http://codedancer.online/2020/03/18/CSS-1/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -806,10 +811,13 @@ background-color:#cc0000;
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/03/18/CSS-1/" rel="prev" title="CSS基础">
-      <i class="fa fa-chevron-left"></i> CSS基础
+    <a href="/2020/03/11/VSCode%E9%85%8D%E7%BD%AE/" rel="prev" title="将VSCode打造为专属IDE">
+      <i class="fa fa-chevron-left"></i> 将VSCode打造为专属IDE
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2020/03/18/CSS/" rel="next" title="CSS基础">
+      CSS基础 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
