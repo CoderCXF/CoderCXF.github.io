@@ -3,7 +3,9 @@
   <entry>
     <title>JS BOM</title>
     <url>/2020/03/29/JS-BOM/</url>
-    <content><![CDATA[<p><code>javascript</code>由 <code>ECMAScript</code>、<code>BOM</code> 和 <code>DOM</code> 组成。<br>BOM (<code>Browser Object Model</code>) : 即浏览器对象模型。<br>BOM 允许开发者使用 <code>JavaScript</code> 操作浏览器。<br>BOM 没有统一的规范，不同的浏览器提供了几乎各不相同的BOM接口，这使得BOM既有意思又很复杂。<br>BOM中主要包含以下几个对象：</p>
+    <content><![CDATA[<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>javascript</code>由 <code>ECMAScript</code>、<code>BOM</code> 和 <code>DOM</code> 组成。<br>BOM (<code>Browser Object Model</code>) : 即浏览器对象模型。<br>BOM 允许开发者使用 <code>JavaScript</code> 操作浏览器。<br>BOM 没有统一的规范，不同的浏览器提供了几乎各不相同的BOM接口，这使得BOM既有意思又很复杂。</p>
+<a id="more"></a>
+<p>BOM中主要包含以下几个对象：</p>
 <ul>
 <li>window对象 ： 代表浏览器窗口；</li>
 <li>Location对象 ： 用于获取和操作当前页面的地址信息；</li>
@@ -11,7 +13,6 @@
 <li>screen对象： 用于获取用户的屏幕信息；</li>
 <li>History对象 ： 用于获取和操作浏览器的历史信息。</li>
 </ul>
-<a id="more"></a>
 <h1 id="Window对象"><a href="#Window对象" class="headerlink" title="Window对象"></a>Window对象</h1><p>所有浏览器都支持 window 对象。它代表浏览器的窗口。</p>
 <p>所有全局 JavaScript 对象，函数和变量自动成为 window 对象的成员。</p>
 <p>全局变量是 window 对象的属性。</p>
