@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/pinguin-32.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/pinguin-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/pinguin-32.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Monda:200,200italic,400,400italic,700,700italic|Roboto Slab:200,200italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('http://codedancer.online').hostname,
+    root: '/',
+    scheme: 'Muse',
+    version: '7.6.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":true},
+    copycode: {"enable":true,"show_result":true,"style":"default"},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":true,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="最近在刷 Leetcode 中的链表部分，基本上刷的差不多了，解题的套路也基本就那些。希望把这些经验分享给大家，也算是自己总结。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LeetCode与链表1">
+<meta property="og:url" content="http:&#x2F;&#x2F;codedancer.online&#x2F;2020&#x2F;05&#x2F;01&#x2F;leetcode%E4%B8%8E%E9%93%BE%E8%A1%A8&#x2F;index.html">
+<meta property="og:site_name" content="CXF&#39;s Blog">
+<meta property="og:description" content="最近在刷 Leetcode 中的链表部分，基本上刷的差不多了，解题的套路也基本就那些。希望把这些经验分享给大家，也算是自己总结。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;gitee.com&#x2F;codercxf&#x2F;Blog_image_hexo&#x2F;raw&#x2F;master&#x2F;%E9%93%BE%E8%A1%A8%E4%B8%8ELeetCode&#x2F;%E9%93%BE%E8%A1%A8%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A8%A1%E5%9E%8B.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;gitee.com&#x2F;codercxf&#x2F;Blog_image_hexo&#x2F;raw&#x2F;master&#x2F;%E9%93%BE%E8%A1%A8%E4%B8%8ELeetCode&#x2F;%E5%B8%A6%E6%9C%89%E5%A4%B4%E7%BB%93%E7%82%B9%E7%9A%84%E9%93%BE%E8%A1%A8.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;gitee.com&#x2F;codercxf&#x2F;Blog_image_hexo&#x2F;raw&#x2F;master&#x2F;%E9%93%BE%E8%A1%A8%E4%B8%8ELeetCode&#x2F;%E5%8D%95%E9%93%BE%E8%A1%A8%E7%9A%84%E6%8F%92%E5%85%A5.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;gitee.com&#x2F;codercxf&#x2F;Blog_image_hexo&#x2F;raw&#x2F;master&#x2F;%E9%93%BE%E8%A1%A8%E4%B8%8ELeetCode&#x2F;%E5%8D%95%E9%93%BE%E8%A1%A8%E8%A1%A8%E5%A4%B4%E5%92%8C%E8%A1%A8%E5%B0%BE%E7%9A%84%E6%8F%92%E5%85%A5.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;gitee.com&#x2F;codercxf&#x2F;Blog_image_hexo&#x2F;raw&#x2F;master&#x2F;%E9%93%BE%E8%A1%A8%E4%B8%8ELeetCode&#x2F;%E5%8D%95%E9%93%BE%E8%A1%A8%E7%9A%84%E5%88%A0%E9%99%A4.png">
+<meta property="article:published_time" content="2020-05-01T02:25:33.000Z">
+<meta property="article:modified_time" content="2020-05-01T02:25:33.565Z">
+<meta property="article:author" content="CoderCXF">
+<meta property="article:tag" content="LeetCode">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;gitee.com&#x2F;codercxf&#x2F;Blog_image_hexo&#x2F;raw&#x2F;master&#x2F;%E9%93%BE%E8%A1%A8%E4%B8%8ELeetCode&#x2F;%E9%93%BE%E8%A1%A8%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A8%A1%E5%9E%8B.png">
+
+<link rel="canonical" href="http://codedancer.online/2020/05/01/leetcode%E4%B8%8E%E9%93%BE%E8%A1%A8/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>LeetCode与链表1 | CXF's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="CXF's Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">CXF's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-fw fa-calendar"></i>日程表</a>
+
+  </li>
+        <li class="menu-item menu-item-books">
+
+    <a href="/books/" rel="section"><i class="fa fa-fw fa-book"></i>读书</a>
+
+  </li>
+        <li class="menu-item menu-item-movies">
+
+    <a href="/movies/" rel="section"><i class="fa fa-fw fa-video-camera"></i>电影</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/CoderCXF" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+ 
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://codedancer.online/2020/05/01/leetcode%E4%B8%8E%E9%93%BE%E8%A1%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/profile.jpg">
+      <meta itemprop="name" content="CoderCXF">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CXF's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          LeetCode与链表1
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-05-01 10:25:33" itemprop="dateCreated datePublished" datetime="2020-05-01T10:25:33+08:00">2020-05-01</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/05/01/leetcode%E4%B8%8E%E9%93%BE%E8%A1%A8/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/05/01/leetcode%E4%B8%8E%E9%93%BE%E8%A1%A8/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>最近在刷 <code>Leetcode</code> 中的链表部分，基本上刷的差不多了，解题的套路也基本就那些。希望把这些经验分享给大家，也算是自己总结。</p>
+<a id="more"></a>
+<h1 id="链表基础"><a href="#链表基础" class="headerlink" title="链表基础"></a>链表基础</h1><p>首先我们来回忆一下链表的基本知识点。</p>
+<ul>
+<li>链表就是线性表的链式存储结构，顺序存储结构就是数组了。</li>
+<li>而链表是由节点组成的。一个节点包括数据域和指针域。</li>
+<li>指针域保存着下一个节点的位置( 内存地址值 )，所以使得所有的节点都能连接起来。最后一个节点的指针域为 <code>null</code>，表示是最后一个节点( 链表结束 )。</li>
+</ul>
+<h2 id="链路结构图"><a href="#链路结构图" class="headerlink" title="链路结构图"></a>链路结构图</h2><p>当然所有的链表都要由头有尾，在电脑内存中我们怎样才能找到这个链表呢？或者说怎样找到这个链表的首元素节点呢？( 因为找到了首元素节点就能通过指针找到第二个节点，以此类推… ，就能遍历整个链表)，所以一般一个链表都有一个叫做头指针( <code>head</code> ) 的东西，头指针指向的是第一个元素节点(<span style="color: orange">注意:这里我们还没有提出头结点的概念，所以暂且认为 <code>head</code> 就是指向第一个元素节点</span>)</p>
+<p>下面是一个链表简单的模拟图，供大家参考：</p>
+<p><img src="https://gitee.com/codercxf/Blog_image_hexo/raw/master/%E9%93%BE%E8%A1%A8%E4%B8%8ELeetCode/%E9%93%BE%E8%A1%A8%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A8%A1%E5%9E%8B.png" alt=""></p>
+<h2 id="带有头结点的链表"><a href="#带有头结点的链表" class="headerlink" title="带有头结点的链表"></a>带有头结点的链表</h2><p>由于链表没有向前的指针，我们之后要对链表进行插入和删除节点的操作，试想如何在第一个元素之前再插入一个元素，或者如何删除第一个元素呢，所以为了操作方便，之后不用再反复的讨论所要操作的节点是不是第一个元素节点，又引入了 <code>头结点</code> 的概念。</p>
+<p>头结点的数据域可以不保存数据，谁让它是第一个节点呢。但有时候存储整个链表的长度( 一般指示为 <code>0</code> 就好 )。</p>
+<p>头结点的指针域指向的是第一个元素节点。如图所示：</p>
+<p><img src="https://gitee.com/codercxf/Blog_image_hexo/raw/master/%E9%93%BE%E8%A1%A8%E4%B8%8ELeetCode/%E5%B8%A6%E6%9C%89%E5%A4%B4%E7%BB%93%E7%82%B9%E7%9A%84%E9%93%BE%E8%A1%A8.png" alt=""></p>
+<div class="note info">
+            <p>Tips: 注意区分头指针和头结点</p>
+          </div>
+
+<h2 id="设计链表"><a href="#设计链表" class="headerlink" title="设计链表"></a>设计链表</h2><p>有了以上的基础，我们就可以使用 <code>JS</code> 手写一个链表。</p>
+<p>我们设计的链表需要包含两个类，一个是 <code>ListNode</code> 类用来表示节点，另一个是 <code>LinkedList</code> 类提供插入节点、删除节点等一些操作。</p>
+<h3 id="ListNode-类"><a href="#ListNode-类" class="headerlink" title="ListNode 类"></a>ListNode 类</h3><p><code>ListNode</code> 类有两个属性：一个是数据域 <code>val</code> 用来保存节点的数据，另一个是指针域 <code>next</code>，保存下一个节点的链接。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">ListNode</span>(<span class="hljs-params">val</span>) </span>&#123;<br>    <span class="hljs-keyword">this</span>.val = val;<br>    <span class="hljs-keyword">this</span>.next = <span class="hljs-literal">null</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="LinkList-类"><a href="#LinkList-类" class="headerlink" title="LinkList 类"></a>LinkList 类</h3><p><code>LinkList</code> 类提供了链表的操作的方法，比如有插入节点、删除节点和修改某个节点的值等等。</p>
+<p>我们这里使用构造函数和原型相结合的方法创建对象:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">ListNode</span>(<span class="hljs-params">val</span>) </span>&#123;<br>    <span class="hljs-keyword">this</span>.val = val;<br>    <span class="hljs-keyword">this</span>.next = <span class="hljs-literal">null</span>;<br>&#125;<br>    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">LinkList</span>(<span class="hljs-params"></span>) </span>&#123;<br>    <span class="hljs-keyword">this</span>.head = <span class="hljs-keyword">new</span> ListNode(<span class="hljs-number">0</span>);<span class="hljs-comment">//这是头结点，数据域的值可以随便保存，一般指示为0就好</span><br>    <span class="hljs-keyword">this</span>.size = <span class="hljs-number">0</span>;<br>&#125;<br><br>LinkList.prototype = &#123;<br>    <span class="hljs-attr">Constructor</span>: LinkList,<br>    <span class="hljs-attr">get</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">index</span>) </span>&#123;<br>    <span class="hljs-comment">// if index is invalid</span><br>    <span class="hljs-keyword">if</span> (index &lt; <span class="hljs-number">0</span> || index &gt;= <span class="hljs-keyword">this</span>.size) <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;<br><br>    <span class="hljs-keyword">let</span> curr = <span class="hljs-keyword">this</span>.head;<br>    <span class="hljs-comment">// index steps needed </span><br>    <span class="hljs-comment">// to move from sentinel node to wanted index</span><br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; index + <span class="hljs-number">1</span>; ++i) curr = curr.next;<br>    <span class="hljs-keyword">return</span> curr.val;<br>  &#125;,<br>  <span class="hljs-comment">/** Add a node of value val before the index-th node in the linked list. If index equals to the length of linked list, the node will be appended to the end of linked list. If index is greater than the length, the node will not be inserted. */</span><br>  <span class="hljs-attr">addAtIndex</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">index, val</span>) </span>&#123;<br>    <span class="hljs-comment">// If index is greater than the length, </span><br>    <span class="hljs-comment">// the node will not be inserted.</span><br>    <span class="hljs-keyword">if</span> (index &gt; <span class="hljs-keyword">this</span>.size) <span class="hljs-keyword">return</span>;<br><br>    <span class="hljs-comment">// [so weird] If index is negative, </span><br>    <span class="hljs-comment">// the node will be inserted at the head of the list.</span><br>    <span class="hljs-keyword">if</span> (index &lt; <span class="hljs-number">0</span>) index = <span class="hljs-number">0</span>;<br><br>    ++<span class="hljs-keyword">this</span>.size;<br>    <span class="hljs-comment">// find predecessor of the node to be added</span><br>    <span class="hljs-keyword">let</span> pred = <span class="hljs-keyword">this</span>.head;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; index; ++i) pred = pred.next;<br><br>    <span class="hljs-comment">// node to be added</span><br>    <span class="hljs-keyword">let</span> toAdd = <span class="hljs-keyword">new</span> ListNode(val);<br>    <span class="hljs-comment">// insertion itself</span><br>    toAdd.next = pred.next;<br>    pred.next = toAdd;<br>  &#125;,<br><br>  <span class="hljs-comment">/** Add a node of value val before the first element of the linked list. After the insertion, the new node will be the first node of the linked list. */</span><br>  <span class="hljs-attr">addAtHead</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">val</span>) </span>&#123;<br>    <span class="hljs-keyword">this</span>.addAtIndex(<span class="hljs-number">0</span>, val);<br>  &#125;,<br><br>  <span class="hljs-comment">/** Append a node of value val to the last element of the linked list. */</span><br>  <span class="hljs-attr">addAtTail</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">val</span>) </span>&#123;<br>    <span class="hljs-keyword">this</span>.addAtIndex(<span class="hljs-keyword">this</span>.size, val);<br>  &#125;,<br><br><br>  <span class="hljs-comment">/** Delete the index-th node in the linked list, if the index is valid. */</span><br>  <span class="hljs-attr">deleteAtIndex</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">index</span>) </span>&#123;<br>    <span class="hljs-comment">// if the index is invalid, do nothing</span><br>    <span class="hljs-keyword">if</span> (index &lt; <span class="hljs-number">0</span> || index &gt;= <span class="hljs-keyword">this</span>.size) <span class="hljs-keyword">return</span>;<br><br>    <span class="hljs-keyword">this</span>.size--;<br>    <span class="hljs-comment">// find predecessor of the node to be deleted</span><br>    <span class="hljs-keyword">let</span> pred = head;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; index; ++i) pred = pred.next;<br><br>    <span class="hljs-comment">// delete pred.next </span><br>    pred.next = pred.next.next;<br>  &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<div class="note danger">
+            <p>Tips: 创建链表类的方法很多，但是基本的思想都是一样的，上面这种方法可能并不是最好的，但是能解决问题。<br>自己设置链表本身就是 <code>LeetCode</code> 上面的题。第707题: 设计链表</p>
+          </div>
+
+<h2 id="链表类方法"><a href="#链表类方法" class="headerlink" title="链表类方法"></a>链表类方法</h2><p>对链表的操作方法无外乎就是遍历、插入某一个节点和删除某一个节点。</p>
+<h3 id="遍历节点"><a href="#遍历节点" class="headerlink" title="遍历节点"></a>遍历节点</h3><ul>
+<li>在链表中最重要的操作就是遍历链表或者是叫查找。</li>
+<li>与数组的顺序结构不同，其每个节点在内存中的位置都是不确定的，所以如果想要获得链表的长度或者是查找某个子节点，都需要从头开始遍历，直至满足相应的结束条件。</li>
+</ul>
+<p>1、比如我们需要获得整个链表的长度，也就是链表的节点数：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> curr = head; <span class="hljs-comment">//头指针是一个链表的唯一标识，所以我们一般不动它，否则就找不到链表的头了</span><br><span class="hljs-keyword">let</span> size = <span class="hljs-number">0</span>;<br><span class="hljs-keyword">while</span> (curr) &#123;<br> size++;<br> p = p.next;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote style="background-color: pink">
+<pre>
+这里有几个点需要注意一下：
+1. head 是链表的唯一标识，不管是指向头结点还是指向首元素节点，都不能轻易的移动，否则就找不到链表的头了，所以一般都是使用另一个指针代替 head 节点去遍历( 相当于 head 始终在家看家护院，而吩咐 curr 去干活 ) ；
+2. 第二个需要注意的就是停止的条件是 curr 为空还是  curr.next 为空。
+*  这里就要是看自己的要求，如果自己是想遍历到最后的一个节点就结束的话，而不是 null 结束，就使得：<code>size = 1; while(curr.next);</code>，遍历结束后，p 指向最后一个元素节点。当然前提是 head.next 存在。
+*  如果条件是 curr 为空的话，那么就是 size 就要从 0 开始，遍历结束后， p == null;
+</pre>
+</blockquote>
+
+<h3 id="插入节点"><a href="#插入节点" class="headerlink" title="插入节点"></a>插入节点</h3><p>链表基本的操作就是插入一个节点和删除一个节点，相对于数组的顺序存储结构来说，插入和删除操作的时间复杂度为 <code>O(1)</code>,因为不用将要插入的节点或者是要删除的节点后面的所有元素逐位后移。</p>
+<p>比如我们想要在 <code>p</code> 节点后面插入元素接节点 <code>s</code>,如下图所示：<br><img src="https://gitee.com/codercxf/Blog_image_hexo/raw/master/%E9%93%BE%E8%A1%A8%E4%B8%8ELeetCode/%E5%8D%95%E9%93%BE%E8%A1%A8%E7%9A%84%E6%8F%92%E5%85%A5.png" alt=""></p>
+<p>由上图可知，由于不是连续存储空间，所以根本不用去惊动其他的节点，只要操作 <code>p</code> 节点的指向<code>s</code> 节点以及 <code>s</code> 节点 指向 <code>p-&gt;next</code> 节点即可。<br>具体的操作方法是：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java">s-&gt;next = p-&gt;next;<br>p-&gt;next = s;<br></code></pre></td></tr></table></figure>
+<p>1、首先 <code>s-&gt;next = p-&gt;next</code> 就是将要新插入的元素节点 <code>s</code> 指向原本 <code>p</code> 节点的下一个节点 <code>p-&gt;next</code>;这个时候 <code>p</code> 节点和 <code>s</code> 节点的下一个节点都指向 <code>p-&gt;next</code>；<br>2、使 <code>p</code> 指向新插入的节点 <code>s</code>，而不再指向原来的节点，即 <code>p-&gt;next = s</code>。<br>这样，整个的插入过程就结束了。由此可见时间复杂度就是 <code>O(1)</code>。</p>
+<p>带有头结点的插入操作一样：<br><img src="https://gitee.com/codercxf/Blog_image_hexo/raw/master/%E9%93%BE%E8%A1%A8%E4%B8%8ELeetCode/%E5%8D%95%E9%93%BE%E8%A1%A8%E8%A1%A8%E5%A4%B4%E5%92%8C%E8%A1%A8%E5%B0%BE%E7%9A%84%E6%8F%92%E5%85%A5.png" alt=""></p>
+<div class="note warning">
+            <p>Tips: 现在头结点的优势就很好的体现出来了！</p>
+          </div>
+<h3 id="删除节点"><a href="#删除节点" class="headerlink" title="删除节点"></a>删除节点</h3><p>删除节点的操作就更简单了，比如我们需要删除 <code>p</code> 节点后面的节点 <code>p-&gt;next</code>,只要使节点 <code>p</code> 的 <code>next</code> 指针指向 <code>p-&gt;next-&gt;next</code> 即可：<br><img src="https://gitee.com/codercxf/Blog_image_hexo/raw/master/%E9%93%BE%E8%A1%A8%E4%B8%8ELeetCode/%E5%8D%95%E9%93%BE%E8%A1%A8%E7%9A%84%E5%88%A0%E9%99%A4.png" alt=""><br>只要一行代码( 前提是通过遍历找到节点 <code>p</code> ):</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript">p-&gt;next = p-&gt;next-&gt;next;<br></code></pre></td></tr></table></figure>
+<div class="note danger">
+            <p>Tips: 虽然我们直接把 <code>p-&gt;next</code> 这个节点忽略了，但是它仍然还在内存中，还占用内存空间，在 <code>c</code> 或者是 <code>c++</code> 等需要手动释放资源的语言中，如果不手动释放节点的内存空间，就会造成内存泄露。但是在 <code>Java</code> 以及我们使用的 <code>JavaScript</code> 语言机制中不需要考虑这一点。</p>
+          </div>
+
+<p>写着写着发现基础部分写的有点多了，所以为了不影响观感，内容不至于过长，我把 <code>LeetCode</code> 中链表部分的解题思路放在下一篇博客了，如有需要，请移步下一篇文章。</p>
+<p><span style="text-align: center">《—————————————————————————————————————————————————————————————————————————————————————————–》</span></p>
+
+    </div>
+
+    
+    
+    
+    
+        <div class="reward-container">
+  <div>您的认可是我不断进步的动力</div>
+  <button disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/WeChat.png" alt="CoderCXF 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/zhifubao.jpg" alt="CoderCXF 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>CoderCXF
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://codedancer.online/2020/05/01/leetcode%E4%B8%8E%E9%93%BE%E8%A1%A8/" title="LeetCode与链表1">http://codedancer.online/2020/05/01/leetcode与链表/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/LeetCode/" rel="tag"><i class="fa fa-tag"></i> LeetCode</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/03/30/JSON/" rel="prev" title="JSON数据格式">
+      <i class="fa fa-chevron-left"></i> JSON数据格式
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#链表基础"><span class="nav-text">链表基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#链路结构图"><span class="nav-text">链路结构图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#带有头结点的链表"><span class="nav-text">带有头结点的链表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设计链表"><span class="nav-text">设计链表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ListNode-类"><span class="nav-text">ListNode 类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LinkList-类"><span class="nav-text">LinkList 类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#链表类方法"><span class="nav-text">链表类方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#遍历节点"><span class="nav-text">遍历节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插入节点"><span class="nav-text">插入节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除节点"><span class="nav-text">删除节点</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="CoderCXF"
+      src="/images/profile.jpg">
+  <p class="site-author-name" itemprop="name">CoderCXF</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/CoderCXF" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;CoderCXF" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-fw fa-rss"></i>RSS</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://juejin.im/user/5def6150f265da33ee177b22/" title="https:&#x2F;&#x2F;juejin.im&#x2F;user&#x2F;5def6150f265da33ee177b22&#x2F;" rel="noopener" target="_blank">掘金</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://blog.csdn.net/weixin_42119041/" title="https:&#x2F;&#x2F;blog.csdn.net&#x2F;weixin_42119041&#x2F;" rel="noopener" target="_blank">我的CSDN</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">CoderCXF</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="我的第 undefined 位朋友，">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="历经 undefined 次回眸才与你相遇">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = '';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el: '#valine-comments',
+      verify: false,
+      notify: false,
+      appId: 'w9s009dHk9XMM2fvxTfbK12e-gzGzoHsz',
+      appKey: 'PxOVyJ7mmj0TlAHjABWiK5jO',
+      placeholder: "欢迎留言评论...",
+      avatar: 'mm',
+      meta: guest,
+      pageSize: '10' || 10,
+      visitor: false,
+      lang: '' || 'zh-cn',
+      path: location.pathname,
+      recordIP: false,
+      serverURLs: ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
