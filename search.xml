@@ -3,7 +3,7 @@
   <entry>
     <title>LeetCode与链表1</title>
     <url>/2020/05/01/leetcode%E4%B8%8E%E9%93%BE%E8%A1%A8/</url>
-    <content><![CDATA[<p>最近在刷 <code>Leetcode</code> 中的链表部分，基本上刷的差不多了，解题的套路也基本就那些。希望把这些经验分享给大家，也算是自己总结。</p>
+    <content><![CDATA[<p>最近在刷 <code>Leetcode</code> 中的链表部分，基本上刷的差不多了，解题的套路也基本就那些。希望把这些经验分享给大家，也算是对自己的总结。</p>
 <a id="more"></a>
 <h1 id="链表基础"><a href="#链表基础" class="headerlink" title="链表基础"></a>链表基础</h1><p>首先我们来回忆一下链表的基本知识点。</p>
 <ul>
