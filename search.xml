@@ -55,9 +55,10 @@
 <p>2.将自定义变量变为环境变量<br><code>export</code> 指令：将自定义变量变为环境变量</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> 首先自定义一个环境变量，然后开启一个bash子程序</span><br><span class="hljs-meta">$</span><span class="bash"> school=NNU</span><br><span class="hljs-meta">$</span><span class="bash"> <span class="hljs-built_in">echo</span> <span class="hljs-variable">$&#123;school&#125;</span></span><br>NNU<br><span class="hljs-meta"><br>$</span><span class="bash"> bash</span><br><span class="hljs-meta">$</span><span class="bash"> <span class="hljs-built_in">echo</span> <span class="hljs-variable">$&#123;school&#125;</span></span><br><span class="hljs-meta">#</span><span class="bash"> 无输出</span><br></code></pre></td></tr></table></figure>
 <p>由上例可知，在子程序中无法使用父程序中定义的变量，但是可以使用 <code>export</code> 将父程序中的变量暴露出去。供其他程序的使用。</p>
-{% note warning%}
-Tips: 这点和 `ES6` 中的 `export` 原理基本上是一致。
-{% endnote %}
+<div style="border: 1px solid red; border-radius: 10px; padding: 10px;">
+<span style="color: red;">Tips</span> : 这点和 <span style="color: red;">ES6</span> 中的 <span style="color: red;">export</span> 原理基本上是一致。
+</div>
+
 <h4 id="2-1-4-变量的键盘读取、阵列和宣告"><a href="#2-1-4-变量的键盘读取、阵列和宣告" class="headerlink" title="2.1.4 变量的键盘读取、阵列和宣告"></a>2.1.4 变量的键盘读取、阵列和宣告</h4><p>我们可以从键盘读取用户输入作为变量的值， 即 <code>read</code> 指令。</p>
 <p>还可以使用阵列( <code>array</code> )保存一组变量,说白了就是数组。</p>
 <p>还可以使用 <code>declare</code> 宣告变量的类型，还可以将自定义的变量转换为环境变量，与 <code>export</code> 的用处一样。</p>
