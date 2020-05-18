@@ -1,6 +1,223 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>《私房菜》学会了几道菜?</title>
+    <url>/2020/05/18/%E3%80%8A%E7%A7%81%E6%88%BF%E8%8F%9C%E3%80%8B%E5%AD%A6%E4%BC%9A%E4%BA%86%E5%87%A0%E9%81%93%E8%8F%9C/</url>
+    <content><![CDATA[<p>最近在读《鸟哥的Linux私房菜》发现真的不错，不愧是 <code>Linux</code> 方面的经典书籍，非常适合用来入门和扫盲。推荐就完事了…</p>
+<a id="more"></a>
+<h1 id="书中都讲了什么？"><a href="#书中都讲了什么？" class="headerlink" title="书中都讲了什么？"></a>书中都讲了什么？</h1><p>首先这本书是真的很厚，很多人看到这本书之后就会由衷的来一句：<code>卧槽，经典，以后再来拜读</code>， 其实大家真的都是这样，因为实在是太厚了，<code>900</code>多页将近<code>1000</code>页。但是最近闲在家里就一时兴起觉得先看看难度怎样，结果就一发不可收拾，立马虚拟机、<code>Centos</code> 安排上了。</p>
+<p>这本书确实很厚，但是讲的东西其实是有点扫盲性质的，全篇都在讲 <code>Linux</code> 的基础和一些常用的命令，比如 <code>Linux</code> 中的目录和文件的权限和管理，打包压缩和解压等等操作，大家对其中的很多东西都是有概念的。除此之外，还有就是一些在 <code>Linux</code> 操作系统中必会的一些工具，比如有 <code>vim</code> 编辑器 、<code>bash</code> 、<code>shell script</code> 和 <code>rpm</code> 包管理工具等等，所以总的来做这本书真的很好学习，尤其是可以一边看书一边实践 ( 写指令 )，学习进度真的非常快。</p>
+<p><span style="color: red; font-size: 22px">来梳理一下书中所介绍大概内容：</span></p>
+<ol>
+<li>介绍 <code>Linux</code> 和 <code>Linux distributions</code>,以及如何学习 <code>Linux</code>,这一章基本就是扫盲；</li>
+<li><code>Linux</code> 的磁盘分区和为在虚拟机上安装 <code>Linux</code> 做铺垫；</li>
+<li>在 <code>KVM</code> 上安装 <code>Centos 7.1</code> 的流程并且进行相关的配置说明；当然我们可以在 <code>VMWare</code> 等虚拟机软件上安装都可以；后面有一章节介绍的是专门对 <code>Centos</code> 的基础设置，例如：日期和时间、语系和防火墙设置等等；</li>
+<li><code>Linux</code> 首次登陆以及对 <code>X window</code> 模式和文字模式的介绍，还有一些基础指令，最重要的就是 <code>--help</code> 和 <code>man page</code> 的使用，大家多试几次就可以很容易理解和掌握；</li>
+<li><code>Linux</code> 文件和目录权限，整个一章都是在讲那十个字符 <code>-/d/l/b/c rwx-rwx-rwx</code>，以及三个改变文件属性和权限的命令： <code>chgrp</code>、<code>chown</code> 和 <code>chmod</code>；</li>
+<li>介绍对文件和目录的常用操作命令： <code>cd</code>、<code>pwd</code>、<code>mkdir</code> 和 <code>rmdir</code> 以及 <code>cp</code>、<code>rm</code>和 <code>mv</code>；以及查看文件的命令： <code>cat</code>、<code>tac</code>、<code>head</code>、<code>tail</code>、<code>more</code>、<code>less</code>等常见操作，都是基础命令；</li>
+<li>磁盘与文件系统的管理</li>
+<li>文件与文件的打包压缩和解压常用的命令，比如 <code>tar</code> 指令：</li>
+<li><code>vim</code> 程序编辑器，就是一个编辑器，和 <code>VSCode</code> 一样，学习也就是学习一些常用的快捷键操作，比如：快速定位到某一行 <code>nG</code>，快速定位到行首 <code>0</code> 和行尾 <code>$</code>，删除行<code>dd</code> 或者是 <code>ndd</code> ( 删除第n行 )，复制粘贴等等常用操作快捷键；</li>
+<li>介绍 <code>bash</code> 和基本的使用方法以及基本的使用命令；</li>
+<li>正则表达式，正则表达式就是处理字符串的方法；主要介绍了基础正则和延伸的正则；</li>
+<li><code>Shell script</code> ，<code>shell script</code> 是利用 <code>shell</code> 的功能所写的一个“程序 （program）”，这个程序是使用纯文本文件，将一些 <code>shell</code> 的语法与指令（含外部指令）写在里面， 搭配正则表达式、管线命令与数据流重导向等功能，以达到我们所想要的处理目的；介绍的也仅仅是入门级别的<code>shell script</code>;</li>
+<li>如何在 <code>Linux</code> 中安装软件以及卸载软件两大方法；以及 <code>rpm</code> (<code>yum</code>) 和 <code>srpm</code> 两个包管理工具；</li>
+<li>还介绍了 <code>X window</code> 以及设置；</li>
+</ol>
+<div class="note danger">
+            <p>Tips: 总的来说好像东西看着挺多，确实是这样，但是仔细的划分一下，其实并不算多，除了我们几个工具： <code>vim</code> <code>bash</code> <code>shell script</code>、<code>rpm</code> 和 <code>srpm</code>，其余的都是操作系统的基础知识和 <code>Linux</code> 的常用命令，所以这本书可以当做手册来用。哪里不会翻哪里！</p>
+          </div>
+
+<div class="note warning">
+            <p>下面只总结了 <code>vim</code> <code>bash</code> 和<code>shell script</code> 的基础知识。</p><p>因为书中内容太多，所以还是建议买来当做参考书使用！</p>
+          </div>
+<h1 id="第一道菜：vim编辑器"><a href="#第一道菜：vim编辑器" class="headerlink" title="第一道菜：vim编辑器"></a>第一道菜：vim编辑器</h1><p><code>vim</code> 编辑器是所有的 <code>Unix-like</code> 的系统都会内置的一款文本编辑器，速度快，功能强大，可以说是 <span style="color: red; font-size: 22px">上古神器</span>。</p>
+<p>所以还是很有必要了解一下的，不一定要很好地掌握，最起码知道基本的命令，以后听别人说起的时候也不至于一脸懵逼。<br>编辑器就是编辑器，有什么好学的，直接用就好了，最主要的就是快捷键使用，如果不能很好地使用快捷键，那 <code>vim</code> 真的是很难用（自己感觉是这样）。《私房菜》上鸟哥整理了的 <code>vim</code> 的快捷键，但是说的太过详细，不太简洁，这里附上自己找的一张图，总之 <code>vim</code> 的操作还是挺复杂的，想要用好并不容易。</p>
+<h2 id="1-1-vim快捷键操作"><a href="#1-1-vim快捷键操作" class="headerlink" title="1.1 vim快捷键操作"></a>1.1 vim快捷键操作</h2><img src="https://gitee.com/codercxf/Blog_image_hexo/raw/master/Linux/vim.gif" style="box-shadow: 0 0 10px rgba(0,0,0,.5); border-radius: 15px">
+
+<h2 id="1-2-vim-个人环境设置"><a href="#1-2-vim-个人环境设置" class="headerlink" title="1.2 vim 个人环境设置"></a>1.2 <code>vim</code> 个人环境设置</h2><p>在 <code>Linux</code> 中有几个文件是用来设置和管理 <code>vim</code> 的。</p>
+<p>整体 <code>vim</code> 的环境设置一般是放置在 <code>/etc/vimrc</code> 这个文件，不过，不建议你修改他！ 你可以修改 <code>~/.vimrc</code> 这个文件 （默认不存在，需要自行手动创建！） </p>
+<p>也可以认为 <code>/etc/vimrc</code> 是整体的 <code>vim</code> 环境设置， 而需要自己创建的 <code>~/.vimrc</code> 这个文件则是个人偏好设置，这样好像更好理解一点。所以我们个人的设置都放在 <code>~/.vimrc</code> 文件中。<br>例如我们可以设置 <code>vim</code> 显示行号，默认的 <code>vim</code> 是不带行号的；还可以设置自动缩排列，语法检查高亮等设置。以下是鸟哥给出的配置例子：(我又加上了自己的一点配置)</p>
+<img src="https://gitee.com/codercxf/Blog_image_hexo/raw/master/Linux/vim2.png" style="0box-shadow: 0 0 10px rgba(0, 0, 0, .5); border-radius: 15px; box-shadow: 0 0 10px rgba(0,0,0,.8)">
+
+<p>大家可以参考以下两个链接进行个性化配置，讲的还是挺全的：<br>[1] <a href="https://www.ruanyifeng.com/blog/2018/09/vimrc.html" target="_blank" rel="noopener">阮一峰 Vim配置入门</a><br>[2] <a href="https://vimjc.com/" target="_blank" rel="noopener">Vim学习笔记</a></p>
+<h1 id="第二道菜：bash"><a href="#第二道菜：bash" class="headerlink" title="第二道菜：bash"></a>第二道菜：bash</h1><h2 id="1-什么是-bash-和-shell"><a href="#1-什么是-bash-和-shell" class="headerlink" title="1. 什么是 bash 和 shell"></a>1. 什么是 bash 和 shell</h2><p>首先要搞明白的就是什么是 <code>shell</code>?<br><code>shell</code> 从字面意思理解就是 <code>壳</code>，在操作系统中指的是与操作系统的核心进行交互的接口，使用者可以通过应用程序指挥操作系统的核心，然后再让核心去操作硬件以完成我们的需求。<br>也就是说，只要能够操作应用程序的接口都能够称为壳程序。狭义的壳程序指的是指令列方面的软件，比如大名鼎鼎的 <code>bash</code> 就是一种 <code>shell</code>。<code>shell</code> 就是 <code>Linux</code> 的任督二脉。</p>
+<p>那么什么又是 <code>bash</code> 呢? <code>bash</code> 其实就是 <code>shell</code> 的一种, <code>shell</code> 不是特定的一种程序,我们可以理解为是一个广义的概念，有好几家 <code>shell</code> 程序。<br>而 <code>Linux</code> 默认使用的是 <code>bash</code>, 所以能学好 <code>bash</code> 就很了不起了。</p>
+<h2 id="2-bash-shell-操作"><a href="#2-bash-shell-操作" class="headerlink" title="2. bash shell 操作"></a>2. bash shell 操作</h2><h3 id="2-1-变量"><a href="#2-1-变量" class="headerlink" title="2.1 变量"></a>2.1 变量</h3><h4 id="2-1-1-变量的取用"><a href="#2-1-1-变量的取用" class="headerlink" title="2.1.1 变量的取用"></a>2.1.1 变量的取用</h4><p>变量的取用指令：<code>echo</code></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> <span class="hljs-built_in">echo</span> <span class="hljs-variable">$variable</span></span><br><span class="hljs-meta">$</span><span class="bash"> <span class="hljs-built_in">echo</span> <span class="hljs-variable">$&#123;PATH&#125;</span></span><br>/usr/lib64/qt-3.3/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/home/CXF/.local/bin:/home/CXF/bin:/home/CXF/.local/bin:/home/CXF/bin<br><span class="hljs-meta"><br>#</span><span class="bash"> 在屏幕上显示环境变量 `HOME` 和 `MAIL`</span><br><span class="hljs-meta">$</span><span class="bash"> <span class="hljs-built_in">echo</span> <span class="hljs-variable">$&#123;HOME&#125;</span></span><br>/home/CXF<br><span class="hljs-meta"><br>$</span><span class="bash"> <span class="hljs-built_in">echo</span> <span class="hljs-variable">$&#123;MAIL&#125;</span></span><br>/var/spool/mail/CXF<br></code></pre></td></tr></table></figure>
+<h4 id="2-1-2变量的设置规则"><a href="#2-1-2变量的设置规则" class="headerlink" title="2.1.2变量的设置规则"></a>2.1.2变量的设置规则</h4><p>简单的就是和其他语言差不多，但是有一些特殊的要求，具体的要求查看 《私房菜》电子版第 <code>395</code> 页。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> myname=CXF</span><br><span class="hljs-meta">#</span><span class="bash"> 输出</span><br>echo $&#123;myname&#125;<br>CXF<br></code></pre></td></tr></table></figure>
+<p>取消变量的方法：<code>unset</code><br>例如取消上面设置的 <code>myname</code> 这个变量：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> <span class="hljs-built_in">unset</span> myname</span><br><span class="hljs-meta"><br>#</span><span class="bash"> 输出测试是否还存在</span><br><span class="hljs-meta">$</span><span class="bash"> <span class="hljs-built_in">echo</span> <span class="hljs-variable">$&#123;myname&#125;</span></span><br><span class="hljs-meta">#</span><span class="bash"> 无输出</span><br></code></pre></td></tr></table></figure>
+<h4 id="2-1-3环境变量-全局变量-的功能"><a href="#2-1-3环境变量-全局变量-的功能" class="headerlink" title="2.1.3环境变量(全局变量)的功能"></a>2.1.3环境变量(全局变量)的功能</h4><p>1.使用 <code>env</code> 查看所有的环境变量</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> env</span><br>XDG_VTNR=1<br>SSH_AGENT_PID=1995<br>XDG_SESSION_ID=1<br>HOSTNAME=localhost.localdomain<br>IMSETTINGS_INTEGRATE_DESKTOP=yes<br>VTE_VERSION=5202<br>TERM=screen-256color<br>SHELL=/bin/bash<br>XDG_MENU_PREFIX=gnome-<br>HISTSIZE=1000<br>GJS_DEBUG_OUTPUT=stderr<br>GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/6ac553fc_5bac_4ec9_b15b_0a9ab5c8fd7e<br><br>......（此处省略一万字）<br></code></pre></td></tr></table></figure>
+
+<p>2.将自定义变量变为环境变量<br><code>export</code> 指令：将自定义变量变为环境变量</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> 首先自定义一个环境变量，然后开启一个bash子程序</span><br><span class="hljs-meta">$</span><span class="bash"> school=NNU</span><br><span class="hljs-meta">$</span><span class="bash"> <span class="hljs-built_in">echo</span> <span class="hljs-variable">$&#123;school&#125;</span></span><br>NNU<br><span class="hljs-meta"><br>$</span><span class="bash"> bash</span><br><span class="hljs-meta">$</span><span class="bash"> <span class="hljs-built_in">echo</span> <span class="hljs-variable">$&#123;school&#125;</span></span><br><span class="hljs-meta">#</span><span class="bash"> 无输出</span><br></code></pre></td></tr></table></figure>
+<p>由上例可知，在子程序中无法使用父程序中定义的变量，但是可以使用 <code>export</code> 将父程序中的变量暴露出去。供其他程序的使用。</p>
+{% note warning%}
+Tips: 这点和 `ES6` 中的 `export` 原理基本上是一致。
+{% endnote %}
+<h4 id="2-1-4-变量的键盘读取、阵列和宣告"><a href="#2-1-4-变量的键盘读取、阵列和宣告" class="headerlink" title="2.1.4 变量的键盘读取、阵列和宣告"></a>2.1.4 变量的键盘读取、阵列和宣告</h4><p>我们可以从键盘读取用户输入作为变量的值， 即 <code>read</code> 指令。</p>
+<p>还可以使用阵列( <code>array</code> )保存一组变量,说白了就是数组。</p>
+<p>还可以使用 <code>declare</code> 宣告变量的类型，还可以将自定义的变量转换为环境变量，与 <code>export</code> 的用处一样。</p>
+<h5 id="read-命令"><a href="#read-命令" class="headerlink" title="read 命令"></a>read 命令</h5><div style="border: 2px solid #fff; border-radius: 15px; box-shadow: 0 0 10px rgba(0, 0, 0, .8); padding: 10px; padding-bottom: 0;">
+可跟的参数有：
+
+<p><span style="color: red;"> -p</span> : 后面可以跟的是提示字符；<br><span style="color: red;"> -t</span> : 后面接可以等待的秒数，不会一直等待使用者；</p>
+</div>
+<br>
+
+<p>例如键盘读取用户输入值作为变量 <code>name</code>:</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> <span class="hljs-built_in">read</span> -p <span class="hljs-string">'请输入姓名 : '</span> name</span><br>请输入姓名 ： CXF<br><span class="hljs-meta">$</span><span class="bash"> <span class="hljs-built_in">echo</span> <span class="hljs-variable">$&#123;name&#125;</span></span><br>CXF<br></code></pre></td></tr></table></figure>
+
+<h5 id="declare-typeset"><a href="#declare-typeset" class="headerlink" title="declare/typeset"></a>declare/typeset</h5><p><code>declare</code> 或 <code>typeset</code> 是一样的功能，就是在“宣告变量的类型”。</p>
+<p>如果使用 <code>declare</code> 后面并没有接任何参数，那么 <code>bash</code> 就会主动的将所有的变量名称与内容通通叫出来。</p>
+<p>使用方法及其参数：</p>
+<div style="border: 2px solid #fff; border-radius: 15px; box-shadow: 0 0 10px rgba(0, 0, 0, .8); padding: 10px; padding-bottom: 0;">
+可跟的参数有：
+
+<p><span style="color: red;"> -a</span> : 将后面名为 variable 的变量定义成为阵列 （array） 类型<br><span style="color: red;"> -i</span> : 将后面名为 variable 的变量定义成为整数数字 （integer） 类型;<br><span style="color: red;"> -x</span> : 用法与 export 一样，就是将后面的 variable 变成环境变量；<br><span style="color: red;"> -t</span> : 将变量设置成为 readonly 类型，该变量不可被更改内容，也不能 unset (取消) </p>
+</div>
+<br>
+
+<h5 id="阵列-（array）-变量类型"><a href="#阵列-（array）-变量类型" class="headerlink" title="阵列 （array） 变量类型"></a>阵列 （array） 变量类型</h5><p>阵列就是一般高级语言中的数组类型，是一种可以同时存放很多数据的数据结构。</p>
+<p>在 <code>bash</code> 中一般是在编写 <code>shell</code> 脚本的时候会用到很多，所以这里暂时没有什么好学习的，记住简单的使用即可。(和其他的语言并无大的差别)</p>
+<figure class="highlight"><table><tr><td class="code"><pre><code class="hljs javascript"># 初始化一个阵列类型<br>$ name[1]='Programmer'<br>$ name[2]='Productor'<br>$ name[3]='Test Engineer'<br><br>$ echo $&#123;name[1]&#125;<br>Programmer<br></code></pre></td></tr></table></figure>
+<h3 id="2-2-命令别名"><a href="#2-2-命令别名" class="headerlink" title="2.2 命令别名"></a>2.2 命令别名</h3><h4 id="2-2-1-设置命令别名-alias"><a href="#2-2-1-设置命令别名-alias" class="headerlink" title="2.2.1 设置命令别名 alias"></a>2.2.1 设置命令别名 <code>alias</code></h4><p>其实我们一直在使用命令别名，比如 <code>ll</code>, <code>which</code>, <code>env</code> 等等都是一些命令的别名。</p>
+<p>比如我们可以使用 <code>which</code> 命令查看一下 <code>ll</code> 这个经常使用的简单命令：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> <span class="hljs-built_in">which</span> ll</span><br>alias ll='ls -l --color=auto'<br>	/usr/bin/ls<br></code></pre></td></tr></table></figure>
+<p>可以看到有一个 <code>alias</code> ，这就是说我们输入 <code>ll</code> 并执行内部实际上执行的是 <code>ls -l --color=auto</code> 这个命令，只不过是为了书写简单，系统给我们提供了这个简写的版本。</p>
+<p>当然，使用 <code>alias</code> 我们呢可以自定义很多的别名（如果你觉得一些命令太长，输入不方便的话）<br>例如我们使用 <code>ls -al | more</code> 查看当前目录下的所有文件，并且一页一页的查看。这个命令稍微有点长，那就可以为这个命令取个别名。</p>
+<p>方法：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> <span class="hljs-built_in">alias</span> ls -al | more lm</span><br></code></pre></td></tr></table></figure>
+<p>设置之后输入 <code>lm</code> 相当于执行了 <code>ls -al | more</code>，是不是很方便。</p>
+<h4 id="2-2-1-取消命令别名-unalias"><a href="#2-2-1-取消命令别名-unalias" class="headerlink" title="2.2.1 取消命令别名 unalias"></a>2.2.1 取消命令别名 <code>unalias</code></h4><p>取消命令别名也很直观，<code>unalias</code> 就完事了，例如我们要取消上面设置的 <code>lm</code> 这个别名：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> <span class="hljs-built_in">unalias</span> lm</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="2-3-管线命令"><a href="#2-3-管线命令" class="headerlink" title="2.3 管线命令"></a>2.3 管线命令</h3><h1 id="第三道菜：shell-script"><a href="#第三道菜：shell-script" class="headerlink" title="第三道菜：shell script"></a>第三道菜：shell script</h1><p><code>shell script</code> 是利用 <code>shell</code> 的功能所写的一个“程序 （<code>program</code>）”，这个程序使用纯文本文件，将一些 <code>shell</code> 的语法与指令（含外部指令）写在里面， 搭配正则表达式、管线命令与数据流重导向等功能，以达到我们所想要的处理目的。</p>
+<p>简单的来说就是将一些指令写在一个文件中放在一起执行。</p>
+<p>而且 <code>shell script</code> 更提供阵列、 循环、条件与逻辑判断等重要功能，让使用者也可以直接以 <code>shell</code> 来撰写程序,可以像写高级语言一样撰写程序。</p>
+<h2 id="第一个shell-script"><a href="#第一个shell-script" class="headerlink" title="第一个shell script"></a>第一个shell script</h2><p>使用 <code>vim</code> 编辑器创建一个 <code>shell</code> 文件, 拓展名为 <code>.sh</code>。<br>假设这里我们创建了 <code>test.sh</code> 文件，并写入以下内容。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash">!bin/bash</span><br><span class="hljs-meta">#</span><span class="bash"> This is the first shell program </span><br><span class="hljs-meta">#</span><span class="bash"> Author: CXF</span><br><span class="hljs-meta">#</span><span class="bash"> Date: 2020/5/18</span><br>echo "HelloWorld!"<br>exit 0<br></code></pre></td></tr></table></figure>
+<ol>
+<li>第一行 <code>#!/bin/bash</code> 是在宣告这个 <code>script</code> 使用的 <code>shell</code> 名称( 约定标记 )；因为在 <code>Linux</code> 系统中有好几个 <code>shell</code> 程序，如果没有添加这一行，那么该程序很可能会无法执行，因为系统可能无法判断该程序需要使用什么 <code>shell</code> 来执行。</li>
+</ol>
+<ol start="2">
+<li><p>程序内容的说明：<br> 整个 <code>script</code> 当中，除了第一行的 <code>#!</code> 是用来宣告 <code>shell</code> 的之外，其他的 <code>#</code> 都是“注解”用途！ 所以上面的程序当中，第二行以下就是用来说 明整个程序的基本数据。一般来说， 建议你一定要养成说明该 <code>script</code> 的：1. 内容与功能； 2. 版本信息； 3. 作者与联络方式； 4. 创建日期；5. 历史纪录 等等。这将有助于未来程序的改写与 <code>debug</code> ！</p>
+</li>
+<li><p>程序的主体部分：<br>最后的 <code>echo &quot;HelloWorld!&quot;</code>是程序的主体部分，即向屏幕输出 <code>&quot;HelloWorld!&quot;</code> z这个字符串。</p>
+</li>
+<li><p>返回值。 <code>exit 0</code> 定义返回值部分，程序结束后会向系统返回 0,这个值是赋值给了 <code>$?</code>,使用 <code>echo $?</code> 即可以获得这个值。</p>
+</li>
+</ol>
+<h2 id="运行脚本程序"><a href="#运行脚本程序" class="headerlink" title="运行脚本程序"></a>运行脚本程序</h2><p>运行脚本有两种方式：<br><span style="color: red; font-size: 20px;">方式一： 作为可执行文件直接执行</span></p>
+<p>使用 <code>./test.sh</code> 命令可以直接执行这个文件。但是前提是该文件具有执行的权限。<br>所以首先需要修改文件的权限,然后再执行：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> chmod a+x test.sh</span><br><span class="hljs-meta">$</span><span class="bash"> ./test.sh</span><br>HelloWorld!<br><span class="hljs-meta"><br>$</span><span class="bash"> <span class="hljs-built_in">echo</span> $?</span><br>0<br></code></pre></td></tr></table></figure>
+<p><span style="color: red; font-size: 20px;">方式二： 以 bash 程序来执行</span></p>
+<p>直接通过 <code>bash test.sh</code> 或 <code>sh test.sh</code> 来解释执行。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> bash test.h</span><br>HelloWorld!<br><span class="hljs-meta"><br>$</span><span class="bash"> sh test.sh</span><br>HelloWorld!<br><span class="hljs-meta"><br>$</span><span class="bash"> <span class="hljs-built_in">echo</span> $?</span><br>0<br></code></pre></td></tr></table></figure>
+
+<h2 id="判断语句"><a href="#判断语句" class="headerlink" title="判断语句"></a>判断语句</h2><p><code>shell</code> 中判断语句包括 <code>if...then...fi</code>, <code>case...esac</code>。</p>
+<h3 id="if-语句"><a href="#if-语句" class="headerlink" title="if 语句"></a>if 语句</h3><p><code>if</code> 语句主要有以下几种，其实就是 1.简单的 <code>if</code> 、2. <code>if... else... fi</code> 和 3.<code>if... elif...else...fi</code><br><span style="color: red; font-size: 20px;">1.简单的条件判断</span></p>
+<div style="border: 2px solid #fff; border-radius: 15px; box-shadow: 0 0 10px rgba(0, 0, 0, .8); padding: 10px; padding-bottom: 0;">
+
+<p>简单的 if 语句：</p>
+<p><span style="color:red;">if [ 条件判断式 ]; then </span></p>
+<p>当条件判断式成立时，可以进行的指令工作内容； </p>
+<p><span style="color:red;">fi</span> &lt;==将 if 反过来写，就成为 fi 啦！结束 if 之意！</p>
+</div>
+<br>
+
+<p>案例1：<br>从键盘读取一个字符，判断按下的键值：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash">!bin/bash</span><br><span class="hljs-meta">#</span><span class="bash"> This program is to <span class="hljs-built_in">test</span> simple if...fi</span><br><span class="hljs-meta">#</span><span class="bash"> Author: CXF</span><br><span class="hljs-meta">#</span><span class="bash"> Date: 2020/5/18</span><br>read -p 'Please input （Y/N）:' yn<br>if ['$yn' == 'Y'] || ['yn' == 'y']; then<br>echo 'yes'<br>exit 0<br>fi<br>if ['$yn' == 'N'] || ['yn' == 'n']; then<br>echo 'no'<br>exit 0<br>fi<br>echo 'All not!'<br>exit 0<br></code></pre></td></tr></table></figure>
+<p><span style="color: red; font-size: 20px;">2.多重判断</span></p>
+<div style="border: 2px solid #fff; border-radius: 15px; box-shadow: 0 0 10px rgba(0, 0, 0, .8); padding: 10px; padding-bottom: 0;">
+
+<p>一个条件判断，分成功进行与失败进行 （else） </p>
+<p><span style="color:red;">if [ 条件判断式 ];  then</span></p>
+<p>当条件判断式成立时，可以进行的指令工作内容； </p>
+<p><span style="color:red;">else</span> 当条件判断式不成立时，可以进行的指令工作内容； </p>
+<p><span style="color:red;">fi</span></p>
+</div>
+<br>
+
+<div style="border: 2px solid #fff; border-radius: 15px; box-shadow: 0 0 10px rgba(0, 0, 0, .8); padding: 10px; padding-bottom: 0;">
+
+<p><span style="color:red;">if [ 条件判断式一 ]; then</span></p>
+<p>当条件判断式一成立时，可以进行的指令工作内容；</p>
+<p><span style="color:red;">elif [ 条件判断式二 ]; then</span> </p>
+<p>当条件判断式二成立时，可以进行的指令工作内容； </p>
+<p><span style="color:red;">else</span> 当条件判断式一与二均不成立时，可以进行的指令工作内容； </p>
+<p><span style="color:red;">fi</span></p>
+</div>
+<br>
+
+<p>案例二：<br>从键盘读取键值，如果是 “Y” 或者是 <code>y</code>,则输出： “OK, continue”<br>如果是 “N” 或者是 <code>y</code>,则输出： “Oh, interrupt”<br>如果是其他的值，则输出： “I don’t know what your choice is”</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash">!bin/bash</span><br><span class="hljs-meta">#</span><span class="bash"> This program is to <span class="hljs-built_in">test</span> if...elif...else...fi</span><br><span class="hljs-meta">#</span><span class="bash"> Author: CXF</span><br><span class="hljs-meta">#</span><span class="bash"> Date: 2020/5/18</span><br>read -p "Please input （Y/N）: " yn<br>if [ "$&#123;yn&#125;" == "Y" ] || [ "$&#123;yn&#125;" == "y" ]; then <br>echo "OK, continue" <br>elif [ "$&#123;yn&#125;" == "N" ] || [ "$&#123;yn&#125;" == "n" ]; then <br>echo "Oh, interrupt!" <br>else echo "I don't know what your choice is" <br>fi<br></code></pre></td></tr></table></figure>
+
+<h3 id="case语句"><a href="#case语句" class="headerlink" title="case语句"></a>case语句</h3><div style="border: 2px solid #fff; border-radius: 15px; box-shadow: 0 0 10px rgba(0, 0, 0, .8); padding: 10px; padding-bottom: 0;">
+<span style="color:red;">case $变量名称 in</span> <==关键字为 case ，还有变量前有钱字号
+
+<p><span style="color:red;">“第一个变量内容”)</span> &lt;==每个变量内容建议用双引号括起来，关键字则为小括号 ）<br><span style="color:red;">程序段</span><br><span style="color:red;">;;</span> &lt;==每个类别结尾使用两个连续的分号来处理！<br><span style="color:red;">“第二个变量内容”)</span><br><span style="color:red;">程序段</span><br><span style="color:red;">;;</span><br><span style="color:red;">*)</span> &lt;==最后一个变量内容都会用 * 来代表所有其他值<br><span style="color:red;">不包含第一个变量内容与第二个变量内容的其他程序执行段<br>exit 1<br>;;<br> esac </span>&lt;==最终的 case 结尾！“反过来写“</p>
+</div>
+<br>
+
+
+<p>案例三：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash">!bin/bash</span><br><span class="hljs-meta">#</span><span class="bash"> This program is to <span class="hljs-built_in">test</span> if...elif...else...fi</span><br><span class="hljs-meta">#</span><span class="bash"> Author: CXF</span><br><span class="hljs-meta">#</span><span class="bash"> Date: 2020/5/18</span><br>case $&#123;1&#125; in <br>"hello") <br>echo "Hello, how are you ?" <br>;;<br>"") <br>echo "You MUST input parameters, ex&gt; &#123;$&#123;0&#125; someword&#125;" <br>;;<br>*) # 除了其他的情况<br>echo "Usage $&#123;0&#125; &#123;hello&#125;" <br>;; <br>esac<br></code></pre></td></tr></table></figure>
+
+<h2 id="循环-迭代-语句"><a href="#循环-迭代-语句" class="headerlink" title="循环(迭代)语句"></a>循环(迭代)语句</h2><p>除了 <code>if...then...fi</code> 这种条件判断式之外，循环可能是程序当中最重要的一环了。(在所有的语言中都是)<br>在 <code>shell</code> 中的几种循环： <code>while...do...done</code> 或者是 <code>until...do...done</code> 和 <code>for...do...done</code>。不就是 <code>while</code> 和 <code>for</code> 循环嘛！</p>
+<h3 id="while语句"><a href="#while语句" class="headerlink" title="while语句"></a>while语句</h3><p>案例1<br>直到从键盘接收到 <code>yes</code> 或者是 <code>YES</code> 的时候才结束循环，否则就一直处于接收状态：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash">!bin/bash</span><br><span class="hljs-meta">#</span><span class="bash"> This program is to <span class="hljs-built_in">test</span> while...do...done</span><br><span class="hljs-meta">#</span><span class="bash"> Author: CXF</span><br><span class="hljs-meta">#</span><span class="bash"> Date: 2020/5/18</span><br><span class="hljs-meta">#</span><span class="bash"> 直到收到 yes 或者是 YES 的时候才结束循环</span><br>while [ "$&#123;yn&#125;" != "yes" -a "$&#123;yn&#125;" != "YES" ]<br>do<br>read -p "Please input yes/YES to stop this program: " yn <br>done <br>echo "OK! you input the correct answer."<br></code></pre></td></tr></table></figure>
+<p>将上例改写为 <code>until...do...done</code> 方式实现:</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash">!bin/bash</span><br><span class="hljs-meta">#</span><span class="bash"> This program is to <span class="hljs-built_in">test</span> until...do...done</span><br><span class="hljs-meta">#</span><span class="bash"> Author: CXF</span><br><span class="hljs-meta">#</span><span class="bash"> Date: 2020/5/18</span><br><span class="hljs-meta">#</span><span class="bash"> 直到收到 yes 或者是 YES 的时候才结束循环</span><br>while [ "$&#123;yn&#125;" == "yes" -a "$&#123;yn&#125;" == "YES" ]<br>do<br>read -p "Please input yes/YES to stop this program: " yn <br>done <br>echo "OK! you input the correct answer."<br></code></pre></td></tr></table></figure>
+<h3 id="for语句"><a href="#for语句" class="headerlink" title="for语句"></a>for语句</h3><p><span style="color: red; font-size: 20px;">第一种写法</span></p>
+<p>for 循环有两种写法，第一种是关于数值的写法，和普通的 for 没有几乎没有区别：</p>
+<div style="border: 2px solid #fff; border-radius: 15px; box-shadow: 0 0 10px rgba(0, 0, 0, .8); padding: 10px; padding-bottom: 0;">
+
+<p><span style="color:red;">for</span> ((初始值；循环条件；步阶))</p>
+<p><span style="color:red;">do</span><br>循环体<br><span style="color:red;">done</span></p>
+</div>
+<br>
+简单的例子，循环计算从1到100的和：
+<figure class="highlight shell"><table><tr><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash">!bin/bash</span><br><span class="hljs-meta">#</span><span class="bash"> This program is to <span class="hljs-built_in">test</span> for...do...done</span><br><span class="hljs-meta">#</span><span class="bash"> Author: CXF</span><br><span class="hljs-meta">#</span><span class="bash"> Date: 2020/5/18</span><br><span class="hljs-meta">#</span><span class="bash"> calculate the sum of 1 to 100, result is should to be 5050</span><br>sum=0;<br>for ((i=1;i&lt;=100;i++&gt;))<br>do<br>sum=(($sum+$i))<br>done<br>echo 'the result of 1 to 100 is  : ' sum<br></code></pre></td></tr></table></figure>
+运行这段脚本:
+<figure class="highlight shell"><table><tr><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> sh ./sum1_100</span><br>the result of 1 to 100 is  : 5050<br></code></pre></td></tr></table></figure>
+<span style="color: red; font-size: 20px;">第二种写法</span>
+事先知道循环的状态：
+<div style="border: 2px solid #fff; border-radius: 15px; box-shadow: 0 0 10px rgba(0, 0, 0, .8); padding: 10px; padding-bottom: 0;">
+
+<p><span style="color:red;">for</span> var <span style="color:red;">in</span> con1 con2 con3 …</p>
+<p><span style="color:red;">do</span><br>循环体<br><span style="color:red;">done</span></p>
+</div>
+<br>
+
+<ol>
+<li><p>第一次循环时， <code>$var</code> 的内容为 <code>con1</code> ； </p>
+</li>
+<li><p>第二次循环时， <code>$var</code> 的内容为 <code>con2</code> ； </p>
+</li>
+<li><p>第三次循环时， <code>$var</code> 的内容为 <code>con3</code> ；</p>
+</li>
+<li><p>….</p>
+</li>
+</ol>
+<p>例如：假设我有三种动物，分别是 <code>dog</code>, <code>cat</code>, <code>elephant</code> 三种， 我想每一行都输出这样：<code>There are dogs...</code>之类的字 样，则可以：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash">!bin/bash</span><br><span class="hljs-meta">#</span><span class="bash"> This program is to <span class="hljs-built_in">test</span> for...do...done</span><br><span class="hljs-meta">#</span><span class="bash"> Author: CXF</span><br><span class="hljs-meta">#</span><span class="bash"> Date: 2020/5/18</span><br>for animal in dog cat elephant<br>do<br>echo "There are $&#123;animal&#125;"<br>done<br></code></pre></td></tr></table></figure>
+<p>运行这段脚本文件：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> sh ./animal_for.sh</span><br><span class="hljs-meta">#</span><span class="bash"> 结果输出</span><br>There are dog<br>There are cat<br>There are elephant<br></code></pre></td></tr></table></figure>
+<p>《《《《《《《《《《《《《《《《《《《《《《《《》》》》》》》》》》》》》》》》》》》》》》》》》》</p>
+]]></content>
+      <categories>
+        <category>Linux OS</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Unix</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>npm</title>
     <url>/2020/05/11/npm/</url>
     <content><![CDATA[<p><code>npm (node pakage manger)</code> 是随同 <code>NodeJS</code> 一起安装的包管理工具。方便我们安装依赖包等操作。</p>
