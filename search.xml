@@ -1,6 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>CentOS中安装《Unix环境高级编程》需要的apue.h</title>
+    <url>/2020/05/27/Unix%E7%8E%AF%E5%A2%83%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B%E4%B8%AD%E7%9A%84apue-h%E5%A4%B4%E6%96%87%E4%BB%B6/</url>
+    <content><![CDATA[<p>《Unix环境高级编程》中有作者自己写的一个头文件 <code>&quot;apue.h&quot;</code>，在头文件声明了很多在接下来学习中需要用到的常量和函数，比如获取进程的 <code>pid</code> 的函数 <code>getpid()</code>。比较麻烦的是，这个文件需要自己下载并且需要自己编译，而且需要依赖静态函数库 <code>libbsd.a</code> 才能编译成功。</p>
+<a id="more"></a>
+<div class="note danger">
+            <p>Tips: 其实简单的来说就是 <code>&quot;apue.h&quot;</code> 头文件中声明了很多的函数，这些函数的具体实现是在 <code>libbsd.a</code> 这个静态函数库中，这两个文件我们都需要自己下载。</p>
+          </div>
+<p>先不管函数库，我们先把自己的这个 <code>apue.3e</code> 头文件下载下来：</p>
+<h1 id="下载-apue-h"><a href="#下载-apue-h" class="headerlink" title="下载 apue.h"></a>下载 <code>apue.h</code></h1><p>在 《Unix环境高级编程》书中作者已经为我们提供了下载本书源代码的链接：<a href="http://www.apuebook.com/code3e.html" target="_blank" rel="noopener">src.3e.tar.gz文件下载</a><br>下载的是一个压缩包文件，下载完成后应该是放在了 <code>/home/你的用户名/下载</code> 该目录下，为了避免目录中出现中文，第一步我们就是要移动文件到没有中文的目录下。</p>
+<ul>
+<li><p>比如这里我们放在 <code>/home/你的用户名</code> 该目录下：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><code class="hljs shell">[root@localhost ~]# mv -f /home/CXF/下载/src.3e.tar.gz /home/CXF<br></code></pre></td></tr></table></figure></li>
+<li><p>然后直接在 <code>/home/CXF</code> 解压即可：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><code class="hljs shell">[root@localhost ~]# tar -zxvf ./src.3e.tar.gz<br></code></pre></td></tr></table></figure>
+<p>解压完成后就是一个名为 <code>apue.3e</code> 的目录。</p>
+</li>
+<li><p>进入该目录下操作：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><code class="hljs shell">[root@localhost ~]# cd apue.3e<br></code></pre></td></tr></table></figure>
+<p>在该目录下有一个 <code>README</code> 文件，明显是安装说明文件，因此好的习惯就是阅读一下：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><code class="hljs shell">[root@localhost apue.3e]# vim README<br><br>Read the file called DISCLAIMER.<br><br>On Freebsd, type "gmake".<br>On other platforms, type "make" (as long as this is gnu make).<br><br>For FAQs, updated source code, and the lost chapter, see http://www.apuebook.com.<br>Please direct questions, suggestions, and bug reports to sar@apuebook.com.<br><br>Steve Rago<br>January 2013<br></code></pre></td></tr></table></figure>
+<p>这是作者告诉我们如何进行编译该文件的说明，在 <code>Freebsd</code> 系统中使用 <code>gmake</code> 命令，在其他系统中直接使用 <code>make</code> 命令编译即可。</p>
+</li>
+<li><p>因为我们的系统是 <code>CentOS</code> 所以使用 <code>make</code> 命令编译看是否能编译成功：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><code class="hljs shell">[root@localhost apue.3e]# make<br><br>...<br>...<br>collect2: 错误：ld 返回 1<br>make[1]: *** [barrier] 错误 1<br>....<br></code></pre></td></tr></table></figure>
+<p>可以看到一大堆的是信息，但是最后告诉我们的是出错，编译失败。其实是因为没有 <code>libbsd</code> 函数库。</p>
+</li>
+</ul>
+<h1 id="安装-libbsd-库"><a href="#安装-libbsd-库" class="headerlink" title="安装 libbsd 库"></a>安装 <code>libbsd</code> 库</h1><p>在 <code>Ubuntu</code> 下直接使用 <code>apt</code> 安装即可，但是在 <code>CentOS</code> 中 <code>yum</code> 服务器上是找不到的这个包的，需要我们到 <code>Fedora</code> 基金会里面发展了一个外加软件库中自己下载然后安装。</p>
+<p>软件库的官方地址是：<a href="https://dl.fedoraproject.org/pub/epel/7/x86_64/Packages/" target="_blank" rel="noopener">Fedora软件库</a>。</p>
+<p>然后找到 <code>libbsd-0.8.3-1.el7.elrepo.x86_64.rpm</code> 和 <code>libbsd-devel-0.8.3-1.el7.elrepo.x86_64.rpm</code> 这两个包。</p>
+<blockquote style="border: 1px solid red;border-radius: 10px">
+Tips:可能软件库里的包已经不是这个版本，无所谓，直接下载最新版就好！
+</blockquote>
+<br>
+
+<p>这里就不要自己去库中找了，使用 <code>wget</code> 工具分别下载上述的两个文件包到 <code>apue.3e</code> 文件中即可：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><code class="hljs shell">[root@localhost apue.3e]# wget https://dl.fedoraproject.org/pub/epel/7/x86_64/Packages/l/libbsd-0.8.3-1.el7.elrepo.x86_64.rpm<br>[root@localhost apue.3e]# wget https://dl.fedoraproject.org/pub/epel/7/x86_64/Packages/l/libbsd-devel-0.8.3-1.el7.elrepo.x86_64.rpm<br></code></pre></td></tr></table></figure>
+<div class="note warning">
+            <p>Tips: 当然，由于软件库服务器部署在国外，所以下载的速度很慢，甚至可能会下载失败。所以我们可以使用国内的一些镜像，比如是有搜狐镜像和网易镜像等等。</p>
+          </div>
+
+<p>这里给出使用搜狐镜像下载 <code>libbsd-0.8.3-1.el7.elrepo.x86_64.rpm</code> 和 <code>libbsd-devel-0.8.3-1.el7.elrepo.x86_64.rpm</code> 这两个包的链接：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><code class="hljs shell">[root@localhost apue.3e]# wget http://mirrors.sohu.com/fedora-epel/7/x86_64/Packages/l/libbsd-0.8.3-1.el7.x86_64.rpm <br>[root@localhost apue.3e]# wget http://mirrors.sohu.com/fedora-epel/7/x86_64/Packages/l/libbsd-devel-0.8.3-1.el7.x86_64.rpm<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>下载的速度真的很快，两个包一秒钟不到（当然，视自己的网络情况），但是一般的网络都速度都非常快</p>
+</blockquote>
+<p>然后再重新编译 <code>apue.3e</code> 文件，不出意外的话肯定成功了：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><code class="hljs shell">[root@localhost apue.3e]# make<br></code></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Linux OS</category>
+      </categories>
+      <tags>
+        <tag>Unix</tag>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>《私房菜》学会了几道菜?</title>
     <url>/2020/05/18/%E3%80%8A%E7%A7%81%E6%88%BF%E8%8F%9C%E3%80%8B%E5%AD%A6%E4%BC%9A%E4%BA%86%E5%87%A0%E9%81%93%E8%8F%9C/</url>
     <content><![CDATA[<p>最近在读《鸟哥的Linux私房菜》发现真的不错，不愧是 <code>Linux</code> 方面的经典书籍，非常适合用来入门和扫盲。推荐就完事了…</p>
@@ -214,8 +272,8 @@
         <category>Linux OS</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
         <tag>Unix</tag>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
